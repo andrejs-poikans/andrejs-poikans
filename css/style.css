@@ -1,9 +1,14 @@
 body {
     margin:0;
-    background-color: #999;
+    background-color: white;
+
+    font-size: 62.5%;
 }
 
 ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -14,25 +19,28 @@ ul {
   width: 100%;
 }
 
-li {
-  float: left;
+ul li:nth-child(2) {
+  margin-left: auto;
 }
 
 li a {
+  font-size: 2.8em;
   display: block;
   color: black;
   text-align: left;
-  padding: 5px 10px 30px;
-  font-size: large;
+  padding: 0.3em 0.5em 0.3em;
   text-decoration: none;
 }
 
+
 li a:hover:not(.active) {
+  background-color: whitesmoke;
   text-decoration: underline;
   text-decoration-style: solid;
 }
 
 .active {
+  background-color: whitesmoke;
   text-decoration: underline;
   text-decoration-style: dashed;
 }
@@ -43,7 +51,7 @@ li a:hover:not(.active) {
     grid-template-columns: 33% 33% 33%;
 }
 .announce p{
+    font-size: 2em;
     color: black;
     text-align: left;
-
 }

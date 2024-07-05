@@ -1,0 +1,5 @@
+{
+    "scripts": {
+      "postcss:watch": "postcss css/main.css --dir dist --watch"
+    }
+  }
