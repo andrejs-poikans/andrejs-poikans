@@ -7,16 +7,48 @@
 
 <body>
 
+<header>
     <!-- the menu bar -->
-<ul>
-    <li><a id="home" class="active" href="#home">default den haag</a></li>
-    <li><a id="archive" href="#archive">archive</a></li>
-    <li><a id="about" href="#about">about</a></li>
-</ul>
+    <ul>
+        <li><a id="home" class="active" href="#home">default den haag</a></li>
+        <li><a id="archive" href="#archive">archive</a></li>
+        <li><a id="about" href="#about">about</a></li>
+        <li><div class="break"></div></li> <!--break-->
+        <li><div class="col-break"></div></li> <!--col break-->
+        <li><div id="custom-substack-embed"></div></li>
+    </ul>
+</header>
 
 <div class="announce">
     <p>we are happy to announce the begining of the development of our new web page (due to be published in August 2024)</p>
 </div>
+
+
+
+<footer>
+    <p>series for contemporary experimental sound performances in the Hague, the Netherlands</p>
+</footer>
+
+
+
+<!-- scripts -->
+    <!-- substack embed script  -->
+<script>
+  window.CustomSubstackWidget = {
+    substackUrl: "andrejspoikans.substack.com",
+    placeholder: "enter email...",
+    buttonText: "subscribe",
+    theme: "custom",
+    colors: {
+      primary: "white",
+      input: "white",
+      email: "grey",
+      text: "grey",
+    },
+  };
+</script>
+<script src="https://substackapi.com/widget.js" async></script>
+
 
 </body>
 </html>
