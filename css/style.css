@@ -1,6 +1,9 @@
 
 
 body {
+    /* this spacing relates to the arena blocks and to the general font size */
+    --spacing: 0.4em;
+
     margin:0;
     background-color: white;
 
@@ -12,7 +15,7 @@ body {
     font-size: 62.5%;
 }
 
-ul {
+header ul {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -25,25 +28,25 @@ ul {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 
-ul li:nth-child(2) {
+header ul li:nth-child(2) {
   margin-left: auto;
 }
 
-ul li:nth-child(4) {
+header ul li:nth-child(4) {
   flex-basis: 100%;
   height: 0;
 }
 
-ul li:nth-child(5) {
+header ul li:nth-child(5) {
   flex-shrink: 1;
   margin: 0.9em 0.3em 0.9em;
 }
 
-li a {
+header li a {
   font-size: 2.5em;
-  /* font-size: 2.1em; */
   display: block;
   color: rgb(10, 20, 10);
   text-align: left;
@@ -51,37 +54,174 @@ li a {
   text-decoration: none;
 }
 
-li a:hover:not(.active) {
+header li a:hover:not(.active) {
   font-weight: 400;
-  /* background-color: whitesmoke; */
   text-decoration: underline;
   text-decoration-style: solid;
 }
 
-.active {
+header.active {
   font-weight: 500;
-  /* background-color: whitesmoke; */
   text-decoration: underline;
   text-decoration-style: dashed;
 }
 
-.announce {
-    margin-top: 70px;
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
+
+/* for arena */
+/* body, section, ul, li, address {
+	display: grid;
+	gap: var(--spacing);
+  padding: 0;
+} */
+
+h1, h2, h3 { color: black; font-size: 2em; font-weight: 400;}
+
+
+main { width: 100%; margin-top: 10em;}
+
+.container {
+	position: fixed;
+  overflow: hidden;
 }
-.announce p{
-    font-size: 2em;
-    color: rgb(10, 20, 10);
-    text-align: left;
+
+/* this is the main place for grid formating*/
+.container ul {
+  list-style-type: none;
+  padding: 0px;
+  display: grid;
+	gap: var(--spacing);
+  height: 100%;  /*????????? 60em*/
+  width: 100%;
+  /* margin-top: 110px; */
+  grid-template-columns: repeat(9, 11%);
+  grid-template-rows: repeat(4, auto);
+  grid-template-areas:
+  "t t t a a a c c c"
+  "p p p a a a tb tb tb"
+  "p p p a a a tb tb tb"
+  ". . . l l l . . .";
+  align-items: flex-start;
+  justify-items: flex-start;
 }
+
+.container ul li:nth-child(1) {
+  grid-area: p;
+  /* margin: 11%; */
+  height: 75%;
+}
+.container ul li:nth-child(2) {
+  grid-area: t;
+  height: 5em;
+}
+.container ul li:nth-child(3) {
+  grid-area: a;
+  height: 75%;
+}
+.container ul li:nth-child(4) {
+  grid-area: c;
+  height: 5em;
+}
+/* there seems to be a strange alignment error with this one */
+.container ul li:nth-child(5) {
+  grid-area: tb;
+
+}
+
+
+
+
+.container ul li:nth-child(6) {
+  display: none;
+  grid-area: d;
+}
+.container ul li:nth-child(7) {
+  display: none;
+  grid-area: d;
+}
+.container ul li:nth-child(8) {
+  display: none;
+  grid-area: d;
+}
+
+.container ul li:nth-child(9) {
+  display: none;
+  grid-area: d;
+}
+
+.container ul li:nth-child(10) {
+  display: none;
+  grid-area: d;
+}
+
+.container ul li:nth-child(11) {
+  display: none;
+  grid-area: d;
+}
+
+
+
+
+/* this is the block formating */
+.container li { 
+	background-color: whitesmoke;
+	border: 2px dotted black;
+}
+
+/* separate image formating */
+li img{
+  /* max-width: 40em; */
+  max-height: 40em;
+}
+
+
+
+/* this is for archive page */
+
+
+.archive {
+	position: relative;
+  overflow: hidden;
+}
+
+/* this is the main place for grid formating*/
+.archive ul {
+  list-style-type: none;
+  padding: 0px;
+  display: grid;
+	gap: var(--spacing);
+  height: 100%;  /*????????? 60em*/
+  width: 100%;
+  /* margin-top: 110px; */
+  grid-template-columns: repeat(3, 33%);
+  /*grid-template-areas:
+  "t t t a a a c c c"
+  "p p p a a a tb tb tb"
+  "p p p a a a tb tb tb"
+  ". . . l l l . . ."; */
+  align-items: stretch;
+  justify-items: center;
+}
+
+/* this is the block formating */
+.archive li { 
+	background-color: whitesmoke;
+	border: 2px dotted black;
+}
+
+/* separate image formating */
+li img{
+  max-width: 30em;
+  /* max-height: 40em; */
+}
+
+
 
 footer {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: whitesmoke;
+  background-color: rgba(245, 245, 245, 0.179);
 }
 
 footer p{
