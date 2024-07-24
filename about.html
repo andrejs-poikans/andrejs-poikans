@@ -2,13 +2,20 @@
 <html>
 
 <head>
-    <!-- arena code + style sheet -->
 
+    <!-- arena code + style sheet -->
      <!-- after post css -->
   <!-- <link rel="stylesheet" href="dist/main.css"> -->
   <link rel="stylesheet" href="js/arena/reset.css">
   <link rel="stylesheet" href="css/main.css">
-  <script defer src="js/arena/home.js"></script>
+  <script defer src="js/arena/about.js"></script>
+
+    <!-- gallery -->
+    <link rel="stylesheet" type="text/css" href="style.css?v=0" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css"/>
+    <link href="https://db.onlinewebfonts.com/c/8d223b3ad8d4819e9dcf22757e4cc2c4?family=Arial">
+    <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css"/>
+    <script type="module" src="js/other/gallery.js"></script>
+  
 </head>
 
 <body>
@@ -16,9 +23,9 @@
 <header>
     <!-- the menu bar -->
     <ul>
-      <li><a id="home" class="active" href="./index.html">default den haag</a></li>
+      <li><a id="home" href="./index.html">default den haag</a></li>
       <li><a id="archive" href="./archive.html">archive</a></li>
-        <li><a id="about" href="./about.html">about</a></li>
+        <li><a id="about" class="active" href="./about.html">about</a></li>
         <li><div class="break"></div></li> <!--break-->
         <li><div class="col-break"></div></li> <!--col break-->
         <li><div id="custom-substack-embed"></div></li>
@@ -26,10 +33,25 @@
 </header>
 
 <main>
-  <div class = "container">
+
+    <!-- <div class="gallery" id="my-gallery">
+        <a href="images/thesis/wings_preset.jpg" 
+            data-pswp-width="2880" 
+            data-pswp-height="1800" 
+            target="_blank">
+            <img src="images/thesis/wings.jpg" alt="1">
+        </a>
+        <a href="images/egg/egg2.jpg" 
+            data-pswp-width="3000" 
+            data-pswp-height="2000" 
+            target="_blank">
+        </a>
+    </div>     -->
+
+  <div class = "about">
       <ul class ="item" id="channel-description" style="display: none;"></ul>
       <a class ="item" id="channel-link"  style="display: none"></a>
-      <ul class ="item" id="channel-blocks"></ul>
+      <div class="gallery" id="my-gallery"></div>
       <ul class ="item" id="channel-titles" style="display: none;"></ul>
       <ul class ="item" id="description" style="display: none;"></ul>
   </div>

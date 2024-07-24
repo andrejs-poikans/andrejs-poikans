@@ -100,26 +100,27 @@ main { width: 100%; margin-top: 10em;}
   "p p p a a a tb tb tb"
   "p p p a a a tb tb tb"
   ". . . l l l . . .";
-  align-items: flex-start;
-  justify-items: flex-start;
+  align-items: stretch;
+  justify-items: space-around;
 }
 
 .container ul li:nth-child(1) {
   grid-area: p;
-  /* margin: 11%; */
-  height: 75%;
+
+  margin: 2em 5em;
+  /* height: 75%; */
 }
 .container ul li:nth-child(2) {
   grid-area: t;
-  height: 5em;
+  /* height: 5em; */
 }
 .container ul li:nth-child(3) {
   grid-area: a;
-  height: 75%;
+  /* height: 75%; */
 }
 .container ul li:nth-child(4) {
   grid-area: c;
-  height: 5em;
+  /* height: 5em; */
 }
 /* there seems to be a strange alignment error with this one */
 .container ul li:nth-child(5) {
@@ -163,14 +164,15 @@ main { width: 100%; margin-top: 10em;}
 
 /* this is the block formating */
 .container li { 
-	background-color: whitesmoke;
-	border: 2px dotted black;
+	background-color: white;
+	border: 1px dotted gray;
 }
 
 /* separate image formating */
 li img{
   /* max-width: 40em; */
-  max-height: 40em;
+  /* max-height: 40em; */
+  max-height: 70vh;
 }
 
 
@@ -181,6 +183,7 @@ li img{
 .archive {
 	position: relative;
   overflow: hidden;
+  margin: 0 0em 0 0em;
 }
 
 /* this is the main place for grid formating*/
@@ -189,30 +192,81 @@ li img{
   padding: 0px;
   display: grid;
 	gap: var(--spacing);
-  height: 100%;  /*????????? 60em*/
+  height: 100%; 
+  
+  /*????????? 60em*/
   width: 100%;
   /* margin-top: 110px; */
   grid-template-columns: repeat(3, 33%);
+  /* grid-template-columns: repeat(1, 100%); */
   /*grid-template-areas:
   "t t t a a a c c c"
   "p p p a a a tb tb tb"
   "p p p a a a tb tb tb"
   ". . . l l l . . ."; */
-  align-items: stretch;
-  justify-items: center;
+  align-items: space-between;
+  justify-items: space-between;
 }
 
 /* this is the block formating */
 .archive li { 
+  /* margin: 1em; */
 	background-color: whitesmoke;
-	border: 2px dotted black;
+	border: 1px dotted black;
 }
 
 /* separate image formating */
 li img{
-  max-width: 30em;
-  /* max-height: 40em; */
+  /* max-width: 30em; */
+  max-height: 70vh;
 }
+
+
+
+.about {
+	position: relative;
+  overflow: hidden;
+}
+
+/* this is the main place for grid formating*/
+.about ul {
+  list-style-type: none;
+  padding: 0px;
+  display: grid;
+	gap: var(--spacing);
+  height: 100%; 
+  width: 100%;
+  grid-template-columns: repeat(1, 100%);
+  align-items: center;
+  justify-items: center;
+}
+
+
+/* gallery */
+.gallery {
+  order: 0;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  flex: none;
+  align-self: auto;
+  width: auto;
+  height: auto;
+  padding: 20px;
+  /* background-color: darkolivegreen; */
+  }
+  
+    /* gallery img */
+.gallery a img {
+    height: 100%;
+    width: 100%;
+}
+
+    /* gallery font */
+.pswp__counter {
+    font-family: "Arial", sans-serif;
+}
+
 
 
 

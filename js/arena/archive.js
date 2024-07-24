@@ -54,24 +54,19 @@ let renderBlock = (block) => {
 	// Images!
 	else if (block.class == 'Image') {
 		let imageItem =
-        `
+		`
 		<li class = ${content}>
 			<img src="${ block.image.original.url }"/>
 		</li>
+
+        <li class = ${title} style = "display: none">
+            <h1>${ block.title }</h1>
+        </li>
+
+        <li class = ${description} style = "display: none">
+		    <h2>${ block.description_html }</h2>
+		</li>
 		`
-		// `
-		// <li class = ${content}>
-		// 	<img src="${ block.image.original.url }"/>
-		// </li>
-
-        // <li class = ${title}>
-        //     <h1>${ block.title }</h1>
-        // </li>
-
-        // <li class = ${description}>
-		//     <h2>${ block.description_html }</h2>
-		// </li>
-		// `
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
 		// this works but needs to be elaborated on
 		// description and image size is not solved

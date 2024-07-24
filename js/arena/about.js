@@ -4,30 +4,21 @@ let markdownIt = document.createElement('script')
 markdownIt.src = 'https://cdn.jsdelivr.net/npm/markdown-it@14.0.0/dist/markdown-it.min.js'
 document.head.appendChild(markdownIt)
 
-
-
 //this is the channel name
-let channelSlug = 'andrejs-poikans/default_home_test'
+let channelSlug = 'default_about_test'
 //this is a general let for titles
-let titles = 'title'
+let title = 'title'
 //this is a general let for descriptions
 let description = 'description'
 //this is a general let for content
 let content = 'content'
+//images for gallery
+let gallery = 'gallery'
 
-
-// First, let’s lay out some *functions*, starting with our basic metadata:
 let placeChannelInfo = (data) => {
-	// Target some elements in your HTML:
-	// let channelTitle = document.getElementById('channel-title')
 	let channelDescription = document.getElementById('channel-description')
-	// let channelCount = document.getElementById('channel-count')
 	let channelLink = document.getElementById('channel-link')
-
-	// Then set their content/attributes to our data:
-	// channelTitle.innerHTML = data.title
 	channelDescription.innerHTML = window.markdownit().render(data.metadata.description) // Converts Markdown → HTML
-	// channelCount.innerHTML = data.length
 	channelLink.href = `https://www.are.na/channel/${channelSlug}`
 }
 
@@ -41,13 +32,13 @@ let renderBlock = (block) => {
 	// Links!
 	if (block.class == 'Link') {
 		let linkItem =
-        //the title is independent from the block
 			`
-            <li class = ${titles}>
+            <li class = ${title}>
             	<h1>${ block.title }</h1>
             </li>
 
 			<li class = ${content}>
+				<p><em>Link</em></p>
 				<picture>
 					<source media="(max-width: 428px)" srcset="${ block.image.thumb.url }">
 					<source media="(max-width: 640px)" srcset="${ block.image.large.url }">
@@ -62,40 +53,49 @@ let renderBlock = (block) => {
 		channelBlocks.insertAdjacentHTML('beforeend', linkItem)
 	}
 
+	// // Images!
+	// else if (block.class == 'Image') {
+	// 	let imageItem =
+	// 	`
+	// 	<a class = ${images}
+    //         data-pswp-width="1000" 
+    //         data-pswp-height="1000" 
+    //         target="_blank">
+	// 		<img src="${ block.image.original.url }"/>
+	// 	</a>
+	// 	`
+	// 	channelBlocks.insertAdjacentHTML('beforeend', imageItem)
+	// 	// this works but needs to be elaborated on
+	// 	// description and image size is not solved
+	// }
 
-//this needs to be written 
-	// Images!
-	else if (block.class == 'Image') {
-		let imageItem =
+	else if (block.class == 'Text') {
+		let textItem =
 		`
-        <li class = ${titles}>
-        <h3>${ block.title }</h3>
+        <li class = ${title}>
+            <h1>${ block.title }</h1>
         </li>
-
+        
 		<li class = ${content}>
-			<p><em>Image</em></p>
-			<img src="${ block.image.original.url }"/>
+			<h2>${ block.content }</h2>
 		</li>
 		`
-		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
-		// this works but needs to be elaborated on
-		// description and image size is not solved
-	}
+		// this needs to be continued for tables from md to html
+		// if (block.description_html == 'table') {
 
-	// Text!
-	//this is not working
-	
-	// else if (block.class == 'Text') {
-	// 	let textItem =
-	// 	`
-	// 	<li>
-	// 		<p><em>Text</em></p>
-	// 		<h3>${ block.source }</h3>
-	// 	</li>
-	// 	`
-	// 	channelBlocks.insertAdjacentHTML('beforeend', textItem)
-	// 	// …up to you!
-	// }
+		// 	`
+		// 	<li class = ${title}>
+		// 		<h1>${ block.title }</h1>
+		// 	</li>
+
+		// 	<li class = ${content}>
+		// 		<table>${ block.content }</table>
+		// 	</li>
+				
+		// 	`
+		// }
+		channelBlocks.insertAdjacentHTML('beforeend', textItem)
+	}
 
 	// Uploaded (not linked) media…
 	else if (block.class == 'Attachment') {
@@ -106,7 +106,7 @@ let renderBlock = (block) => {
 			// …still up to you, but we’ll give you the `video` element:
 			let videoItem =
 				`        
-                <li class = ${titles}>
+                <li class = ${title}>
                 <h3>${ block.title }</h3>
                 </li>
                 
@@ -122,7 +122,18 @@ let renderBlock = (block) => {
 
 		// Uploaded PDFs!
 		else if (attachment.includes('pdf')) {
+			let pdfItem =
+			`        
+			<li class = ${title}>
+				<h3>${ block.title }</h3>
+			</li>
+			
+			<li class = ${content}>
+				<embed src="${ block.attachment.url }" width="1000" height="1000" type="application/pdf">
+			</li>
+			`
 			// …up to you!
+			channelBlocks.insertAdjacentHTML('beforeend', pdfItem)
 		}
 
 		// Uploaded audio!
@@ -130,7 +141,7 @@ let renderBlock = (block) => {
 			// …still up to you, but here’s an `audio` element:
 			let audioItem =
 				`
-                <li class = ${titles}>
+                <li class = ${title}>
                 <h3>${ block.title }</h3>
                 </li>
 
@@ -153,7 +164,7 @@ let renderBlock = (block) => {
 			// …still up to you, but here’s an example `iframe` element:
 			let linkedVideoItem =
 				`
-                <li class = ${titles}>
+                <li class = ${title}>
                 <h3>${ block.title }</h3>
                 </li>
 
@@ -168,10 +179,42 @@ let renderBlock = (block) => {
 
 		// Linked audio!
 		else if (embed.includes('rich')) {
-			// …up to you!
+			let linkedAudioItem =
+			`
+			<li class = ${title}>
+                <h3>${ block.title }</h3>
+            </li>
+
+			<li class = ${content}>
+				${ block.embed.html }
+			</li>
+			`
+			channelBlocks.insertAdjacentHTML('beforeend', linkedAudioItem)
 		}
 	}
+
+
 }
+
+
+let renderGallery = (gallery) => {
+	let channelBlocks = document.getElementById('my-gallery')
+
+	if (gallery.class == 'Image') {
+		let imageItem =
+        `
+		<a href = "${ gallery.image.original.url }" data-pswp-src = "${ gallery.image.original.url }"
+            data-pswp-width="1456" 
+            data-pswp-height="1820"
+            target="_blank">
+			<img src="${ gallery.image.original.url }" data-pswp-src = "${ gallery.image.original.url }" alt="">
+		</a>
+		`
+		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
+	}
+}
+
+
 
 
 
@@ -181,11 +224,11 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 	.then((data) => { // Do stuff with the data
 		console.log(data) // Always good to check your response!
 		placeChannelInfo(data) // Pass the data to the first function
-
-		// Loop through the `contents` array (list), backwards. Are.na returns them in reverse!
 		data.contents.reverse().forEach((block) => {
-			// console.log(block) // The data for a single block
 			renderBlock(block) // Pass the single block data to the render function
+		})
+        data.contents.reverse().forEach((gallery) => {
+			renderGallery(gallery) // Pass the single block data to the render function
 		})
 
 	})
