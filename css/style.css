@@ -9,11 +9,11 @@ body {
     --spacing:0.5em;
     --grey: #6d6d6d;
     --greyopacity: rgb(109 109 109 / 15%);
-    /* --maxwidth:1400px; */
+    --maxwidth:1400px;
 
     background-color: white;
 
-    font-family: "EB Garamond", serif;
+    font-family: 'EB Garamond', serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
@@ -282,7 +282,6 @@ margin:0 auto;
   align-self: auto;
   width: auto;
   height: auto;
-  padding: 20px;
   /* background-color: darkolivegreen; */
   }
   
