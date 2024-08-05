@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html lang="en">
 
 <head>
-    <!-- arena code + style sheet -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>default den haag</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.jpg">
 
-     <!-- after post css -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+
   <!-- <link rel="stylesheet" href="dist/main.css"> -->
   <link rel="stylesheet" href="js/arena/reset.css">
   <link rel="stylesheet" href="css/main.css">
@@ -13,16 +19,13 @@
 
 <body>
 
-<header>
-    <!-- the menu bar -->
-    <ul>
-        <li><a id="home" href="./index.html">default den haag</a></li>
-        <li><a id="archive" class="active" href="./archive.html">archive</a></li>
-        <li><a id="about" href="./about.html">about</a></li>
-        <li><div class="break"></div></li> <!--break-->
-        <li><div class="col-break"></div></li> <!--col break-->
-        <li><div id="custom-substack-embed"></div></li>
-    </ul>
+  <header>
+    <a id="home" class="active logo" href="./index.html"><img src="logo_web.png" alt="default den haag" /></a>
+    <div class="links">
+    <a id="archive" class="active" href="./archive.html">archive</a>
+    <a id="about" href="./about.html">about</a>
+    <a id="about" href="https://defaultdenhaag.substack.com">newsletter</a>
+  </div>
 </header>
 
 <main>
@@ -40,26 +43,44 @@
     <p>series for contemporary experimental sound performances in the Hague, the Netherlands</p>
 </footer>
 
-
-
-<!-- scripts -->
-    <!-- substack embed script  -->
 <script>
-  window.CustomSubstackWidget = {
-    substackUrl: "andrejspoikans.substack.com",
-    placeholder: "enter email...",
-    buttonText: "subscribe",
-    theme: "custom",
-    colors: {
-      primary: "white",
-      input: "white",
-      email: "grey",
-      text: "grey",
-    },
-  };
+// Run this script after all the content is loaded and inserted
+function insertEmptyListItems() {
+  // Define the pattern of empty <li> elements to be added
+  const pattern = [0, 2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0];
+
+  // Select all <li class="content"> elements inside #channel-blocks
+  const contentItems = document.querySelectorAll('ul#channel-blocks li.content');
+
+  // Loop through each content item and insert empty <li> elements based on the pattern
+  contentItems.forEach((item, index) => {
+    // Get the number of empty <li> to insert from the pattern
+    const emptyCount = pattern[index % pattern.length];
+
+    // Insert the specified number of empty <li> before the current content item
+    for (let i = 0; i < emptyCount; i++) {
+      const emptyLi = document.createElement('li');
+      item.parentNode.insertBefore(emptyLi, item);
+    }
+  });
+}
+
+// Ensure this runs after the dynamic content has been added
+document.addEventListener('DOMContentLoaded', function() {
+  // You need to wait for the fetch call to complete and render the blocks
+  fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
+    .then((response) => response.json())
+    .then((data) => {
+      // Assume this function processes and adds elements to #channel-blocks
+      placeChannelInfo(data);
+      data.contents.reverse().forEach((block) => {
+        renderBlock(block);
+      });
+
+      // Call our function after content is loaded
+      insertEmptyListItems();
+    });
+});
 </script>
-<script src="https://substackapi.com/widget.js" async></script>
-
-
 </body>
 </html>

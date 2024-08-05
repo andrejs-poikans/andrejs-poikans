@@ -1,10 +1,16 @@
+*, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0;}
 
+html, body {
+  overscroll-behavior: none
+}
 
 body {
     /* this spacing relates to the arena blocks and to the general font size */
-    --spacing: 0.4em;
+    --spacing:0.5em;
+    --grey: #6d6d6d;
+    --greyopacity: rgb(109 109 109 / 15%);
+    /* --maxwidth:1400px; */
 
-    margin:0;
     background-color: white;
 
     font-family: "EB Garamond", serif;
@@ -12,60 +18,72 @@ body {
     font-weight: 400;
     font-style: normal;
     
-    font-size: 62.5%;
+    font-size:20px;
 }
 
-header ul {
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  user-select:none;
+  -webkit-user-select:none;
+}
+
+header {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
   background-color: white;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1;
-}
-
-header ul li:nth-child(2) {
+  padding: 0.4em 0.5em 0.5em 0.5em;
+  left:0;
+  right:0;
+  margin-right: auto;
   margin-left: auto;
+  max-width: var(--maxwidth);
 }
-
-header ul li:nth-child(4) {
-  flex-basis: 100%;
-  height: 0;
-}
-
-header ul li:nth-child(5) {
-  flex-shrink: 1;
-  margin: 0.9em 0.3em 0.9em;
-}
-
-header li a {
-  font-size: 2.5em;
+header a {
+  font-size: 1.2em;
   display: block;
-  color: rgb(10, 20, 10);
+  /* color: rgb(10, 20, 10); */
+  color: var(--grey);
   text-align: left;
-  padding: 0.3em 0.5em 0.3em;
   text-decoration: none;
+  user-select:none;
+  -webkit-user-select:none;
 }
 
-header li a:hover:not(.active) {
+header a:hover:not(.active) {
   font-weight: 400;
   text-decoration: underline;
   text-decoration-style: solid;
 }
 
-header.active {
-  font-weight: 500;
+header a.active {
+  /* font-weight: 500; */
   text-decoration: underline;
-  text-decoration-style: dashed;
+  text-decoration-color: var(--grey);
 }
-
+header .logo img {
+  max-width: 170px;
+  margin-right: 0.5em;
+}
+header .links {
+  display:flex;
+  gap: .5em;
+}
+header .links a:after {
+  content:','
+}
+header .links a:last-child:after {
+  content:'';
+}
 
 /* for arena */
 /* body, section, ul, li, address {
@@ -74,14 +92,19 @@ header.active {
   padding: 0;
 } */
 
-h1, h2, h3 { color: black; font-size: 2em; font-weight: 400;}
+h1, h2, h3, p { color: black; font-size: 1em; font-weight: 400;}
 
 
-main { width: 100%; margin-top: 10em;}
+main { 
+  width: 100%; 
+  padding: 5em .5em;
+  max-width:var(--maxwidth);
+  margin:0 auto;
+}
 
 .container {
-	position: fixed;
-  overflow: hidden;
+	/* position: fixed;
+  overflow: hidden; */
 }
 
 /* this is the main place for grid formating*/
@@ -93,7 +116,8 @@ main { width: 100%; margin-top: 10em;}
   height: 100%;  /*????????? 60em*/
   width: 100%;
   /* margin-top: 110px; */
-  grid-template-columns: repeat(9, 11%);
+  /* grid-template-columns: repeat(9, 11%); */
+  grid-template-columns: repeat(9, auto);
   grid-template-rows: repeat(4, auto);
   grid-template-areas:
   "t t t a a a c c c"
@@ -107,12 +131,17 @@ main { width: 100%; margin-top: 10em;}
 .container ul li:nth-child(1) {
   grid-area: p;
 
-  margin: 2em 5em;
+  /* margin: 2em 5em; */
   /* height: 75%; */
 }
+.container ul li:nth-child(1) img {
+    max-height: 70vh;
+}
+
 .container ul li:nth-child(2) {
   grid-area: t;
   /* height: 5em; */
+  font-size:1.2em;
 }
 .container ul li:nth-child(3) {
   grid-area: a;
@@ -165,15 +194,12 @@ main { width: 100%; margin-top: 10em;}
 /* this is the block formating */
 .container li { 
 	background-color: white;
-	border: 1px dotted gray;
+	border: 1px dotted var(--greyopacity)  ;
 }
 
-/* separate image formating */
-li img{
-  /* max-width: 40em; */
-  /* max-height: 40em; */
-  max-height: 70vh;
-}
+
+
+
 
 
 
@@ -181,44 +207,48 @@ li img{
 
 
 .archive {
-	position: relative;
+	/* position: relative;
   overflow: hidden;
-  margin: 0 0em 0 0em;
+  margin: 0 0em 0 0em; */
 }
 
 /* this is the main place for grid formating*/
-.archive ul {
+/* .archive ul {
   list-style-type: none;
   padding: 0px;
   display: grid;
 	gap: var(--spacing);
   height: 100%; 
-  
-  /*????????? 60em*/
   width: 100%;
-  /* margin-top: 110px; */
-  grid-template-columns: repeat(3, 33%);
-  /* grid-template-columns: repeat(1, 100%); */
-  /*grid-template-areas:
-  "t t t a a a c c c"
-  "p p p a a a tb tb tb"
-  "p p p a a a tb tb tb"
-  ". . . l l l . . ."; */
+  grid-template-columns: repeat(3, auto);
   align-items: space-between;
   justify-items: space-between;
+} */
+.archive ul {
+display:flex;
+flex-wrap: wrap;
+max-width:1100px;
+margin:0 auto;
 }
 
 /* this is the block formating */
 .archive li { 
   /* margin: 1em; */
-	background-color: whitesmoke;
-	border: 1px dotted black;
+	/* background-color: blue;
+	border: 1px dotted black; */
+  width:50%;
+  text-align:center;
+  padding:0.5em;
 }
-
-/* separate image formating */
-li img{
-  /* max-width: 30em; */
-  max-height: 70vh;
+.archive ul#channel-blocks li:nth-child(2n),
+.archive ul#channel-blocks li:nth-child(5n) {
+  margin-top:5em;
+}
+.archive ul#channel-blocks li:nth-child(4n) {
+  margin-top:1em;
+}
+.archive li img {
+  width:100%;
 }
 
 
@@ -274,13 +304,15 @@ footer {
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 100%;
-  background-color: rgba(245, 245, 245, 0.179);
+  max-width:var(--maxwidth);
+  right:0;
+  margin:0 auto;
+  user-select:none;
+  -webkit-user-select:none;
 }
 
 footer p{
-  margin: 0.3em;
-  font-size: 2em;
-  color: grey;
+  padding: 0.5em;
+  color: var(--grey);
   text-align: left;
 }
