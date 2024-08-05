@@ -42,7 +42,7 @@ body {
     --spacing:0.5em;
     --grey: #6d6d6d;
     --greyopacity: rgb(109 109 109 / 15%);
-    --maxwidth:1400px;
+    --maxwidth:1200px;
 
     background-color: white;
 
@@ -51,7 +51,7 @@ body {
     font-weight: 400;
     font-style: normal;
     
-    font-size:20px;
+    font-size:18px;
 }
 
 img {
@@ -130,7 +130,7 @@ h1, h2, h3, p { color: black; font-size: 1em; font-weight: 400;}
 
 main { 
   width: 100%; 
-  padding: 5em .5em;
+  padding: 4em .5em;
   max-width:var(--maxwidth);
   margin:0 auto;
 }
