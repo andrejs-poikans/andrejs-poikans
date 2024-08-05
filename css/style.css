@@ -1,7 +1,40 @@
+/* eb-garamond-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/eb-garamond-v27-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* eb-garamond-italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 400;
+  src: url('/fonts/eb-garamond-v27-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* eb-garamond-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/eb-garamond-v27-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* eb-garamond-500italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 500;
+  src: url('/fonts/eb-garamond-v27-latin-500italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
 *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0;}
 
 html, body {
-  overscroll-behavior: none
+  overscroll-behavior: none;
 }
 
 body {
@@ -60,7 +93,7 @@ header a {
 }
 
 header a:hover:not(.active) {
-  font-weight: 400;
+  /* font-weight: 400; */
   text-decoration: underline;
   text-decoration-style: solid;
 }
@@ -136,6 +169,7 @@ main {
 }
 .container ul li:nth-child(1) img {
     max-height: 70vh;
+    cursor: zoom-in;
 }
 
 .container ul li:nth-child(2) {
@@ -200,9 +234,6 @@ main {
 
 
 
-
-
-
 /* this is for archive page */
 
 
@@ -249,6 +280,7 @@ margin:0 auto;
 }
 .archive li img {
   width:100%;
+  cursor:pointer;
 }
 
 

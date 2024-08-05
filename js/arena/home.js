@@ -56,7 +56,7 @@ let renderBlock = (block) => {
 		let imageItem =
 		`
 		<li class = ${content}>
-			<img src="${ block.image.original.url }"/>
+			<a style="cursor:zoom-in;" href="${ block.image.original.url }"><img src="${ block.image.original.url }"/></a>
 		</li>
 
         <li class = ${title}>
