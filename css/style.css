@@ -364,3 +364,10 @@ footer p{
   margin: 0 20%;
 }
 }
+
+/* mob only */
+@media only screen and (max-width: 600px) {
+  .archive li {
+    width: 75%;
+  }
+}
