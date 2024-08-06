@@ -357,8 +357,7 @@ footer p{
 
 
 
-/* desktop only */
-@media only screen and (min-width: 601px) {
+@media only screen and (min-width: 900px) {
 .about ul {
   width: 60%;
   margin: 0 20%;
