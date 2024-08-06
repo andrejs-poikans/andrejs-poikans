@@ -106,7 +106,6 @@ let renderBlock = (block) => {
 
 		// Uploaded videos!
 		if (attachment.includes('video')) {
-			// …still up to you, but we’ll give you the `video` element:
 			let videoItem =
 				`        
                 <li class = ${title}>
@@ -114,7 +113,6 @@ let renderBlock = (block) => {
                 </li>
                 
 				<li class = ${content}>
-					<p><em>Video</em></p>
 					<video controls src="${ block.attachment.url }"></video>
 				</li>
 				`
@@ -141,7 +139,6 @@ let renderBlock = (block) => {
 
 		// Uploaded audio!
 		else if (attachment.includes('audio')) {
-			// …still up to you, but here’s an `audio` element:
 			let audioItem =
 				`
                 <li class = ${title}>
@@ -149,7 +146,6 @@ let renderBlock = (block) => {
                 </li>
 
 				<li class = ${content}>
-					<p><em>Audio</em></p>
 					<audio controls src="${ block.attachment.url }"></audio>
 				</li>
 				`
@@ -164,7 +160,6 @@ let renderBlock = (block) => {
 
 		// Linked video!
 		if (embed.includes('video')) {
-			// …still up to you, but here’s an example `iframe` element:
 			let linkedVideoItem =
 				`
                 <li class = ${title}>
@@ -172,7 +167,6 @@ let renderBlock = (block) => {
                 </li>
 
 				<li class = ${content}>
-					<p><em>Linked Video</em></p>
 					${ block.embed.html }
 				</li>
 				`
@@ -189,7 +183,7 @@ let renderBlock = (block) => {
             </li>
 
 			<li class = ${content}>
-				${ block.embed.html }
+                ${ block.embed.html }
 			</li>
 			`
 			channelBlocks.insertAdjacentHTML('beforeend', linkedAudioItem)

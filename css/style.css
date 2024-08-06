@@ -143,10 +143,10 @@ main {
   margin:0 auto;
 }
 
-.container {
-	/* position: fixed;
-  overflow: hidden; */
-}
+/* .container {
+	position: fixed;
+  overflow: hidden;
+} */
 
 /* this is the main place for grid formating*/
 .container ul {
@@ -158,76 +158,67 @@ main {
   width: 100%;
   /* margin-top: 110px; */
   /* grid-template-columns: repeat(9, 11%); */
-  grid-template-columns: repeat(9, auto);
-  grid-template-rows: repeat(4, auto);
+  grid-template-columns: repeat(6, auto);
+  grid-template-rows: repeat(5, auto);
   grid-template-areas:
-  "t t t a a a c c c"
-  "p p p a a a tb tb tb"
-  "p p p a a a tb tb tb"
-  ". . . l l l . . .";
+  "t t a a c c"
+  "p p a a f f"
+  "p p a a f f"
+  "p p l h f f"
+  ". . v b f f";
+  /* align-items: flex-start; */
   align-items: stretch;
   justify-items: space-around;
 }
 
 .container ul li:nth-child(1) {
   grid-area: p;
-
-  /* margin: 2em 5em; */
-  /* height: 75%; */
 }
 .container ul li:nth-child(1) img {
     max-height: 70vh;
     cursor: zoom-in;
 }
-
 .container ul li:nth-child(2) {
   grid-area: t;
-  /* height: 5em; */
   font-size:1.2em;
 }
 .container ul li:nth-child(3) {
   grid-area: a;
-  /* height: 75%; */
 }
 .container ul li:nth-child(4) {
   grid-area: c;
-  /* height: 5em; */
 }
-/* there seems to be a strange alignment error with this one */
 .container ul li:nth-child(5) {
-  grid-area: tb;
-
+  grid-area: f;
 }
 
 
 
-
-.container ul li:nth-child(6) {
+.container ul li:nth-child(6),li:nth-child(8),li:nth-child(10), li:nth-child(12){
   display: none;
-  grid-area: d;
 }
 .container ul li:nth-child(7) {
-  display: none;
-  grid-area: d;
-}
-.container ul li:nth-child(8) {
-  display: none;
-  grid-area: d;
+  grid-area: l;
+  height: 4.5vw;
+  max-width: auto;
 }
 
 .container ul li:nth-child(9) {
-  display: none;
-  grid-area: d;
-}
-
-.container ul li:nth-child(10) {
-  display: none;
-  grid-area: d;
+  grid-area: h;
+  height: 4.5vw;
+  max-width: auto;
 }
 
 .container ul li:nth-child(11) {
-  display: none;
-  grid-area: d;
+  grid-area: v;
+  height: 4.5vw;
+  max-width: auto;
+}
+
+.container ul li:nth-child(13) {
+  grid-area: b;
+  height: 4.5vw;
+  max-width: auto;
 }
 
 
