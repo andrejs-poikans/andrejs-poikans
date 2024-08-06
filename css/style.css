@@ -297,7 +297,7 @@ margin:0 auto;
   display: grid;
 	gap: var(--spacing);
   height: 100%; 
-  width: 100%;
+  /* width: 100%; */
   grid-template-columns: repeat(1, 100%);
   align-items: center;
   justify-items: center;
@@ -314,6 +314,7 @@ margin:0 auto;
   align-self: auto;
   width: auto;
   height: auto;
+  margin-top:2em;
   /* background-color: darkolivegreen; */
   }
   
@@ -346,4 +347,17 @@ footer p{
   padding: 0.5em;
   color: var(--grey);
   text-align: left;
+}
+
+
+
+
+
+
+/* desktop only */
+@media only screen and (min-width: 601px) {
+.about ul {
+  width: 60%;
+  margin: 0 20%;
+}
 }
