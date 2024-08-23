@@ -5,13 +5,15 @@ markdownIt.src = 'https://cdn.jsdelivr.net/npm/markdown-it@14.0.0/dist/markdown-
 document.head.appendChild(markdownIt)
 
 //this is the channel name
-let channelSlug = 'default_home_test'
+let channelSlug = 'default_about_test'
 //this is a general let for titles
 let title = 'title'
 //this is a general let for descriptions
 let description = 'description'
 //this is a general let for content
 let content = 'content'
+//images for gallery
+let gallery = 'gallery'
 
 let placeChannelInfo = (data) => {
 	let channelDescription = document.getElementById('channel-description')
@@ -51,26 +53,21 @@ let renderBlock = (block) => {
 		channelBlocks.insertAdjacentHTML('beforeend', linkItem)
 	}
 
-	// Images!
-	else if (block.class == 'Image') {
-		let imageItem =
-		`
-		<li class = ${content}>
-			<a style="cursor:zoom-in;" target="_self" href="${ block.image.original.url }"><img src="${ block.image.original.url }"/></a>
-		</li>
-
-        <li class = ${title}>
-            <h1>${ block.title }</h1>
-        </li>
-
-        <li class = ${description}>
-		    <h2>${ block.description_html }</h2>
-		</li>
-		`
-		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
-		// this works but needs to be elaborated on
-		// description and image size is not solved
-	}
+	// // Images!
+	// else if (block.class == 'Image') {
+	// 	let imageItem =
+	// 	`
+	// 	<a class = ${images}
+    //         data-pswp-width="1000" 
+    //         data-pswp-height="1000" 
+    //         target="_blank">
+	// 		<img src="${ block.image.original.url }"/>
+	// 	</a>
+	// 	`
+	// 	channelBlocks.insertAdjacentHTML('beforeend', imageItem)
+	// 	// this works but needs to be elaborated on
+	// 	// description and image size is not solved
+	// }
 
 	else if (block.class == 'Text') {
 		let textItem =
@@ -78,15 +75,10 @@ let renderBlock = (block) => {
         <li class = ${title}>
             <h1>${ block.title }</h1>
         </li>
-
-		<li class = ${description}>
-			<h2>${ block.description_html }</h2>
-		</li>
         
 		<li class = ${content}>
-			<h3>${ block.content }</h3>
+			<h2>${ block.content }</h2>
 		</li>
-
 		`
 		// this needs to be continued for tables from md to html
 		// if (block.description_html == 'table') {
@@ -111,6 +103,7 @@ let renderBlock = (block) => {
 
 		// Uploaded videos!
 		if (attachment.includes('video')) {
+			// …still up to you, but we’ll give you the `video` element:
 			let videoItem =
 				`        
                 <li class = ${title}>
@@ -118,6 +111,7 @@ let renderBlock = (block) => {
                 </li>
                 
 				<li class = ${content}>
+					<p><em>Video</em></p>
 					<video controls src="${ block.attachment.url }"></video>
 				</li>
 				`
@@ -144,6 +138,7 @@ let renderBlock = (block) => {
 
 		// Uploaded audio!
 		else if (attachment.includes('audio')) {
+			// …still up to you, but here’s an `audio` element:
 			let audioItem =
 				`
                 <li class = ${title}>
@@ -151,6 +146,7 @@ let renderBlock = (block) => {
                 </li>
 
 				<li class = ${content}>
+					<p><em>Audio</em></p>
 					<audio controls src="${ block.attachment.url }"></audio>
 				</li>
 				`
@@ -165,6 +161,7 @@ let renderBlock = (block) => {
 
 		// Linked video!
 		if (embed.includes('video')) {
+			// …still up to you, but here’s an example `iframe` element:
 			let linkedVideoItem =
 				`
                 <li class = ${title}>
@@ -172,6 +169,7 @@ let renderBlock = (block) => {
                 </li>
 
 				<li class = ${content}>
+					<p><em>Linked Video</em></p>
 					${ block.embed.html }
 				</li>
 				`
@@ -188,7 +186,7 @@ let renderBlock = (block) => {
             </li>
 
 			<li class = ${content}>
-                ${ block.embed.html }
+				${ block.embed.html }
 			</li>
 			`
 			channelBlocks.insertAdjacentHTML('beforeend', linkedAudioItem)
@@ -198,6 +196,28 @@ let renderBlock = (block) => {
 
 }
 
+
+let renderGallery = (gallery) => {
+	let channelBlocks = document.getElementById('my-gallery')
+
+	if (gallery.class == 'Image') {
+		let imageItem =
+        `
+		<a href = "${ gallery.image.original.url }" data-pswp-src = "${ gallery.image.original.url }"
+            data-pswp-width="1456" 
+            data-pswp-height="1820"
+            target="_blank">
+			<img src="${ gallery.image.original.url }" data-pswp-src = "${ gallery.image.original.url }" alt="">
+		</a>
+		`
+		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
+	}
+}
+
+
+
+
+
 // Now that we have said what we can do, go get the data:
 fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
 	.then((response) => response.json()) // Return it as JSON data
@@ -206,6 +226,9 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		placeChannelInfo(data) // Pass the data to the first function
 		data.contents.reverse().forEach((block) => {
 			renderBlock(block) // Pass the single block data to the render function
+		})
+        data.contents.reverse().forEach((gallery) => {
+			renderGallery(gallery) // Pass the single block data to the render function
 		})
 
 	})

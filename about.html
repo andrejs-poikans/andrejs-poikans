@@ -14,10 +14,10 @@
   <script defer src="js/arena/about.js"></script>
 
     <!-- gallery -->
-    <link rel="stylesheet" type="text/css" href="style.css?v=0" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css?v=0" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css"/>
     <link href="https://db.onlinewebfonts.com/c/8d223b3ad8d4819e9dcf22757e4cc2c4?family=Arial">
     <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css"/>
-    <script type="module" src="js/other/gallery.js"></script>
+    <script type="module" src="js/other/gallery.js"></script> -->
   
 </head>
 
@@ -28,33 +28,90 @@
     <div class="links">
     <a id="archive" href="./archive.html">archive</a>
     <a id="about" class="active" href="./about.html">about</a>
-    <a id="about" href="https://defaultdenhaag.substack.com">newsletter</a>
+    <a id="about" href="https://defaultdenhaag.substack.com" target="_blank" rel="noopener noreferrer">newsletter</a>
   </div>
 </header>
 
 <main>
   <div class = "about">
-    <div class="gallery" id="my-gallery"></div>
       <ul class ="item" id="channel-description" style="display: none;"></ul>
       <a class ="item" id="channel-link"  style="display: none"></a>
-      <ul class ="item" id="channel-blocks"></ul>
+      <ul class ="item" id="channel-blocks">
+        
+        <li>
+          <details>
+            <summary>friends & recomendations</summary>
+            <p>in vitro (Brussels)
+              Infant Tree (London)
+              bistro (Helsinki)
+              Himera (Turku)
+              Brownian Movement
+              LOM Space (Bratislava)
+              Psychic Liberation Nights (Berlin)
+              Q-O2's Oscillations (Brussels)
+              Futura Resistenza (Belgium/the Netherlands)
+              Vereniging van Horen Zeggen (Amsterdam)
+              Rope Editions (Seoul)
+              Grambacht (Mechelen)
+              Zoomin’ Night (Beijing)
+              Aloe On-site (Beijing)
+              You and Me (Beijing)
+              progine (Vilnius)
+              Studium P (Vilnius)
+              Meakusma (Eupen)
+              Task (NYC)
+              Notice Recordings' shows (NY) 
+              Bloc Sound (Chicago) 
+              Cafe Oto (London)
+              adhuman (Brighton)
+              Ame (Huddersfield) 
+              KM28 (Berlin)
+              Experimentik (Berlin)
+              Ftarri (Tokyo)
+              Dotolim (Seoul)
+              De Nor (Antwerp)
+              KRAAK (Belgium)
+              SMOG (Brussels)
+              STUK’s Beyond Music (Leuven)
+              Anòmia (Barcelona)
+              Stellage (Athens)
+              Xing (Bologna)
+              Le Non-Jazz (Paris)
+              Sonoscopia (Porto)
+              Tone Glow (US)
+              DNK Days (Amsterdam)
+              Discreet Editions (Rotterdam)
+              dis ce que (the Hague)
+              iii (the Hague)
+              West Den Haag's Onze Ambassade (The Hague)
+              Crawl Space (the Hague)
+              Studio LOOS (the Hague)
+              On Air, On Site (the Hague)
+              </p>
+          </details>
+        </li>
+
+        <li class = "credits">
+          <p>Website developed by Andrejs Poikāns & Dans Jirgensons</p>
+        </li>
+
+        <li class="subscribe" id="custom-substack-embed"></li>
+
+      </ul>
       <ul class ="item" id="channel-titles" style="display: none;"></ul>
-      <ul class ="item" id="description" style="display: none;"></ul>
-  </div>
+      <ul class ="item" id="description" style="display: none;"></ul> 
+   </div>
 </main>
 
 
 <footer>
-    <p>series for contemporary experimental sound performances in the Hague, the Netherlands</p>
+  <p>series for contemporary experimental music and sound art performances</p>
 </footer>
 
 
-
-<!-- scripts -->
-    <!-- substack embed script  -->
 <script>
   window.CustomSubstackWidget = {
-    substackUrl: "andrejspoikans.substack.com",
+    substackUrl: "defaultdenhaag.substack.com",
     placeholder: "enter email...",
     buttonText: "subscribe",
     theme: "custom",
@@ -67,7 +124,5 @@
   };
 </script>
 <script src="https://substackapi.com/widget.js" async></script>
-
-
 </body>
 </html>
