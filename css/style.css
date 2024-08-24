@@ -83,7 +83,7 @@ header .logo img {
   max-width: 170px;
   margin-right: 0.5em;
 }
-header .logo:hover {
+header .logo:hover:not(.active) {
   opacity:0.7;
 }
 header .links {
@@ -146,7 +146,8 @@ main {
 /* arena items */
 .container ul li:nth-child(1) {
   grid-area: c;
-  border: 1px dotted var(--greyopacity);
+  /* border: 1px dotted var(--greyopacity); */
+  color: rgba(109, 109, 109, 0.7);
 }
 .container ul li:nth-child(2) {
   grid-area: f;
@@ -156,12 +157,13 @@ main {
   padding: 0px;
 }
 .container ul li:nth-child(3) img {
-  max-height: 70vh;
+  /* max-height: 70vh; */
+  width:100%;
   cursor: zoom-in;
 }
 .container ul li:nth-child(4) {
   grid-area: t;
-  border: 1px dotted var(--greyopacity);
+  /* border: 1px dotted var(--greyopacity); */
 }
 .container ul li:nth-child(5) {
   grid-area: a;
@@ -188,8 +190,9 @@ tr:nth-child(even){
   font-style: italic;
 }
 
-tr{
+tr {
   border-bottom: 0.1px dashed var(--greyopacity);
+  font-size:0.9em;
 }
 td:nth-child(4){
   text-align: right;
@@ -201,6 +204,10 @@ tr:last-child{
   padding-top: 4px;
   padding-bottom: 4px;
   border-bottom: none;
+}
+
+body tr:first-child td {
+  padding-top: 0;
 }
 
 
@@ -219,14 +226,15 @@ a{
 
 h2{
   font-weight: 400;
-  font-size: 1em;
-  text-align: justify;
+  font-size: 0.9em;
+  text-align: left;
   text-indent: 0px;
-  padding: 0px 10px;
+  padding: 0px 0px;
 }
 
 h3{
-  padding: 0px 10px;
+  padding: 0px 0px;
+  font-size:0.9em;
 }
 
 p{
@@ -236,7 +244,7 @@ p{
 /* this is the block formating */
 .container li { 
 	background-color: white;
-	border-bottom: 1px dotted var(--greyopacity);
+	/* border-bottom: 1px dotted var(--greyopacity); */
   width: 100%;
 }
 
