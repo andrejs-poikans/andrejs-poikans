@@ -12,6 +12,8 @@ let title = 'title'
 let description = 'description'
 //this is a general let for content
 let content = 'content'
+//just for archive focus
+let archive_focus = 'archive_focus'
 
 let placeChannelInfo = (data) => {
 	let channelDescription = document.getElementById('channel-description')
@@ -66,6 +68,7 @@ let renderBlock = (block) => {
         <li class = ${description}>
 		    <h2>${ block.description_html }</h2>
 		</li>
+
 		`
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
 		// this works but needs to be elaborated on

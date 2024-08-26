@@ -57,13 +57,15 @@ let renderBlock = (block) => {
 		`
 		<li class = ${content}>
 			<img src="${ block.image.original.url }"/>
+			<h1 class="nested_title" style="display:block">${ block.title }</h1>
+			<h2 class="nested_description" style="display:block">${ block.description_html }</h2>
 		</li>
 
-        <li class = ${title} style = "display: none">
+        <li class = ${title}>
             <h1>${ block.title }</h1>
         </li>
 
-        <li class = ${description} style = "display: none">
+        <li class = ${description}>
 		    <h2>${ block.description_html }</h2>
 		</li>
 		`

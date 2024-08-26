@@ -26,7 +26,8 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    line-height: 1.1em;
+
+    line-height: 1.15em;
 
     font-size:18px;
 }
@@ -208,8 +209,6 @@ tr:last-child{
 h1{
   font-weight: 500;
   font-size: 1em;
-  /* padding-bottom: 12px;
-  padding-left: 1em; */
 }
 
 a{
@@ -220,7 +219,7 @@ a{
 h2{
   font-weight: 400;
   font-size: 1em;
-  text-align: justify;
+  text-align: left;
   text-indent: 0px;
   padding: 0px 10px;
 }
@@ -241,6 +240,8 @@ p{
 }
 
 
+
+
 /* this is for archive page */
 
 /* archive */
@@ -249,6 +250,14 @@ display:flex;
 flex-wrap: wrap;
 max-width:1100px;
 margin:0 auto;
+}
+
+.archive ul .description{
+  display: none;
+}
+
+.archive ul .title{
+  display: none;
 }
 
 /* this is the block formating */
@@ -269,6 +278,37 @@ margin:0 auto;
   cursor:pointer;
 }
 
+.switch{
+  position: fixed;
+  z-index: 1;
+}
+
+
+button {
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: none;
+  background: #6E6D70;
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+  color: #DFDEDF;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  cursor:pointer;
+}
+
+button:focus {
+  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
+}
+
+button:hover{
+  background-color: var(--greyopacity);
+}
 
 
 
@@ -300,9 +340,11 @@ margin:0 auto;
 }
 .about ul li:nth-child(4) {
   grid-area: p;
+  margin: 0 auto;
 }
 .about ul li:nth-child(4) img {
   cursor: zoom-in;
+  max-width: 120vh;
   /* margin-left: 7vw;
   max-width: 67vw; */
 }
@@ -377,15 +419,24 @@ footer p{
     width: 95%;
     grid-template-columns: repeat(2,50%);
     grid-template-rows: repeat(6, auto);
-    grid-template-areas:
+    /* grid-template-areas:
     "t t"
     "p a"
     "g a"
     "h a"
     "h ."
     "c c"
+    "f f"; */
+    grid-template-areas:
+    "t t"
+    "p p"
+    "a a"
+    "g g"
+    "h h"
+    "c c"
     "f f";
     }
+
 
     h2{padding: 0;}
     h3{padding: 0;}

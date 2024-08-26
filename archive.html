@@ -12,6 +12,10 @@
   <link rel="stylesheet" href="js/arena/reset.css">
   <link rel="stylesheet" href="css/main.css">
   <script defer src="js/arena/archive.js"></script>
+
+  <script defer src="js/other/button.js"></script>
+  <script defer src="js/other/pop_up.js"></script>
+
 </head>
 
 <body>
@@ -26,6 +30,7 @@
 </header>
 
 <main>
+  <button class ="switch" onclick="toggleList()" id="listButton">list view</button>
   <div class = "archive">
       <ul class ="item" id="channel-description" style="display: none;"></ul>
       <a class ="item" id="channel-link"  style="display: none"></a>
@@ -57,6 +62,7 @@ function insertEmptyListItems() {
     // Insert the specified number of empty <li> before the current content item
     for (let i = 0; i < emptyCount; i++) {
       const emptyLi = document.createElement('li');
+      emptyLi.classList.add("empty");
       item.parentNode.insertBefore(emptyLi, item);
     }
   });
