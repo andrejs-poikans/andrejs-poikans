@@ -580,6 +580,10 @@ footer p{
     width: 75%;
     padding:0;
     text-align:left;
+    margin-top:1em !important;
+  }
+  .empty {
+    display:none;
   }
   .container ul {
     gap: 1em;
