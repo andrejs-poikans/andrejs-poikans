@@ -507,6 +507,15 @@ footer p{
 }
 } */
 
+.archive img {
+  display:none;
+}
+.archive li:not(.fullscreen) .lowquality {
+  display: block;
+}
+.archive li.fullscreen .highquality {
+  display: block;
+}
 
 
 @media only screen and (max-width:1099px) {

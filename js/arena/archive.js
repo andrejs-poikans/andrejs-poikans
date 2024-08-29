@@ -56,7 +56,8 @@ let renderBlock = (block) => {
 		let imageItem =
 		`
 		<li class = ${content}>
-			<img src="${ block.image.original.url }"/>
+			<img class="lowquality" src="${ block.image.display.url }"/>
+			<img class="highquality" src="${ block.image.original.url }" />
 			<div class="textcontent">
 			<h1 class="nested_title">${ block.title }</h1>
 			<h2 class="nested_description">${ block.description_html }</h2>
