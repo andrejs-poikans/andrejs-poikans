@@ -13,8 +13,8 @@
   <link rel="stylesheet" href="css/main.css">
   <script defer src="js/arena/archive.js"></script>
 
-  <script defer src="js/other/button.js"></script>
-  <script defer src="js/other/pop_up.js"></script>
+  <!-- <script defer src="js/other/button.js"></script> -->
+  <!-- <script defer src="js/other/pop_up.js"></script> -->
 
 </head>
 
@@ -30,13 +30,14 @@
 </header>
 
 <main>
-  <button class ="switch" onclick="toggleList()" id="listButton">list view</button>
-  <div class = "archive">
-      <ul class ="item" id="channel-description" style="display: none;"></ul>
-      <a class ="item" id="channel-link"  style="display: none"></a>
-      <ul class ="item" id="channel-blocks"></ul>
-      <ul class ="item" id="channel-titles" style="display: none;"></ul>
-      <ul class ="item" id="description" style="display: none;"></ul>
+  <button id="toggleButton">list view</button>
+  <div class="archive">
+    <div class="emptybg"></div>
+      <ul class="item" id="channel-description" style="display: none;"></ul>
+      <a class="item" id="channel-link"  style="display: none"></a>
+      <ul class="item" id="channel-blocks"></ul>
+      <ul class="item" id="channel-titles" style="display: none;"></ul>
+      <ul class="item" id="description" style="display: none;"></ul>
   </div>
 </main>
 
@@ -68,22 +69,6 @@ function insertEmptyListItems() {
   });
 }
 
-// Ensure this runs after the dynamic content has been added
-document.addEventListener('DOMContentLoaded', function() {
-  // You need to wait for the fetch call to complete and render the blocks
-  fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
-    .then((response) => response.json())
-    .then((data) => {
-      // Assume this function processes and adds elements to #channel-blocks
-      placeChannelInfo(data);
-      data.contents.reverse().forEach((block) => {
-        renderBlock(block);
-      });
-
-      // Call our function after content is loaded
-      insertEmptyListItems();
-    });
-});
 </script>
 </body>
 </html>

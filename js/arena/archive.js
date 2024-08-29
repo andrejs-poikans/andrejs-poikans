@@ -57,8 +57,10 @@ let renderBlock = (block) => {
 		`
 		<li class = ${content}>
 			<img src="${ block.image.original.url }"/>
-			<h1 class="nested_title" style="display:block">${ block.title }</h1>
-			<h2 class="nested_description" style="display:block">${ block.description_html }</h2>
+			<div class="textcontent">
+			<h1 class="nested_title">${ block.title }</h1>
+			<h2 class="nested_description">${ block.description_html }</h2>
+			</div>
 		</li>
 
         <li class = ${title}>
@@ -211,4 +213,104 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 			renderBlock(block) // Pass the single block data to the render function
 		})
 
+
+
+
+      insertEmptyListItems();
+
+
+
+
+  
+            
+	  const items = document.querySelectorAll('.archive li.content');
+	  const toggleButton = document.getElementById('toggleButton');
+	  const archiveDiv = document.querySelector('.archive');
+	  const emptyBgDiv = document.querySelector('.emptybg');
+	  const body = document.body;
+	  const defaultButtonText = toggleButton.textContent; // Get the default button text from HTML
+
+	  // Function to update the button text and other states
+	  function updateButtonText() {
+		  const hasOpen = document.querySelector('.archive li.content.open');
+		  if (hasOpen) {
+			  toggleButton.textContent = 'close'; // Set to lowercase 'close'
+			  emptyBgDiv.style.display = 'block'; // Show the emptybg div when an item is open
+			  body.style.overflow = 'hidden'; // Disable scrolling on the body
+		  } else {
+			  toggleButton.textContent = archiveDiv.classList.contains('archivelist') ? 'grid view' : defaultButtonText;
+			  emptyBgDiv.style.display = 'none'; // Hide the emptybg div when no item is open
+			  body.style.overflow = ''; // Re-enable scrolling on the body
+		  }
+	  }
+
+	  // Add click event listener to each item
+	  items.forEach(item => {
+		  item.addEventListener('click', function() {
+			  // Remove 'open' and 'fullscreen' classes from all items
+			  items.forEach(li => {
+				  li.classList.remove('fullscreen');
+				  li.classList.remove('open');
+			  });
+
+			  // Add 'open' class to the clicked item
+			  this.classList.add('open');
+
+			  // Update button text and other states
+			  updateButtonText();
+		  });
+
+		  // Add click event listener to images within items
+		  const img = item.querySelector('img');
+		  if (img) {
+			  img.addEventListener('click', function(event) {
+				  if (window.innerWidth >= 601 && item.classList.contains('open')) {
+					  // Add 'fullscreen' class to the clicked item
+					  item.classList.add('fullscreen');
+					  event.stopPropagation(); // Prevent triggering the item click event
+				  }
+			  });
+		  }
+	  });
+
+	  // Add click event listener to the button
+	  toggleButton.addEventListener('click', function() {
+		  // Check if any item has the 'fullscreen' class
+		  const hasFullscreen = document.querySelector('.archive li.content.fullscreen');
+		  if (hasFullscreen) {
+			  // Remove 'fullscreen' class from all items but keep 'open'
+			  items.forEach(li => li.classList.remove('fullscreen'));
+		  } else {
+			  // If no fullscreen, then check if any item is open
+			  const hasOpen = document.querySelector('.archive li.content.open');
+			  if (hasOpen) {
+				  // Remove 'open' class from all items
+				  items.forEach(li => li.classList.remove('open'));
+			  } else {
+				  // Toggle the 'archivelist' class on the archive div
+				  archiveDiv.classList.toggle('archivelist');
+			  }
+		  }
+
+		  // Update button text and other states
+		  updateButtonText();
+	  });
+
+	  // Initial button text and other states update
+	  updateButtonText();
+
+
+
+
+
+
+
+
+
+
 	})
+
+
+
+
+
