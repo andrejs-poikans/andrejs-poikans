@@ -630,6 +630,7 @@ footer p{
     }
     .archive li.open img {
       width: 100%;
+      padding:0;
     }
     .archive li.open .textcontent {
       padding:1em 0;
