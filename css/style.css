@@ -373,9 +373,6 @@ max-height: 100vh;
   cursor:pointer;
   font-weight:200;
 }
-.archivelist li.content.open img {
-  display: block;
-}
 
 
 .emptybg {
@@ -507,15 +504,33 @@ footer p{
 }
 } */
 
-.archive img {
-  display:none;
+/* Hide all images by default */
+.archive img, .archivelist img {
+  display: none;
 }
-.archive li:not(.fullscreen) .lowquality {
+
+/* If .archivelist is present, no images are shown */
+.archivelist img {
+  display: none;
+}
+
+/* Show low-quality images when .archive is present and not .archivelist */
+.archive:not(.archivelist) .lowquality {
   display: block;
+}
+/* Show low-quality images when .archive.open is present */
+.archive li.open .lowquality {
+  display: block;
+}
+
+/* Hide low-quality images and show high-quality images when .fullscreen is present */
+.archive li.fullscreen .lowquality {
+  display: none;
 }
 .archive li.fullscreen .highquality {
   display: block;
 }
+
 
 
 @media only screen and (max-width:1099px) {
