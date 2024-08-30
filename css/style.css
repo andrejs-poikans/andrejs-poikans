@@ -373,6 +373,9 @@ max-height: 100vh;
   cursor:pointer;
   font-weight:200;
 }
+.archive li.open .nested_title:hover {
+  opacity:1 !important;
+}
 
 
 .emptybg {
@@ -541,6 +544,9 @@ footer p{
 
 /*desktop only */
 @media only screen and (min-width:601px) {
+  .archivelist li.content .nested_title:hover {
+    opacity:0.7;
+  }
   .archive li.open img {
     cursor:zoom-in;
   }
