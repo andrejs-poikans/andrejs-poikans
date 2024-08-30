@@ -85,7 +85,7 @@ header .logo img {
   margin-right: 0.5em;
 }
 header .logo:hover:not(.active) {
-  opacity:0.7;
+  opacity:0.85;
 }
 header .links {
   display:flex;
