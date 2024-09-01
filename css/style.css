@@ -351,10 +351,11 @@ max-height: 100vh;
 .archive li.open img {
   width:50%;
   height:100%;
-  padding-right:1em;
+  padding-right:1em; 
 }
+
 .archive li.open .textcontent {
-  padding:0 0.5em;
+  /* padding:0 0.5em; */
   text-align:left;
   display:block;
 }
@@ -565,11 +566,7 @@ footer p{
     width: 75%;
     padding:0;
     text-align:left;
-    margin-top:1em !important;
-  }
-
-  .archive li img {
-    margin-bottom: 2em;
+    margin-bottom:1em !important;
   }
 
   .empty {
@@ -592,7 +589,6 @@ footer p{
   h2{padding: 0;}
   h3{padding: 0;}
 
-
   .container li {
     margin-top: 1em;
     background-color: white;
@@ -608,10 +604,13 @@ footer p{
     left:0;
     padding: .5em;
   }
+
   .archive li.open img {
     width: 100%;
     padding:0;
+    margin-top: 2em;
   }
+
   .archive li.open .textcontent {
     padding:1em 0;
   }
