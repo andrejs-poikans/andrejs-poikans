@@ -220,8 +220,6 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 	  const toggleButton = document.getElementById('toggleButton');
 	  const archiveDiv = document.querySelector('.archive');
 	  const emptyBgDiv = document.querySelector('.emptybg');
-	  var gap1 = document.querySelectorAll(".archive ul#channel-blocks li:nth-child(2n)");
-	  var gap2 = document.querySelectorAll(".archive ul#channel-blocks li:nth-child(5n)");
 
 	  const body = document.body;
 	  const defaultButtonText = toggleButton.textContent; // Get the default button text from HTML
@@ -238,10 +236,6 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 			  toggleButton.textContent = archiveDiv.classList.contains('archivelist') ? 'grid view' : defaultButtonText;
 			  emptyBgDiv.style.display = 'none'; // Hide the emptybg div when no item is open
 			  body.style.overflow = ''; // Re-enable scrolling on the body
-
-			// take out the margins at the top in list view
-              gap1.forEach(a=>a.style.marginTop = "0em");
-              gap2.forEach(a=>a.style.marginTop = "0em");
 		  }
 	  }
 
