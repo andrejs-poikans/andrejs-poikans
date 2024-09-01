@@ -63,14 +63,6 @@ let renderBlock = (block) => {
 			<h2 class="nested_description">${ block.description_html }</h2>
 			</div>
 		</li>
-
-        <li class = ${title}>
-            <h1>${ block.title }</h1>
-        </li>
-
-        <li class = ${description}>
-		    <h2>${ block.description_html }</h2>
-		</li>
 		`
 		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
 		// this works but needs to be elaborated on
@@ -228,6 +220,9 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 	  const toggleButton = document.getElementById('toggleButton');
 	  const archiveDiv = document.querySelector('.archive');
 	  const emptyBgDiv = document.querySelector('.emptybg');
+	  var gap1 = document.querySelectorAll(".archive ul#channel-blocks li:nth-child(2n)");
+	  var gap2 = document.querySelectorAll(".archive ul#channel-blocks li:nth-child(5n)");
+
 	  const body = document.body;
 	  const defaultButtonText = toggleButton.textContent; // Get the default button text from HTML
 
@@ -238,10 +233,15 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 			  toggleButton.textContent = 'close'; // Set to lowercase 'close'
 			  emptyBgDiv.style.display = 'block'; // Show the emptybg div when an item is open
 			  body.style.overflow = 'hidden'; // Disable scrolling on the body
+
 		  } else {
 			  toggleButton.textContent = archiveDiv.classList.contains('archivelist') ? 'grid view' : defaultButtonText;
 			  emptyBgDiv.style.display = 'none'; // Hide the emptybg div when no item is open
 			  body.style.overflow = ''; // Re-enable scrolling on the body
+
+			// take out the margins at the top in list view
+              gap1.forEach(a=>a.style.marginTop = "0em");
+              gap2.forEach(a=>a.style.marginTop = "0em");
 		  }
 	  }
 
@@ -292,22 +292,12 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 				  archiveDiv.classList.toggle('archivelist');
 			  }
 		  }
-
 		  // Update button text and other states
 		  updateButtonText();
 	  });
 
 	  // Initial button text and other states update
 	  updateButtonText();
-
-
-
-
-
-
-
-
-
 
 	})
 

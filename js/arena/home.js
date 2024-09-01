@@ -5,7 +5,7 @@ markdownIt.src = 'https://cdn.jsdelivr.net/npm/markdown-it@14.0.0/dist/markdown-
 document.head.appendChild(markdownIt)
 
 //this is the channel name
-let channelSlug = 'default_home_test'
+let channelSlug = 'web_main'
 //this is a general let for titles
 let title = 'title'
 //this is a general let for descriptions
