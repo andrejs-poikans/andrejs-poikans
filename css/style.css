@@ -38,6 +38,7 @@ h2{font-weight: 400;font-size: 0.9em;text-align: left;}
 h3{font-size:0.9em;}
 p{color: black; margin-bottom: 0.5em;}
 i{font-style: italic;}
+b{font-weight: 500;}
 
 
 img {
@@ -113,10 +114,6 @@ main {
   margin:0 auto;
 }
 
-/* main :hover{
-  animation: fade-in 0.1s;
-} */
-
 
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /* main page */
@@ -163,7 +160,6 @@ main {
   padding: 0px;
 }
 .container ul li:nth-child(3) img {
-  /* max-height: 70vh; */
   width:100%;
   cursor: zoom-in;
 }
@@ -193,6 +189,10 @@ table{
 
 tr:nth-child(1) td{
   padding-top: 0px;
+}
+
+td:nth-child(1){
+  width: 20%;
 }
 
 tr {
@@ -364,11 +364,11 @@ max-height: 100vh;
 .archive li.open .textcontent .nested_description {
   display:block;
   cursor:default;
+  width: 66%;
 }
 .archive li.open .textcontent .nested_title {
   font-weight:500;
   margin-bottom:1em;
-  width: 100%;
 }
 .archive li.open img {
   cursor:default;
@@ -413,12 +413,14 @@ max-height: 100vh;
   height: 100%;
   width: 100%;
   grid-template-columns: repeat(6, 16%);
-  grid-template-rows: repeat(4, auto);
+  grid-template-rows: repeat(6, auto);
   grid-template-areas:
   "p p p p p p"
-  ". l l r r g"
+  ". l l r r ."
+  ". l l r r ."
+  ". l l h h g"
   ". l l h h k"
-  ". . . h h k";
+  ". . . h h .";
   align-items: flex-start;
   justify-items: space-around;
 }
@@ -456,7 +458,7 @@ max-height: 100vh;
 
 .about ul li:nth-child(7) {
   grid-area: g;
-  display: none;
+  /* display: none; */
 }
 
 
@@ -635,6 +637,12 @@ footer p{
   .archivelist li.content .nested_title {
   width: 100%;
   }
+
+  .archive li.open .textcontent .nested_title,
+  .archive li.open .textcontent .nested_description {
+  width: 100%;
+  }
+
 
   .about ul {
     margin-top: 1em;
