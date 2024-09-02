@@ -32,11 +32,12 @@ body {
 }
 
 /* text styling */
-h1{font-weight: 500;font-size: 1em;}
-a{font-weight: 500;text-decoration: underline;}
+h1{font-weight: 500;font-size: 1em;cursor:default;}
+a{font-weight: 500; text-decoration:underline;}
+a:hover { opacity:0.7; }
 h2{font-weight: 400;font-size: 0.9em;text-align: left;}
 h3{font-size:0.9em;}
-p{color: black; margin-bottom: 0.5em;}
+p{color: black; margin-bottom: 0.5em;cursor:default;}
 i{font-style: italic;}
 b{font-weight: 500;}
 
@@ -185,6 +186,7 @@ table{
   padding-top: 2px;
   padding-bottom: 2px;
   color: rgba(109, 109, 109, 0.7);
+  cursor:default;
 }
 
 tr:nth-child(1) td{
@@ -369,6 +371,7 @@ max-height: 100vh;
 .archive li.open .textcontent .nested_title {
   font-weight:500;
   margin-bottom:1em;
+  margin-left:0;
 }
 .archive li.open img {
   cursor:default;
@@ -471,6 +474,14 @@ details > summary {
   cursor: pointer;
   font-weight: 500;
   font-size: 0.9em;
+
+}
+details > summary:hover {
+  opacity:0.7;
+}
+details a {
+  text-decoration:none;
+  font-weight:400;
 }
 
 .about p {
