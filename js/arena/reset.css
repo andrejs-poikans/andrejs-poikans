@@ -1,6 +1,6 @@
 /* Derived from: https://github.com/elad2412/the-new-css-reset */
 
-*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+*:where(:not(html, iframe, canvas, img, svg, video, audio, details, summary):not(svg *, symbol *)) {
 	all: unset;
 	display: revert;
 }
@@ -11,9 +11,10 @@ a { text-decoration: none }
 
 a, button { cursor: revert }
 
-details summary, menu, ol, ul { list-style: none }
+/* details summary,  */
+menu, ol, ul { list-style: none }
 
-details ::marker, details ::-webkit-details-marker { display: none }
+/* details ::marker, details ::-webkit-details-marker { display: none } */
 
 audio, img, iframe, video {
 	max-inline-size: 100%;

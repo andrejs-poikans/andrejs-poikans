@@ -455,10 +455,10 @@ max-height: 100vh;
   margin-right: auto;
 }
 
-.about ul li:nth-child(5) img {
+/* .about ul li:nth-child(5) img {
   cursor: zoom-in;
   width: 100%;
-}
+} */
 
 .about ul li:nth-child(7) {
   grid-area: g;
