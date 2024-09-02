@@ -1,5 +1,11 @@
-
-@keyframes fade-in {100%{opacity:1;}}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /* general */
@@ -123,11 +129,14 @@ main {
 
 .container{
     opacity: 0;
-    animation: fade-in 2s forwards; 
-    animation-iteration-count: 1;
-    animation-play-state: running;
 }
 
+.animate-fade-in {
+  opacity:0;
+  animation: fade-in 2s forwards; 
+  animation-iteration-count: 1;
+  animation-play-state: running;
+}
 
 /* grid formating */
 .container ul {
