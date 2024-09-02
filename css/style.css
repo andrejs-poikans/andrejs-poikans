@@ -178,6 +178,9 @@ main {
 .container ul li:nth-child(3) img {
   width:100%;
 }
+.container ul li:nth-child(3) a:hover {
+opacity:1;
+}
 .container ul li:nth-child(4) {
   grid-area: t;
 }

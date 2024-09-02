@@ -56,7 +56,7 @@ let renderBlock = (block) => {
 		let imageItem =
 		`
 		<li id="poster" class = ${content}>
-			<img src="${ block.image.original.url }"/>
+			<a href="${ block.image.original.url }"><img src="${ block.image.original.url }"/></a>
 		</li>
 
         <li class = ${title}>
