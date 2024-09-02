@@ -197,9 +197,11 @@ td:nth-child(1){
   width: 20%;
 }
 
+
 tr {
   border-bottom: 0.1px dashed var(--greyopacity);
   font-size:0.9em;
+  /* vertical-align:top !important; */
 }
 
 tr:nth-child(even){
@@ -367,6 +369,8 @@ max-height: 100vh;
   display:block;
   cursor:default;
   width: 66%;
+  margin-left: 0;
+  margin-right: auto;
 }
 .archive li.open .textcontent .nested_title {
   font-weight:500;
@@ -652,6 +656,7 @@ footer p{
   .archive li.open .textcontent .nested_title,
   .archive li.open .textcontent .nested_description {
   width: 100%;
+  padding-bottom: 1em;
   }
 
 
