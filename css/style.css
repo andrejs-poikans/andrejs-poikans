@@ -444,11 +444,12 @@ max-height: 100vh;
   height: 100%;
   width: 100%;
   grid-template-columns: repeat(6, 16%);
-  grid-template-rows: repeat(6, auto);
+  grid-template-rows: repeat(7, auto);
   grid-template-areas:
   "p p p p p p"
   ". l l r r ."
   ". l l r r ."
+  ". l l j j ."
   ". l l h h g"
   ". l l h h k"
   ". . . h h .";
@@ -466,17 +467,21 @@ max-height: 100vh;
 }
 
 .about ul li:nth-child(3) {
+  grid-area: j;
+}
+
+.about ul li:nth-child(4) {
   grid-area: h;
 }
 
 
-.about ul li:nth-child(4) {
+.about ul li:nth-child(5) {
   grid-area: k;
   font-style: italic;
 }
 
 
-.about ul li:nth-child(5) {
+.about ul li:nth-child(6) {
   grid-area: p;
   margin-left: auto;
   margin-right: auto;
@@ -487,7 +492,7 @@ max-height: 100vh;
   width: 100%;
 } */
 
-.about ul li:nth-child(7) {
+.about ul li:nth-child(8) {
   grid-area: g;
   /* display: none; */
 }
@@ -599,7 +604,7 @@ footer p{
     display:none;
   }
 
-  .about ul li:nth-child(5) img {
+  .about ul li:nth-child(6) img {
     max-width: 120vh;
   }
 
@@ -705,16 +710,17 @@ footer p{
     margin-top: 1em;
     padding-right: 0.5em;
     grid-template-columns: repeat(2, 50%);
-    grid-template-rows: repeat(5, auto);
+    grid-template-rows: repeat(6, auto);
     grid-template-areas:
     "p p"
     "g g"
     "l l"
     "r r"
+    "j j"
     "h k";
   }
 
-  .about ul li:nth-child(5) img {
+  .about ul li:nth-child(6) img {
     max-width: 100%;
   }
 
