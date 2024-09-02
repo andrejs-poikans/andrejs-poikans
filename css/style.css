@@ -106,7 +106,9 @@ header .links a:after {
 header .links a:last-child:after {
   content:'';
 }
-
+header .links a:hover {
+  opacity:1;
+}
 
 main {
   width: 100%;
