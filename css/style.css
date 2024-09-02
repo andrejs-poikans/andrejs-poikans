@@ -7,6 +7,7 @@
   }
 }
 
+
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /* general */
 
@@ -99,6 +100,9 @@ header .logo img {
   max-width: 170px;
   margin-right: 0.5em;
 }
+header a.logo:hover {
+  opacity:1;
+}
 header .logo:hover:not(.active) {
   opacity:0.85;
 }
@@ -127,7 +131,7 @@ main {
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /* main page */
 
-.container{
+#container {
     opacity: 0;
 }
 
@@ -173,7 +177,6 @@ main {
 }
 .container ul li:nth-child(3) img {
   width:100%;
-  cursor: zoom-in;
 }
 .container ul li:nth-child(4) {
   grid-area: t;
@@ -214,6 +217,13 @@ tr {
   font-size:0.9em;
   /* vertical-align:top !important; */
 }
+tbody {
+  border-bottom: 0.1px dashed var(--greyopacity);
+}
+
+tbody:hover {
+  background:whitesmoke;
+}
 
 tr:nth-child(even){
   font-style: italic;
@@ -233,7 +243,7 @@ td:nth-child(3){
   padding-left: 4px;
 }
 
-tr:last-child{
+tfoot tr {
   text-align: right;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -589,6 +599,22 @@ footer p{
   .about ul li:nth-child(5) img {
     max-width: 120vh;
   }
+
+/* #poster.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  }
+
+  #poster.fullscreen img {
+    width:100%;
+    height:100%;
+      cursor: zoom-in;
+
+} */
+
 
 }
 

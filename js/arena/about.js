@@ -210,4 +210,14 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 			renderBlock(block) // Pass the single block data to the render function
 		})
 
+		const mainContainer = document.getElementById('container');
+
+		// Add the animation class to trigger the CSS animation
+		mainContainer.classList.add('animate-fade-in');
+		
+		// Remove the class after 3 seconds (3000 milliseconds)
+		setTimeout(() => {
+		  mainContainer.classList.remove('animate-fade-in');
+		}, 3000);
+
 	})

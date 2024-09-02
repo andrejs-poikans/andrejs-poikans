@@ -293,6 +293,7 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 	  // Initial button text and other states update
 	  updateButtonText();
 
+
 	})
 
 

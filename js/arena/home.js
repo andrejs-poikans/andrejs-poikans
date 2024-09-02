@@ -55,8 +55,8 @@ let renderBlock = (block) => {
 	else if (block.class == 'Image') {
 		let imageItem =
 		`
-		<li class = ${content}>
-			<a style="cursor:zoom-in;" target="_self" href="${ block.image.original.url }"><img src="${ block.image.original.url }"/></a>
+		<li id="poster" class = ${content}>
+			<img src="${ block.image.original.url }"/>
 		</li>
 
         <li class = ${title}>
@@ -211,6 +211,16 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		const mainContainer = document.getElementById('container');
 		// Add the animation class to trigger the CSS animation
 		mainContainer.classList.add('animate-fade-in');
+
+
+		const img = document.getElementById('poster');
+
+		img.addEventListener('click', function() {
+			if (window.innerWidth >= 601) {
+				img.classList.toggle('fullscreen');
+			}
+		});
+	
 
 
 
