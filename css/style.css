@@ -638,6 +638,7 @@ footer p{
     padding:0;
     text-align:left;
     margin-bottom:1em !important;
+    margin-top: 0em !important;
   }
 
   .empty {
@@ -699,7 +700,7 @@ footer p{
 
   .about ul {
     margin-top: 1em;
-    width: 95%;
+    padding-right: 0.5em;
     grid-template-columns: repeat(2, 50%);
     grid-template-rows: repeat(5, auto);
     grid-template-areas:
