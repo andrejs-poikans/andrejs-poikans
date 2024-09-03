@@ -604,8 +604,13 @@ footer p{
     display:none;
   }
 
+  .about ul li:nth-child(6) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .about ul li:nth-child(6) img {
-    max-width: 120vh;
+    max-height: 80vh;
   }
 
 /* #poster.fullscreen {
