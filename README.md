@@ -1,3 +1,3 @@
 ## Hi there 👋
 
-here you can find some web proejcts in process
+here you can find some web projects in process
