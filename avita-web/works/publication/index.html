@@ -91,54 +91,52 @@ as="font" type="font/ttf" crossorigin="anonymous">
     <canvas id="img-canvas" onclick="closeImg()"></canvas>
     <button onclick="closeImg()" id = "close" class="close-button">✕</button>
 
-    <!-- pop up love letter -->
-    <div class="form-popup" id="myForm">
-        <form action="https://api.web3forms.com/submit" method="POST" class="form-container">
+   <!-- pop up love letter -->
+   <div class="form-popup" id="myForm">
+    <form action="https://api.web3forms.com/submit" method="POST" class="form-container">
 
-            <!-- Replace with your Access Key -->
-            <input autocomplete="off" type="hidden" name="access_key" value="7e63ade4-27b3-4d49-b8b7-824772092138">
-            <!-- Form Inputs. Each input must have a name="" attribute -->
-            <!-- <button type="button" class="btn cancel" onclick="closeForm()">✕</button> -->
-            <a id="letter-title">title:</a>
-            <input autocomplete="off" id="title-textarea" class="textarea" type="text" name="name" required>
-            <a id="letter-email">email:</a>
-            <input autocomplete="off" id="email-textarea" class="textarea" type="email" name="email" required>
-            <a id="letter-msg">message:</a>
-            <textarea id="msg-textarea" class="textarea" name="message" required></textarea>
-            <!-- Honeypot Spam Protection -->
-            <input autocomplete="off" type="checkbox" name="botcheck" class="hidden" style="display: none;">
-            <!-- Custom Confirmation / Success Page -->
-            <input type="hidden" name="redirect" value="https://avita.space/works/publication/">
-            <button id="submit-button" type="submit">submit</button>
-        </form>
+        <!-- Replace with your Access Key -->
+        <input autocomplete="off" type="hidden" name="access_key" value="7e63ade4-27b3-4d49-b8b7-824772092138">
+        <!-- Form Inputs. Each input must have a name="" attribute -->
+        <!-- <button type="button" class="btn cancel" onclick="closeForm()">✕</button> -->
+        <a id="letter-title">title:</a>
+        <input autocomplete="off" id="title-textarea" class="textarea" type="text" name="name" required>
+        <a id="letter-email">email:</a>
+        <input autocomplete="off" id="email-textarea" class="textarea" type="email" name="email" required>
+        <a id="letter-msg">message:</a>
+        <textarea id="msg-textarea" class="textarea" name="message" required></textarea>
+        <!-- Honeypot Spam Protection -->
+        <input autocomplete="off" type="checkbox" name="botcheck" class="hidden" style="display: none;">
+        <!-- Custom Confirmation / Success Page -->
+        <input type="hidden" name="redirect" value="https://andrejs-poikans.github.io/web/avita-web/">
+        <button id="submit-button" type="submit">submit</button>
+    </form>
+</div>
+  <main>
+      <div class = "categories" id="categories">
+        <a id="curatorial" href="../avita-web/works/curatorial/">curatorial</a>
+        <a id="film_radio" href="../avita-web/works/film&radio/">film & radio</a>
+        <a id="installation" href="../avita-web/works/installation/">installation</a>
+        <a id="performance" href="../avita-web/works/performance/">performance</a>
+        <a id="publication" href="../avita-web/works/publication/">publication</a>
+        <a id="research" href="../avita-web/works/research/">research</a>
     </div>
-
-    <main>
-        <div class = "categories" id="categories">
-            <a id="curatorial" href="/works/curatorial/">curatorial</a>
-            <a id="film_radio" href="/works/film&radio/">film & radio</a>
-            <a id="installation" href="/works/installation/">installation</a>
-            <a id="performance" href="/works/performance/">performance</a>
-            <a class = "active" id="publication" href="/works/publication/">publication</a>
-            <a id="research" href="/works/research/">research</a>
-        </div>
-        <div class = "workTitles" id="workTitles"></div>
-        <div class = "textures" id="textures">
-            <ul>
-                <li><img src="/texture-02.png"/></li>
-                <li><img src="/texture-03.png"/></li>
-                <li><img src="/texture-04.png"/></li>
-                <li><img src="/texture-05.png"/></li>
-                <li><img src="/texture-06.png"/></li>
-                <li><img src="/texture-07.png"/></li>
-                <li><img src="/texture-08.png"/></li>
-                <li><img src="/texture-09.png"/></li>
-                <li><img src="/texture-10.png"/></li>
-                <li><img src="/texture-11.png"/></li>
-                <li><img src="/texture-12.png"/></li>
-                <li><img src="/texture-13.png"/></li>
-            </ul>
-        </div>
+    <div class = "textures" id="textures">
+        <ul>
+          <li><img src="../avita-web/texture-02.png"/></li>
+          <li><img src="../avita-web/texture-03.png"/></li>
+          <li><img src="../avita-web/texture-04.png"/></li>
+          <li><img src="../avita-web/texture-05.png"/></li>
+          <li><img src="../avita-web/texture-06.png"/></li>
+          <li><img src="../avita-web/texture-07.png"/></li>
+          <li><img src="../avita-web/texture-08.png"/></li>
+          <li><img src="../avita-web/texture-09.png"/></li>
+          <li><img src="../avita-web/texture-10.png"/></li>
+          <li><img src="../avita-web/texture-11.png"/></li>
+          <li><img src="../avita-web/texture-12.png"/></li>
+          <li><img src="../avita-web/texture-13.png"/></li>
+        </ul>
+    </div>
         <div class = "container" dir="ltr" id="arena">
                 <ul class ="item" id="channel-description" style="display: none;"></ul>
                 <a class ="item" id="channel-link" style="display: none"></a>
