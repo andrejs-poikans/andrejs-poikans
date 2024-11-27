@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="en">
+<html>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>avita maheen</title>
+<link rel="canonical" href="https://avita.space/index.html"/>
+<meta name="description" content="portfolio page of Avita Maheen" />
+<link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+
+<link rel="prefetch" 
+href="/fonts/Courier_Prime/CourierPrime-Regular.ttf"
+href="/fonts/Courier_Prime/CourierPrime-Italic.ttf"
+href="/fonts/Courier_Prime/CourierPrime-Bold.ttf"
+href="/fonts/Courier_Prime/CourierPrime-BoldItalic.ttf"
+as="font" type="font/ttf" crossorigin="anonymous">
+
+<!-- arena code + style sheet -->
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/js/arena/reset.css">
+<script defer src="/js/arena/news.js"></script>
+<script defer src="/js/other/color_theme_switch.js"></script>
+<script defer src="/js/other/pop_up.js"></script>
+<script defer src="/js/other/toggle_menu_home.js"></script>
+	
+<!-- website developed by Andrejs Poikāns
+░░              ░░
+                ░░              ░░
+                  ░░    ▒▒▒▒░░░░  ░░
+            ░░░░░░▒▒  ░░  ░░  ░░░░░░
+            ░░  ▒▒░░            ▒▒  ░░
+          ░░    ▒▒░░            ▒▒  ░░▒▒          ▒▒
+          ▒▒  ░░▒▒░░░░  ▒▒      ░░▒▒  ░░░░
+                ░░  ░░░░▒▒        ░░▒▒░░░░        ░░
+                ░░▒▒  ░░▒▒    ░░░░  ░░▓▓░░        ░░
+              ░░  ░░▒▒░░░░░░  ░░░░▒▒    ▒▒░░      ▒▒
+                ░░  ▒▒░░░░▒▒        ░░    ▒▒    ░░▒▒
+                ░░  ▓▓  ░░  ▓▓      ▒▒    ▒▒    ░░░░
+                  ▒▒▒▒    ░░▓▓        ▒▒  ▒▒    ░░░░▒▒
+                    ▓▓░░  ░░  ▒▒        ░░▓▓    ░░░░██
+                      ▒▒  ░░░░  ░░░░      ▓▓    ░░▓▓
+                        ▓▓    ▒▒░░▓▓        ░░    ▓▓  ▓▓
+                        ░░▓▓▒▒      ▒▒      ░░  ░░░░  ▒▒
+                              ▒▒▓▓██░░▒▒  ░░      ░░    ▒▒
+                                      ▒▒▒▒░░        ▒▒  ░░
+                                        ▒▒▓▓        ░░▒▒
+                                          ▓▓          ▒▒
+                                          ░░██      ░░░░
+                                            ██      ▒▒
+                                            ▓▓      ▓▓
+                                            ░░░░    ▒▒
+                                              ▓▓  ▒▒
+                                              ▓▓░░▓▓
+                                              ░░▓▓▒▒
+                                                ▓▓
+                                                ██
+                                                ▓▓
+                                                ▓▓
+                                                ██░░
+-->
+
+<body>
+    <header>
+        <button class="open-button" id="mobile-menu" onclick="toggleMenuNews()">+</button>
+        <button class="open-button" id="mobile-theme" onclick="toggleDarkMode()" title="Dark mode">*</button>
+        <div class = "links" id = "links">
+            <a id="home" class="active logo" href="/.."><img src="/logo.png" alt="avita maheen" /></a>
+            <a class="open-button" id="works-button" href="/works">works</a>
+            <a class="news active" id="news"  href="/news/">news</a>
+            <button class="open-button" id="form-button" onclick="openForm()" onclick="closeForm()">write me a love letter</button>
+            <a target="_blank" id="socials" href="https://on.soundcloud.com/kjM5G7gMvFa1JbAQ6">sc</a>
+        </div>
+        <div class = "colorTheme">
+            <button class="theme-button" onclick="toggleDarkMode()" title="Dark mode">curtains</button>
+        </div>
+    </header>
+
+    <!-- pop up canvas-->
+    <canvas id="form-canvas" onclick="closeForm()"></canvas>
+    <button onclick="closeForm()" id = "close-form" class="close-button">✕</button> 
+
+    <!-- pop up love letter -->
+    <div class="form-popup" id="myForm">
+        <form action="https://api.web3forms.com/submit" method="POST" class="form-container">
+
+            <!-- Replace with your Access Key -->
+            <input autocomplete="off" type="hidden" name="access_key" value="7e63ade4-27b3-4d49-b8b7-824772092138">
+            <!-- Form Inputs. Each input must have a name="" attribute -->
+            <!-- <button type="button" class="btn cancel" onclick="closeForm()">✕</button> -->
+            <a id="letter-title">title:</a>
+            <input autocomplete="off" id="title-textarea" class="textarea" type="text" name="name" required>
+            <a id="letter-email">email:</a>
+            <input autocomplete="off" id="email-textarea" class="textarea" type="email" name="email" required>
+            <a id="letter-msg">message:</a>
+            <textarea id="msg-textarea" class="textarea" name="message" required></textarea>
+            <!-- Honeypot Spam Protection -->
+            <input autocomplete="off" type="checkbox" name="botcheck" class="hidden" style="display: none;">
+            <!-- Custom Confirmation / Success Page -->
+            <input type="hidden" name="redirect" value="https://avita.space/news/">
+            <button id="submit-button" type="submit">submit</button>
+    </div>
+
+    <!-- content -->
+    <main>
+        <div class = "textures" id="textures">
+            <ul>
+                <li><img src="/texture-02.png"/></li>
+                <li><img src="/texture-03.png"/></li>
+                <li><img src="/texture-04.png"/></li>
+                <li><img src="/texture-05.png"/></li>
+                <li><img src="/texture-06.png"/></li>
+                <li><img src="/texture-07.png"/></li>
+                <li><img src="/texture-08.png"/></li>
+                <li><img src="/texture-09.png"/></li>
+                <li><img src="/texture-10.png"/></li>
+                <li><img src="/texture-11.png"/></li>
+                <li><img src="/texture-12.png"/></li>
+                <li><img src="/texture-13.png"/></li>
+            </ul>
+        </div>
+        <div class = "container news" dir="ltr" id="arena">
+            <ul class ="item" id="channel-description" style="display: none;"></ul>
+            <a class ="item" id="channel-link" style="display: none"></a>
+            <ul class ="item" id="channel-blocks"></ul>
+            <ul class ="item" id="channel-titles" style="display: none;"></ul>
+            <ul class ="item" id="description" style="display: none;"></ul>
+        </div>
+    </main>
+    
+</body>
+</html>

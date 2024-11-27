@@ -1,0 +1,38 @@
+
+@import "./style.css";
+
+@font-face {
+    font-display: swap;
+    font-family: "Courier Prime";
+    font-style: normal;
+    src: url('../fonts/Courier_Prime/CourierPrime-Regular.ttf') format('ttf');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Courier Prime";
+    font-style: italic;
+    src: url('../fonts/Courier_Prime/CourierPrime-Italic.ttf') format('ttf');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Courier Prime";
+    font-style: bold;
+    src: url('../fonts/Courier_Prime/CourierPrime-Bold.ttf') format('ttf');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Courier Prime";
+    font-weight: bold;
+    font-style: italic;
+    src: url('../fonts/Courier_Prime/CourierPrime-BoldItalic.ttf') format('ttf');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Noto Sans Bengali";
+    font-style: normal;
+    src: url('../fonts/Noto_Sans_Bengali/NotoSansBengali-VariableFont_wdth_wght.ttf') format('ttf');
+}

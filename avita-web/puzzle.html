@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <title>Image Puzzle with Multiple Images</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #8C0E03; 
+      }
+      canvas {
+        overflow: hidden;
+        position: fixed;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        max-width: 90vw;
+        max-height: 90vh;
+        border: 1px solid black;
+      }
+        /* mobile */
+      @media only screen and (max-width: 767px){
+        body {
+        height: 80vh;
+        }
+        canvas {
+        max-width: 360px;
+        max-height: 360px;
+        }
+      }
+          /* Portrait and Landscape ipad */
+      @media only screen 
+      and (min-device-width: 768px) 
+      and (max-device-width: 1024px) {
+        body {
+        height: 80vh;
+        }
+        canvas {
+        max-width: 500px;
+        max-height: 500px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      let img, img2, img3; // The three image objects
+      let pieces = [];
+      let rows = 10;
+      let cols = 8;
+      let pieceWidth, pieceHeight;
+      let draggedPiece = null;
+      let canvasWidth = 600;
+      let canvasHeight = 600;
+      let imageSources = []; // Array to hold the source images for each piece
+
+      function preload() {
+        img = loadImage("profile.jpg", () => {
+            // Resize the image to fit within the canvas
+            // Maintain aspect ratio by setting either width or height to 0
+            img.resize(canvasWidth, 0); // Resize to the canvas width, maintaining aspect ratio
+        });
+        img2 = loadImage("texture-12.png", () => {
+            // Resize the image to fit within the canvas
+            // Maintain aspect ratio by setting either width or height to 0
+            img.resize(canvasWidth, 0); // Resize to the canvas width, maintaining aspect ratio
+        });
+        img3 = loadImage("texture-07.png", () => {
+            // Resize the image to fit within the canvas
+            // Maintain aspect ratio by setting either width or height to 0
+            img.resize(canvasWidth, 0); // Resize to the canvas width, maintaining aspect ratio
+        });
+        }
+
+      function setup() {
+
+        // Create a canvas maintaining the image aspect ratio
+        createCanvas(canvasWidth, canvasHeight);
+        imageMode(CORNER);
+
+        // Calculate the piece size based on rows and columns
+        pieceWidth = canvasWidth / cols;
+        pieceHeight = canvasHeight / rows;
+
+        // Decide which image to use for each puzzle piece
+        // You can randomize or control the distribution however you'd like.
+        for (let i = 0; i < rows; i++) {
+          for (let j = 0; j < cols; j++) {
+            let piece = {
+              imgX: j * pieceWidth,
+              imgY: i * pieceHeight,
+              gridX: j,
+              gridY: i,
+              x: j * pieceWidth,
+              y: i * pieceHeight,
+              image: null,
+            };
+
+            // Randomly assign each piece an image (img, img2, or img3)
+            let randomImage = random([img, img2, img3]); // Randomly choose one of the three images
+            piece.image = randomImage; // Assign the image to the piece
+
+            pieces.push(piece);
+          }
+        }
+
+        shuffle(pieces, true); // Shuffle pieces at the beginning
+        assignGridPositions(); // Reassign shuffled pieces to valid grid positions
+      }
+
+      function draw() {
+        background(140, 14, 3);
+
+        // Draw each puzzle piece
+        for (let i = 0; i < pieces.length; i++) {
+          let piece = pieces[i];
+          image(
+            piece.image, // Use the assigned image for this piece
+            piece.x,
+            piece.y,
+            pieceWidth,
+            pieceHeight,
+            piece.gridX * pieceWidth, // Use the original coordinates for cropping the image
+            piece.gridY * pieceHeight,
+            pieceWidth,
+            pieceHeight
+          );
+        }
+      }
+
+      function mousePressed() {
+        // Find the piece the mouse is over and pick it up for dragging
+        for (let i = 0; i < pieces.length; i++) {
+          let piece = pieces[i];
+          if (
+            mouseX > piece.x &&
+            mouseX < piece.x + pieceWidth &&
+            mouseY > piece.y &&
+            mouseY < piece.y + pieceHeight
+          ) {
+            draggedPiece = i;
+            break;
+          }
+        }
+      }
+
+      function mouseDragged() {
+        if (draggedPiece !== null) {
+          // Allow the dragged piece to follow the mouse (centered on the piece)
+          pieces[draggedPiece].x = mouseX - pieceWidth / 2;
+          pieces[draggedPiece].y = mouseY - pieceHeight / 2;
+        }
+      }
+
+      function mouseReleased() {
+        if (draggedPiece !== null) {
+          // Snap the dragged piece to the nearest grid position
+          let piece = pieces[draggedPiece];
+
+          // Calculate the closest grid position
+          let snappedX = round(piece.x / pieceWidth) * pieceWidth;
+          let snappedY = round(piece.y / pieceHeight) * pieceHeight;
+
+          // Ensure the snapped position is within the grid boundaries
+          snappedX = constrain(snappedX, 0, canvasWidth - pieceWidth);
+          snappedY = constrain(snappedY, 0, canvasHeight - pieceHeight);
+
+          // Check if there's already a piece at the snapped position
+          let targetPiece = getPieceAt(snappedX, snappedY);
+          if (targetPiece && targetPiece !== piece) {
+            // Swap positions with the target piece
+            let tempX = piece.x;
+            let tempY = piece.y;
+            piece.x = targetPiece.x;
+            piece.y = targetPiece.y;
+            targetPiece.x = tempX;
+            targetPiece.y = tempY;
+          } else {
+            // Snap into the closest grid position if it's empty
+            piece.x = snappedX;
+            piece.y = snappedY;
+          }
+
+          // Clear the dragged piece after snapping
+          draggedPiece = null;
+        }
+      }
+
+      // Function to check if a piece exists at the given grid position
+      function getPieceAt(x, y) {
+        for (let i = 0; i < pieces.length; i++) {
+          let piece = pieces[i];
+          if (piece.x === x && piece.y === y) {
+            return piece;
+          }
+        }
+        return null;
+      }
+
+      // Assign grid positions to pieces after shuffling
+      function assignGridPositions() {
+        let availablePositions = [];
+
+        // Create a list of available grid positions
+        for (let i = 0; i < rows; i++) {
+          for (let j = 0; j < cols; j++) {
+            availablePositions.push({ x: j * pieceWidth, y: i * pieceHeight });
+          }
+        }
+
+        // Assign scrambled grid positions to each piece
+        for (let i = 0; i < pieces.length; i++) {
+          let randIndex = floor(random(availablePositions.length));
+          let newPos = availablePositions.splice(randIndex, 1)[0];
+          pieces[i].x = newPos.x;
+          pieces[i].y = newPos.y;
+        }
+      }
+    </script>
+  </body>
+</html>
