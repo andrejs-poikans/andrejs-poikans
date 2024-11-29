@@ -12,11 +12,69 @@ let content = 'content';
 
 let directToChannel = `https://www.are.na/channel/${channelSlug}`;
 
-// Function to place channel info
 let placeChannelInfo = (data) => {
     let channelLink = document.getElementById('channel-link');
+
+    // the following is for wrapping description links inside the sliding element in the bottom
+    let channelDescription = document.getElementById('channel-description');
+
+    // Add the "item" class to the existing channel-description div
+    channelDescription.classList.add('item');
+    
+    // Convert Markdown → HTML
+    let rawDescriptionHtml = window.markdownit().render(data.metadata.description);
+    
+    // Create a temporary container to manipulate the HTML structure
+    let tempContainer = document.createElement('div');
+    tempContainer.innerHTML = rawDescriptionHtml;
+    
+    // Wrap all content in a parent <span>
+    let wrapperSpan = document.createElement('span');
+    
+    // Ornament set
+    let ornamentSet = [
+        "▄█████░░██░░░▀▀░▀░█▀▀██▀▀▀█▀▄",
+        "█▀▀██▀▀▀█▀▄",
+        "█░░░▀▀░▀░█▀▀██",
+        "█████░░██░░░",
+        "▀░▀░█▀▀██▀▀▀█▀▄▀░▀░█▀▀██▀▀▀█▀▄"
+    ];
+
+    // Function to get a random ornament
+    function getRandomOrnament() {
+        let randomIndex = Math.floor(Math.random() * ornamentSet.length);
+        return ornamentSet[randomIndex];
+    }
+
+    // Find all <a> elements within the container
+    tempContainer.querySelectorAll('a').forEach(link => {
+        // Prepend the random ornament span before each link
+        let ornamentSpan = document.createElement('span');
+        ornamentSpan.innerHTML = getRandomOrnament(); // Apply random ornament
+        wrapperSpan.appendChild(ornamentSpan);
+        
+        // Prepend the bullet span to each link
+        let bulletSpan = document.createElement('span');
+        // bulletSpan.innerHTML = '&nbsp;•&nbsp;';
+        wrapperSpan.appendChild(bulletSpan);
+        
+        // Clone and append the link to the wrapper span
+        wrapperSpan.appendChild(link.cloneNode(true));
+    });
+    
+    // Create the "latest-news" div and add the wrapped content
+    let latestNewsDiv = document.createElement('div');
+    latestNewsDiv.id = 'latest-news';
+    latestNewsDiv.className = 'marquee';
+    latestNewsDiv.appendChild(wrapperSpan);
+    
+    // Replace the "channel-description" content with the new structure
+    channelDescription.innerHTML = ''; // Clear existing content in channel-description
+    channelDescription.appendChild(latestNewsDiv);
+
     channelLink.href = `https://www.are.na/channel/${channelSlug}`;
 };
+
 
 // Modified renderBlock function
 let renderBlock = (block, index) => {

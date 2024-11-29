@@ -29,8 +29,21 @@ footer{
     z-index: 1;
 }
 
-footer a{
+.marquee a{
     font-size: 40px;
+    color: whitesmoke;
+    white-space:nowrap;
+    text-decoration: underline;
+}
+
+.marquee a:hover{
+    text-decoration: none;
+    color: #66806C;
+}
+
+span{
+    white-space:nowrap;
+    color: whitesmoke;
 }
 
 .marquee {
