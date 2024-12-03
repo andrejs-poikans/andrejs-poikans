@@ -38,8 +38,15 @@ function setupMarquee(id) {
     const textContent = firstItem.innerHTML; // Use the content of the first span
     const height = container.style.height;
 
-    container.onmouseout = () => rotateMarquee(marqueeContainers);
-    container.onmouseover = () => cancelAnimationFrame(marqueeContainers[0].animationID);
+    // container.onmouseout = () => rotateMarquee(marqueeContainers);
+    // container.onmouseover = () => cancelAnimationFrame(marqueeContainers[0].animationID);
+
+
+    if (window.innerWidth > 767) {
+        container.onmouseout = () => rotateMarquee(marqueeContainers);
+        container.onmouseover = () => cancelAnimationFrame(marqueeContainers[0].animationID);
+    }
+
 
     // Clear existing content but retain container
     container.innerHTML = "";
