@@ -6,4 +6,4 @@ here you can find some web projects in process
 
 [https://andrejs-poikans.github.io/andrejs-poikans/avita-web/](https://andrejs-poikans.github.io/andrejs-poikans/avita-web/) = [https://avita.space](https://avita.space)
 
-[https://andrejs-poikans.github.io/andrejs-poikans/crawl-web/](https://andrejs-poikans.github.io/andrejs-poikans/crawl-web/) = [https://crawwwl.eu](https://crawwl.eu)
+[https://andrejs-poikans.github.io/andrejs-poikans/crawl-web/](https://andrejs-poikans.github.io/andrejs-poikans/crawl-web/) = [https://crawwwl.eu](https://crawwwl.eu)
