@@ -369,10 +369,11 @@ mark a{color:red;}
     }
 
     .filter{
-        position: fixed;
+        position: absolute;
         top: 0px;
         right: var(--global-padding);
         color: rgb(188, 0, 0);
+        height: auto;
     }
 
     header{
