@@ -48,6 +48,9 @@ let placeChannelInfo = (data) => {
 
     // Find all <a> elements within the container
     tempContainer.querySelectorAll('a').forEach(link => {
+
+        link.setAttribute('target', '_blank');
+
         // Prepend the random ornament span before each link
         let ornamentSpan = document.createElement('span');
         ornamentSpan.innerHTML = getRandomOrnament(); // Apply random ornament
@@ -84,20 +87,15 @@ let renderBlock = (block, index) => {
     // Links!
     if (block.class === 'Link') {
         let linkItem = `
-            <li id="${uniqueId}" class="${title}">
-                <h1>${block.title}</h1>
-            </li>
-            <li class="${content}">
+            <li class = "${content} ${block.title}">
             <a target = "_blank" href="${ block.source.url }">
+                <h1>${block.title}</h1>
                 <picture>
                     <source media="(max-width: 428px)" srcset="${block.image.thumb.url}">
                     <source media="(max-width: 640px)" srcset="${block.image.large.url}">
                     <img src="${block.image.original.url}">
                 </picture>
             </a>
-            </li>
-            <li class="${description}">
-                <article>${block.description_html}</article>
             </li>
         `;
         channelBlocks.insertAdjacentHTML('beforeend', linkItem);
@@ -108,34 +106,37 @@ let renderBlock = (block, index) => {
     else if (block.class == 'Image') {
         let imageItem =
         `
-        <li id="${uniqueId}" class="${title}">
+        <li class ="${title} ${block.title}">
             <h1>${block.title}</h1>
         </li>
-        <li class="${description}">
-            <h2>${block.description_html}</h2>
+        <li class="${title} ${block.title}">
+            <article>${block.description_html}</article>
         </li>
-        <li class="${content}">
-            <img src="${block.image.original.url}">
+        <li class="${block.title} poster">
+            <div class = "tag">
+            <a href="${ block.image.original.url }" target="_blank">
+                <img loading="lazy" src="${block.image.original.url}">
+                <br>
+                <em>⊕</em>
+            </a>
+            </div>
         </li>
         `;
 
         channelBlocks.insertAdjacentHTML('beforeend', imageItem);
     }
 
+    
        // Text blocks
+
+       //if text article return such elements formated like this and that etc
     else if (block.class == 'Text') {
         let textItem =
         `
-        <li id="${uniqueId}" class ="${title}">
+        <li class = "${content} ${block.title}">
             <h1>${block.title}</h1>
-        </li>
-
-        <li class="${description}">
-            <h2>${block.description_html}</h2>
-        </li>
-
-        <li class = "${content}">
             <article>${block.content}</article>
+            <article>${block.description_html}</article>
         </li>
         `;
         channelBlocks.insertAdjacentHTML('beforeend', textItem);
@@ -150,12 +151,19 @@ let renderBlock = (block, index) => {
         if (embed.includes('video')) {
             let linkedVideoItem =
             `
-            <li id="${uniqueId}" class = "${title}">
+            <li class = "${content} video">
                 <h1>${block.title}</h1>
-            </li>
-
-            <li class = "${content}">
-               ${block.embed.html}
+                <div class = "tag">
+                    <a target = "_blank" href="${ block.source.url }">
+                    <picture>
+                        <source media="(max-width: 350px)" srcset="${block.image.thumb.url}">
+                        <source media="(max-width: 640px)" srcset="${block.image.large.url}">
+                        <img loading="lazy" src="${block.image.original.url}">
+                    </picture>
+                    <br>
+                    <em>➶ video</em>
+                    </a>
+                </div>
             </li>
             `;
             channelBlocks.insertAdjacentHTML('beforeend', linkedVideoItem);
@@ -165,12 +173,19 @@ let renderBlock = (block, index) => {
         else if (embed.includes('rich')) {
             let linkedAudioItem =
             `
-            <li id="${uniqueId}" class = "${title}">
+            <li id="${uniqueId}" class = "${content} audio">
                 <h1>${block.title}</h1>
-            </li>
-
-            <li class = "${content}">
-                ${block.embed.html}
+                <div class = "tag">
+                    <a target = "_blank" href="${ block.source.url }">
+                    <picture>
+                        <source media="(max-width: 350px)" srcset="${block.image.thumb.url}">
+                        <source media="(max-width: 640px)" srcset="${block.image.large.url}">
+                        <img loading="lazy" src="${block.image.original.url}">
+                    </picture>
+                    <br>
+                    <em>➶ audio</em>
+                    </a>
+                </div>
             </li>
             `;
             channelBlocks.insertAdjacentHTML('beforeend', linkedAudioItem);
@@ -189,3 +204,6 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
             renderBlock(block, index); // Pass the single block data to the render function along with its index
         });
     });
+
+
+    

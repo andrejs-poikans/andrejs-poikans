@@ -11,25 +11,54 @@
 
   <link rel="preload" href="../crawl-web/fonts/Arial/web-fonts/8d223b3ad8d4819e9dcf22757e4cc2c4.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Monofett&family=New+Tegomin&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Splash&display=swap" rel="stylesheet">
+
+
   <link rel="stylesheet" href="../crawl-web/css/main.css">
   <link rel="stylesheet" href="../crawl-web/js/arena/reset.css">
   <script defer src="../crawl-web/js/arena/home.js"></script>
   <script defer src="../crawl-web/js/other/sliding-text.js"></script>
+  <script defer src="../crawl-web/js/other/toggle-menu.js"></script>
+  <script defer src="../crawl-web/js/other/progress-bar.js"></script>
 </head>
 
 <body>
 
-  <div><mark><a href = "../crawl-web/archive/index.html">archive</a></mark></div>
+  <header>
+
+    <div class="logo toggle">
+      <div class="menu-circle"></div>
+      <img class="scripture" src="crawl-logo.svg" alt="Toggle Menu">
+    </div>
+
+    <div class = "menu">
+      <a class = "home" href = "index.html">home</a>
+      <a class = "archive" href = "../crawl-web/archive/index.html">archive</a>
+      <a class = "newsletter" target = "_blank" href = "https://crawwwl.us9.list-manage.com/subscribe?u=461860544215a4f216cd2107d&id=04bda1409f">➶ newsletter</a>
+      <a class = "socials" target = "_blank" href = "https://www.instagram.com/crawl_space__/">➶ socials</a>
+    </div>
+
+  </header>
 
   <main>
       <div class = "container" dir="ltr" id="arena">
-          <a class ="item" id="channel-link">are.na channel</a>
+          <a class ="item" id="channel-link"></a>
           <ul class ="item" id="channel-blocks"></ul>
       </div>
   </main>
   
   <footer>
-    <div id="channel-description" class="item"></div>
+    <div class= "filter"></div>
+    <div class="progress-container">
+      <div class="progress-circle"></div>
+      <div class="progress-circle"></div>
+      <div class="progress-circle"></div>
+      <div class="progress-circle"></div>
+      <div class="progress-circle"></div>
+    </div>
+    <div class = "slilde"><div id="channel-description" class="item slide"></div></div>
   </footer>
 
 </body>

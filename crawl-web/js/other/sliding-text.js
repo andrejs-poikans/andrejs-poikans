@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeMarqueeWhenReady() {
-    const container = document.getElementById('channel-description');
+    const container = document.getElementById("channel-description");
 
     // Check if the container has the required elements
     if (container && container.querySelectorAll('span, a').length > 0) {
@@ -41,8 +41,9 @@ function setupMarquee(id) {
     // container.onmouseout = () => rotateMarquee(marqueeContainers);
     // container.onmouseover = () => cancelAnimationFrame(marqueeContainers[0].animationID);
 
-
-    if (window.innerWidth > 767) {
+    // take away the mouse hover stop on mobile and ipad
+    // ipad width
+    if (window.innerWidth > 1024) {
         container.onmouseout = () => rotateMarquee(marqueeContainers);
         container.onmouseover = () => cancelAnimationFrame(marqueeContainers[0].animationID);
     }
