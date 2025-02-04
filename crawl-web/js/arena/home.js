@@ -10,6 +10,12 @@ let title = 'title';
 let description = 'description';
 let content = 'content';
 
+let web = 'web';
+let image = 'image';
+let text = 'text';
+let audio = 'audio';
+let video = 'video';
+
 let directToChannel = `https://www.are.na/channel/${channelSlug}`;
 
 let placeChannelInfo = (data) => {
@@ -82,20 +88,25 @@ let placeChannelInfo = (data) => {
 // Modified renderBlock function
 let renderBlock = (block, index) => {
     let channelBlocks = document.getElementById('channel-blocks');
-    let uniqueId = `block-${index}`;
 
     // Links!
     if (block.class === 'Link') {
         let linkItem = `
-            <li class = "${content} ${block.title}">
-            <a target = "_blank" href="${ block.source.url }">
-                <h1>${block.title}</h1>
-                <picture>
-                    <source media="(max-width: 428px)" srcset="${block.image.thumb.url}">
-                    <source media="(max-width: 640px)" srcset="${block.image.large.url}">
-                    <img src="${block.image.original.url}">
-                </picture>
-            </a>
+            <li class = "${content} ${web}">
+            <div class = "tag">
+                <a target = "_blank" href="${ block.source.url }">
+                    <picture>
+                        <source media="(max-width: 428px)" srcset="${block.image.thumb.url}">
+                        <source media="(max-width: 640px)" srcset="${block.image.large.url}">
+                        <img src="${block.image.original.url}">
+                    </picture>
+                    <br>
+                    <em>➶ web</em>
+                </a>
+            </div>
+            </li>
+            <li class = "${title}">
+                    <h1>${block.title}</h1>
             </li>
         `;
         channelBlocks.insertAdjacentHTML('beforeend', linkItem);
@@ -106,13 +117,13 @@ let renderBlock = (block, index) => {
     else if (block.class == 'Image') {
         let imageItem =
         `
-        <li class ="${title} ${block.title}">
+        <li class ="${title}">
             <h1>${block.title}</h1>
         </li>
-        <li class="${title} ${block.title}">
+        <li class="${description}">
             <article>${block.description_html}</article>
         </li>
-        <li class="${block.title} poster">
+        <li class="${block.title} ${image}">
             <div class = "tag">
             <a href="${ block.image.original.url }" target="_blank">
                 <img loading="lazy" src="${block.image.original.url}">
@@ -133,7 +144,7 @@ let renderBlock = (block, index) => {
     else if (block.class == 'Text') {
         let textItem =
         `
-        <li class = "${content} ${block.title}">
+        <li class = "${title}">
             <h1>${block.title}</h1>
             <article>${block.content}</article>
             <article>${block.description_html}</article>
@@ -151,8 +162,7 @@ let renderBlock = (block, index) => {
         if (embed.includes('video')) {
             let linkedVideoItem =
             `
-            <li class = "${content} video">
-                <h1>${block.title}</h1>
+            <li class = "${content} ${video}">
                 <div class = "tag">
                     <a target = "_blank" href="${ block.source.url }">
                     <picture>
@@ -165,6 +175,9 @@ let renderBlock = (block, index) => {
                     </a>
                 </div>
             </li>
+            <li class = "${title}">
+                    <h1>${block.title}</h1>
+            </li>
             `;
             channelBlocks.insertAdjacentHTML('beforeend', linkedVideoItem);
         }
@@ -173,8 +186,7 @@ let renderBlock = (block, index) => {
         else if (embed.includes('rich')) {
             let linkedAudioItem =
             `
-            <li id="${uniqueId}" class = "${content} audio">
-                <h1>${block.title}</h1>
+            <li class = "${content} ${audio}">
                 <div class = "tag">
                     <a target = "_blank" href="${ block.source.url }">
                     <picture>
@@ -186,6 +198,9 @@ let renderBlock = (block, index) => {
                     <em>➶ audio</em>
                     </a>
                 </div>
+            </li>
+            <li class = "${title}">
+                    <h1>${block.title}</h1>
             </li>
             `;
             channelBlocks.insertAdjacentHTML('beforeend', linkedAudioItem);
