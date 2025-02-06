@@ -291,25 +291,36 @@ mark a{color:red;}
         font-family: Arial, Helvetica, sans-serif;
     }
     .container ul {
-        padding-top: 2.4em;
+        display: block;
+        /* padding-top: calc(1em + 30px); */
+
+        padding-top: 1em;
         padding-left: 15px;
         padding-right: 15px;
         flex-direction: column;
-        gap: 1.5em;
+        gap: 0;
     }
 
     .container ul li {
         line-height: 1.2em!important;
         width: 100%;
         max-width: 100%;
-        padding-top: 1em!important;
-        margin-top: 0em!important;
+        /* padding-top: 1em!important; */
+
+        margin-top: 0!important;
+        padding-bottom: 0em;
     }
     
     .menu{
+        position: fixed;
         line-height: 1.5em!important;
         font-size: 1em;
-        margin-top: 2em;
+        /* margin-top: 2em; */
+        text-align: center;
+        width: 100%;
+        left: 50%;
+        top: calc(50% - ((1em)*4));
+        transform: translate(-50%, -50%);
     }
 
     footer {
@@ -322,31 +333,39 @@ mark a{color:red;}
     }
 
     .title{
+        padding-top: 1em!important;
+        padding-bottom: 1.5em!important;
         border-left: none;
         border-top: 1px dotted var(--title-color);
         width: 100%;
     }
     
     .description{
+        padding-top: 1em!important;
+        padding-bottom: 1.5em!important;
         border-top: 1px dotted var(--title-color);
         width: 100%;
-        margin-top: 0em!important;
+        margin-top: 0!important;
     }
     
     .image{
-        margin-top: 0em!important;
+        margin-top: 0!important;
+        padding-top: 0em!important;
+        padding-bottom: 1.5em!important;
     }
 
     /* logic for toggle menu */
     .scripture{
-        display: none;
+        /* display: none; */
+        display: block;
     }
     .scripture.open{
         display: none;
     }
     .menu-circle{
         background-color: gray;
-        display: block;
+        /* display: block; */
+        display: none;
     }
     .menu-circle.open{
         display: none;
@@ -360,11 +379,16 @@ mark a{color:red;}
     }
 
     header{
-        padding: 15px;
-        width: 100%;
+        /* padding: 15px;
+        width: 100%; */
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        width: 75%;
     }
 
     .note{
+        padding-top: 0.5em!important;
         border-top: none!important;
         width: 100%;
     }
@@ -378,17 +402,28 @@ mark a{color:red;}
     }
 
     .container ul .image img{
+        filter: invert(1) grayscale(1);
+        padding-top: 1em;
         width: 100%;
+        opacity: 0.9;
     }
 
     .container ul li:last-child{
-        padding-bottom: 2em;
+        padding-bottom: calc(1em + 30px);
     }
 
 
     .audio, .video, .web{
-        padding-bottom: 0em!important;
-        width: 50%;
+        height: auto;
+        width: 100%;
+    }
+
+    h3{
+        display: none;
+    }
+
+    h1{
+        width: 100%;
     }
 
     mark, em{
@@ -399,12 +434,16 @@ mark a{color:red;}
 
     h2{
         text-align: left;
-        color: black;
-        font-style: italic;
+        color: var(--title-color);
     }
 
     .datetag{
+        border-bottom: 1px dotted var(--title-color);
         width: 100%;
-        color: var(--title-color);
     }
+
+    .tag{
+        line-height: 0.9em!important;
+    }
+
 }
