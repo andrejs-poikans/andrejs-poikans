@@ -292,9 +292,9 @@ mark a{color:red;}
     }
     .container ul {
         display: block;
-        /* padding-top: calc(1em + 30px); */
+        padding-top: calc(1em + 30px);
 
-        padding-top: 1em;
+        /* padding-top: 1em; */
         padding-left: 15px;
         padding-right: 15px;
         flex-direction: column;
@@ -312,20 +312,20 @@ mark a{color:red;}
     }
     
     .menu{
-        position: fixed;
         line-height: 1.5em!important;
         font-size: 1em;
-        /* margin-top: 2em; */
-        text-align: center;
-        width: 100%;
+        margin-top: 2em;
+        text-align: left;
+        width: auto;
+        /* position: fixed;
         left: 50%;
         top: calc(50% - ((1em)*4));
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); */
     }
 
     footer {
         padding: 15px;
-        font-size: 0.7em;
+        font-size: 0.7em!important;
     }
 
     .filter{
@@ -356,16 +356,16 @@ mark a{color:red;}
 
     /* logic for toggle menu */
     .scripture{
-        /* display: none; */
-        display: block;
+        display: none;
+        /* display: block; */
     }
     .scripture.open{
-        display: none;
+        display: block;
     }
     .menu-circle{
         background-color: gray;
-        /* display: block; */
-        display: none;
+        display: block;
+        /* display: none; */
     }
     .menu-circle.open{
         display: none;
@@ -375,16 +375,16 @@ mark a{color:red;}
     }
 
     .marquee a{
-        font-size: 1em;
+        font-size: 0.7em!important;;
     }
 
     header{
-        /* padding: 15px;
-        width: 100%; */
-        top:50%;
+        padding: 15px;
+        width: 100%;
+        /* top:50%;
         left:50%;
         transform: translate(-50%, -50%);
-        width: 75%;
+        width: 75%; */
     }
 
     .note{
