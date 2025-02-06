@@ -107,7 +107,8 @@ let renderBlock = (block, index) => {
                 </a>
             </div>
             </li>
-            <li class = "${title}">
+            <li class = "${title} note">
+                    <h3>⋱</h3>
                     <h1>${block.title}</h1>
             </li>
         `;
@@ -119,7 +120,7 @@ let renderBlock = (block, index) => {
     else if (block.class == 'Image') {
         let imageItem =
         `
-        <li class ="${title}">
+        <li class ="${title} datetag" id = "${block.title}">
             <h2>${block.title}</h2>
         </li>
         <li class="${block.title} ${image}">
@@ -142,8 +143,10 @@ let renderBlock = (block, index) => {
     else if (block.class == 'Text') {
         let textItem =
         `
-        <li class = "${title} ${text}" id = "${block.content}">
-            <h3>${block.content}</h3>
+        <li class = "${description} ${text}">
+            <h1>${block.title}</h1>
+            <article>${block.content}</article>
+            <article>${block.description_html}</article>
         </li>
         `;
         channelBlocks.insertAdjacentHTML('beforeend', textItem);
@@ -171,7 +174,8 @@ let renderBlock = (block, index) => {
                     </a>
                 </div>
             </li>
-            <li class = "${title}">
+            <li class = "${title} note">
+                    <h3>⋱</h3>
                     <h1>${block.title}</h1>
             </li>
             `;
@@ -195,7 +199,8 @@ let renderBlock = (block, index) => {
                     </a>
                 </div>
             </li>
-            <li class = "${title}">
+            <li class = "${title} note">
+                    <h3>⋱</h3>
                     <h1>${block.title}</h1>
             </li>
             `;

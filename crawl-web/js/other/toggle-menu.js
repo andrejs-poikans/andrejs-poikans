@@ -7,7 +7,7 @@ const body = document.querySelector("body");
 const progress = document.querySelector(".progress-container");
 const filter = document.querySelector(".filter");
 
-const logo = document.querySelector(".logo");
+// const logo = document.querySelector(".logo");
 
 const sc = document.querySelector(".scripture");
 const mc = document.querySelector(".menu-circle");
@@ -25,7 +25,7 @@ function toggleMenu() {
     body.style.overflow = 'scroll';
     progress.style.visibility = 'visible';
     filter.style.visibility = 'visible';
-    logo.style.opacity = '1.0';
+    // logo.style.opacity = '1.0';
   } else {
     // Open menu
     header.classList.add("open");
@@ -36,7 +36,7 @@ function toggleMenu() {
     body.style.overflow = 'hidden';
     progress.style.visibility = 'hidden';
     filter.style.visibility = 'hidden';
-    logo.style.opacity = '0.5';
+    // logo.style.opacity = '0.5';
   }
 }
 
@@ -55,6 +55,6 @@ header.addEventListener("click", (event) => {
     body.style.overflow = 'scroll';
     progress.style.visibility = 'visible';
     filter.style.visibility = 'visible';
-    logo.style.opacity = '1.0';
+    // logo.style.opacity = '1.0';
   }
 });

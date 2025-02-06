@@ -105,7 +105,8 @@ let renderBlock = (block, index) => {
                 </a>
             </div>
             </li>
-            <li class = "${title}">
+            <li class = "${title} note">
+                     <h3>⋱</h3>
                     <h1>${block.title}</h1>
             </li>
         `;
@@ -144,7 +145,7 @@ let renderBlock = (block, index) => {
     else if (block.class == 'Text') {
         let textItem =
         `
-        <li class = "${title}">
+        <li class = "${description}">
             <h1>${block.title}</h1>
             <article>${block.content}</article>
             <article>${block.description_html}</article>
@@ -175,7 +176,8 @@ let renderBlock = (block, index) => {
                     </a>
                 </div>
             </li>
-            <li class = "${title}">
+            <li class = "${title} note">
+                    <h3>⋱</h3>
                     <h1>${block.title}</h1>
             </li>
             `;
@@ -199,7 +201,8 @@ let renderBlock = (block, index) => {
                     </a>
                 </div>
             </li>
-            <li class = "${title}">
+            <li class = "${title} note">
+                    <h3>⋱</h3>
                     <h1>${block.title}</h1>
             </li>
             `;
