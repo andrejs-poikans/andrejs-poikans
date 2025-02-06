@@ -87,6 +87,7 @@ a:hover{
 }
 
 .menu-circle {
+    margin-left: 2px;
     background-color: black;
     width: 1em; 
     height: 1em;  
@@ -306,9 +307,9 @@ mark a{color:red;}
     }
     
     .menu{
-        line-height: 1.2em!important;
+        line-height: 1.5em!important;
         font-size: 1em;
-        margin-top: 2.4em;
+        margin-top: 2em;
     }
 
     footer {
@@ -344,7 +345,7 @@ mark a{color:red;}
         display: none;
     }
     .menu-circle{
-        background-color: black;
+        background-color: gray;
         display: block;
     }
     .menu-circle.open{
@@ -354,6 +355,9 @@ mark a{color:red;}
         display: none;
     }
 
+    .marquee a{
+        font-size: 1em;
+    }
 
     header{
         padding: 15px;
