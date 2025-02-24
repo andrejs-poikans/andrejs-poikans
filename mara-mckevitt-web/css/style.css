@@ -1,0 +1,114 @@
+
+body{
+    --global-padding: 8px;
+    --background-color: white;
+    --link-color: #C1272D;
+    --body-text-color: black;
+    background-color: var(--background-color);
+
+    --global-line-height: 1.1em; 
+    --global-weight: 400;
+    line-height: var(--global-line-height);
+    font-size:16px;
+    display: flex;
+    font-stretch:wider;
+    margin: 0em;
+
+    height: 100vh;
+    width: 100vw;
+}
+
+h3{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    font-size: 1em;
+    font-weight: 900;
+    font-family: 'Inter', serif;
+    margin-bottom: 1em;
+}
+
+a{
+    color: var(--link-color);
+}
+
+i{
+    font-weight: 600;
+}
+
+
+/* to hide the marker and stylize the marker */
+/* details summary::-webkit-details-marker,
+details summary::marker {
+ content: none;
+ display: none;
+}
+
+details > summary::before{
+    content: '▸ ';
+    width: 10px;
+}
+
+details[open] > summary::before {
+    content: '▾ ';
+    width: 10px;
+} */
+
+
+
+details > summary {
+    font-size: 1em;
+    font-family: 'Inter', serif;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+ul {
+    font-family: 'Inter', serif;
+    font-size: 1em;
+    font-weight: 400;
+    list-style: none;
+    padding-inline-start: 0em;
+    line-height: auto; 
+}
+
+.info{
+    padding: var(--global-padding);
+    flex-direction: column;
+    width: 50%;
+}
+
+.logo{
+    padding: var(--global-padding);
+    width: 50%;
+}
+
+#m {
+    width: 100%;
+    height: 100%;
+}
+
+svg image{
+    height: 100%;
+    width: 100%;
+    transform: translate(0, 0) scale(calc(100%*(1/4)), calc(100%*(4/4)));
+}
+
+body:has(.projects details[open]) svg image{
+    transform: translate(calc(100%*(1/4)), calc(100%*(0/4))) scale(calc(100%*(3/4)), calc(100%*(1/4)));
+}
+
+body:has(.events details[open]) svg image{
+    transform: translate(calc(100%*(2/4)), calc(100%*(1/4))) scale(calc(100%*(2/4)), calc(100%*(2/4)));
+}
+
+body:has(.press details[open]) svg image{
+    transform: translate(calc(100%*(2/4)), calc(100%*(3/4))) scale(calc(100%*(2/4)), calc(100%*(1/4)));
+}
+
+body:has(.writing details[open]) svg image{
+    transform: translate(calc(100%*(1/4)), calc(100%*(1/4))) scale(calc(100%*(1/4)), calc(100%*(3/4)));
+}
+
+svg image {
+    transition: transform 0.7s ease-in-out;
+}
