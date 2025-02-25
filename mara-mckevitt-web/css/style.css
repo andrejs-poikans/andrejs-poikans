@@ -69,18 +69,22 @@ details[open] > summary::before {
 
 .gallery{
     display: none;
+    /* display:none;
     top: 0;
-    left: 0;
+    left: 50%;
     height: 100%;
-    width: auto;
-    flex-direction: row;
+    width: 50%;
     position:absolute;
-    overflow: scroll;
-    z-index: -1;
+    overflow: auto;
+    z-index: 1;
+    flex-wrap: wrap; */
+    width: 100vw;
 }
 
 .gallery img{
-    height: 100%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 100vw;
 }
 
 
@@ -102,6 +106,10 @@ ul {
 
 li {
     border-bottom:solid 1px rgb(238, 238, 238);
+}
+
+.contact ul li{
+    border-bottom:none;
 }
 
 .info{
@@ -150,6 +158,10 @@ body:has(.press details[open]) svg image{
 body:has(.writing details[open]) svg image{
     transform: translate(calc(100%*(1/4)), calc(100%*(1/4))) scale(calc(100%*(1/4)), calc(100%*(3/4)));
 }
+
+/* body:has(.contact details[open]) svg image{
+    transform: translate(calc(100%*(0/4)), calc(100%*(3/4))) scale(calc(100%*(4/4)), calc(100%*(1/4)));
+} */
 
 svg image {
     transition: transform 0.7s ease-in-out;
