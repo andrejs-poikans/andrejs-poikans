@@ -1,17 +1,38 @@
-@import "./style.css";
 
-/* @font-face {
-    font-family: "Inter", serif;
-    font-optical-sizing: auto;
-    src: url('../fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('ttf');
-    font-style:normal;
-    font-weight: 400;
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    src: url('../fonts/Inter/Inter-VariableFont_opsz_wght.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: "Inter", serif;
-    font-optical-sizing: auto;
-    src: url('../fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('ttf');
+    font-family: "Inter";
     font-style: italic;
-    font-weight: 400;
-} */
+    src: url('../fonts/Inter/Inter-Italic-VariableFont_opsz_wght.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: "Volkorn";
+    font-style: normal;
+    src: url('../fonts/Vollkorn/Vollkorn-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Volkorn";
+    font-style: italic;
+    src: url('../fonts/Vollkorn/Vollkorn-Italic-VariableFont_wght.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: "Playfair";
+    font-style: normal;
+    src: url('../fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Playfair";
+    font-style: italic;
+    src: url('../fonts/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+}

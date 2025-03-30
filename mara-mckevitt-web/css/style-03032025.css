@@ -1,30 +1,48 @@
 
 body{
+
+    font-family: 'Playfair', serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
     --global-padding: 8px;
     --background-color: white;
     --link-color: #C1272D;
-    --body-text-color: black;
+    --body-text-color: rgb(92, 25, 25);
+    --info-width: calc(40%*1.85);
+
     background-color: var(--background-color);
 
     --global-line-height: 1.1em; 
     --global-weight: 400;
     line-height: var(--global-line-height);
-    font-size:16px;
-    display: flex;
+    /* font-size:16px; */
+    font-size:18px;
+
     font-stretch:wider;
     margin: 0em;
 
     height: 100vh;
     width: 100vw;
+    color: var(--body-text-color);
 }
 
 h3{
+    /* font-family: 'Inter', sans-serif; */
+    color: var(--body-text-color);
+    font-style: italic;
     margin-block-start: 0em;
     margin-block-end: 0em;
-    font-size: 1em;
-    font-weight: 700;
-    font-family: 'Inter', serif;
-    margin-bottom: 1em;
+    font-size: 0.8em;
+    font-weight: 550;
+    text-align: center;
+    width: 200px;
+    position: fixed;
+    top: calc(50% - 0.8em);
+    left: calc(50% - 100px);
+    margin-right: auto;
+    z-index: 2;
+    /* background-color: rgb(241, 241, 241); */
 }
 
 a{
@@ -33,7 +51,7 @@ a{
 }
 
 i{
-    font-weight: 600;
+    font-weight: 550;
 }
 
 em::before {
@@ -45,13 +63,13 @@ em::after{
 }
 
 em{
-    font-weight: 300;
+    font-weight: 550;
     font-style: normal;
 }
 
 
 /* to hide the marker and stylize the marker */
-/* details summary::-webkit-details-marker,
+details summary::-webkit-details-marker,
 details summary::marker {
  content: none;
  display: none;
@@ -65,7 +83,7 @@ details > summary::before{
 details[open] > summary::before {
     content: '▾ ';
     width: 10px;
-} */
+}
 
 .gallery{
     display: none;
@@ -90,14 +108,13 @@ details[open] > summary::before {
 
 details > summary {
     font-size: 1em;
-    font-family: 'Inter', serif;
-    font-weight: 500;
+    font-weight: 400;
     cursor: pointer;
+    border-bottom:solid 1px rgb(238, 238, 238);
 }
 
 ul {
-    font-family: 'Inter', serif;
-    font-size: 1em;
+    font-size: 0.9em;
     font-weight: 400;
     list-style: none;
     padding-inline-start: 0em;
@@ -113,13 +130,24 @@ li {
 }
 
 .info{
-    padding: var(--global-padding);
+    position: absolute;
+    display: flex;
     flex-direction: column;
-    width: 50%;
+    padding: var(--global-padding);
     overflow:scroll;
 
-  /*  -ms-overflow-style: none;  /* IE and Edge */
+    margin-left: calc(50% - (var(--info-width)/2));
+    margin-right: calc(50% - (var(--info-width)/2));
+    max-width:var(--info-width);
+    
+    width: 100%;
+    z-index: 1;
+    /*  -ms-overflow-style: none;  /* IE and Edge */
     /*  scrollbar-width: none;  /* Firefox */
+}
+
+.menu{
+    padding-top: 0.8em;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -128,11 +156,16 @@ li {
 } */
 
 .logo{
-    padding: var(--global-padding);
-    width: 50%;
+    position: fixed;
+    display: flex;
+    height: 100%;
+    /* padding: var(--global-padding); */
+    width: 100%;
+    z-index: 0;
 }
 
 svg {
+    opacity: 0.1;
     width: 100%;
     height: 100%;
 }
