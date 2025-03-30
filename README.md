@@ -8,4 +8,8 @@ here you can find some web projects in process
 
 [https://andrejs-poikans.github.io/andrejs-poikans/crawl-web/](https://andrejs-poikans.github.io/andrejs-poikans/crawl-web/) = [https://crawwwl.eu](https://crawwwl.eu)
 
-[https://andrejs-poikans.github.io/andrejs-poikans/mara-mckevitt-web/](https://andrejs-poikans.github.io/andrejs-poikans/mara-mckevitt-web/)
+[https://andrejs-poikans.github.io/andrejs-poikans/mara-mckevitt-web/](https://andrejs-poikans.github.io/andrejs-poikans/mara-mckevitt-web/index1.html)
+
+[https://andrejs-poikans.github.io/andrejs-poikans/marta-web/](https://andrejs-poikans.github.io/andrejs-poikans/marta-web/)
+
+[https://andrejs-poikans.github.io/andrejs-poikans/anda-web/](https://andrejs-poikans.github.io/andrejs-poikans/anda-web/)
