@@ -1,0 +1,19 @@
+/* artist-website-css/style.css */
+
+/* Portfolio container styles */
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    border-radius: 10px;
+  }
+
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .portfolio-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
