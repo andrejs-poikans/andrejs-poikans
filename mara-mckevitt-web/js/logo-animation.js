@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { name: "contact", weight: 16 }
   ];
 
+
   const allowedScales = [1, 1/2, 1/3, 1/5];
 
   // Build a list of all valid scale pairs (excluding both being 1/3 or 1/5)
@@ -45,6 +46,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   }
 
+    /*
+  const allowedScales = [1, 1/2, 1/4, 1/8];
+
+  const validScaleCombos = [];
+  for (let sx of allowedScales) {
+      for (let sy of allowedScales) {
+          const isBadCombo = (sx === 1/4 || sx === 1/8) && (sy === 1/4 || sy === 1/8) ;
+          if (!isBadCombo) {
+              validScaleCombos.push({ scaleX: sx, scaleY: sy });
+          }
+      }
+  }
+  */
   // Total valid combinations: map to translation grid positions
   const totalCombos = validScaleCombos.length;
 

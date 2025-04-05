@@ -16,7 +16,8 @@ body{
     --global-weight: 400;
     line-height: var(--global-line-height);
     /* font-size:16px; */
-    font-size:18px;
+    /* font-size:18px; */
+    font-size:24px;
 
     font-stretch:wider;
     margin: 0em;
@@ -158,8 +159,8 @@ li {
 svg {
     opacity: 0.05;
     /* opacity: 0.1; */
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
 }
 
 svg image {
@@ -183,15 +184,18 @@ svg image {
     cursor: pointer; 
     padding: 0;
     text-decoration: underline;
+    color: var(--link-color);
 }
+
 
 .img-button:hover{
     text-decoration: none;
 }
 
 .close-button{
+    color: var(--body-text-color);
     display: none;
-    position:absolute; 
+    position:fixed; 
     /* top: calc(2em - 6px); */
     top: calc(1vh);
     right: 2em;
@@ -199,7 +203,6 @@ svg image {
     background: none; 
     border: none;
     cursor: pointer; 
-    color: black;
     z-index: 3;
     padding: 10px;
 }
@@ -278,16 +281,17 @@ canvas {
 }
 
 .img-description{
+    color: var(--body-text-color);
     font-family: 'Arial', sans-serif;
     text-align: center;
     font-size: 0.8em!important;
-    color: black;
 }
 
 
 /* chat gpt */
 
 .nav-button {
+    color: var(--body-text-color);
     font-family: 'Arial', sans-serif;
     font-size: 0.9em;
     background: none; 
@@ -297,7 +301,6 @@ canvas {
     position: fixed;
     top: calc(50%);
     transform: translateY(calc(-50% - 0.9em));
-    color: black;
     z-index: 3;
 }
 

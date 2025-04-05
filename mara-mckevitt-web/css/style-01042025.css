@@ -20,7 +20,8 @@ body{
     --global-weight: 400;
     line-height: var(--global-line-height);
 
-    font-size:18px;
+    /* font-size:18px; */
+    font-size:22px;
 
     font-stretch:wider;
     margin: 0em;
@@ -117,6 +118,7 @@ em{
     cursor: pointer; 
     padding: 0;
     text-decoration: underline;
+    color: var(--link-color);
 }
 
 .img-button:hover{

@@ -102,6 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 1. Create container
     const container = document.createElement("div");
     container.className = "img-container";
+    container.onclick = closeImg;
     container.style.display = "none";
 
     // 2. Create image wrapper
