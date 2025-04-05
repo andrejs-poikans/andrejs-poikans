@@ -1,0 +1,444 @@
+
+/**********************************************************/
+body{
+
+    font-family: 'Times New Roman', serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+    --global-padding: 8px;
+    --background-color: white;
+    --link-color: #C1272D;
+    --body-text-color: rgb(0, 0, 0);
+    --highlight-color: rgb(238, 238, 238);
+
+    --info-width: calc((100%/8)*4);
+
+    background-color: var(--background-color);
+
+    --global-line-height: 1.1em; 
+    --global-weight: 400;
+    line-height: var(--global-line-height);
+
+    font-size:18px;
+
+    font-stretch:wider;
+    margin: 0em;
+
+    height: 100vh;
+    width: 100vw;
+    color: var(--body-text-color);
+}
+
+/**********************************************************/
+/* info block */
+
+.info{
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: start;
+    width: 100%;
+    z-index: 0;
+    /* align-items: baseline; */
+    /* align-items: center; */
+    /*  -ms-overflow-style: none;  /* IE and Edge */
+    /*  scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+/* .info::-webkit-scrollbar {
+    display: none;
+} */
+
+
+/**********************************************************/
+/* text styles */
+
+/* flex box for h3 */
+.name{
+    position: fixed;
+    right: calc((100%/8) * 1);
+    margin-top: 2em;
+    width: calc((100%/8) * 1);
+}
+
+h3{
+    /* font-style: italic; */
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    font-weight: 300;
+    font-size: 0.9em;
+    color: black;
+    text-align: left;
+}
+
+a{
+    color: var(--link-color);
+    font-weight:300;
+}
+
+p{ 
+    color: var(--body-text-color);
+    margin: 0;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+i{
+    font-weight: 550;
+}
+
+em::before {
+    content: "⚞ ";
+}
+
+em::after{
+    content: " ⚟";
+}
+
+em{
+    font-weight: 550;
+    font-style: normal;
+}
+
+
+/**********************************************************/
+/* gallery */
+
+.img-button{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.9em;
+    background: none; 
+    border: none;
+    cursor: pointer; 
+    padding: 0;
+    text-decoration: underline;
+}
+
+.img-button:hover{
+    text-decoration: none;
+}
+
+.close-button{
+    display: none;
+    position:absolute; 
+    /* top: calc(2em - 6px); */
+    top: calc(1vh);
+    right: 2em;
+    font-size: 0.9em;
+    background: none; 
+    border: none;
+    cursor: pointer; 
+    color: black;
+    z-index: 3;
+    padding: 10px;
+}
+
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-select:none;
+    -webkit-user-select:none;
+}
+
+/*
+.img-container img{
+    margin-left: 0;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 100%; 
+    max-block-size: none;
+    height: auto;
+    width: auto;
+    object-fit: contain; 
+}
+
+.img-container{
+    position: fixed;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    max-width: 100%;
+    max-height: 100%;
+}
+*/
+
+/* new gallery */
+
+.img-container img{
+    width: auto;
+    height: 90vh; 
+    max-block-size: none;
+    /* height: auto;
+    width: auto; */
+    object-fit: contain; 
+}
+
+.display-img{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.img-container{
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    align-content: center;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+canvas {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: white;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.img-description{
+    text-align: center;
+    font-size: 0.9;
+    font-style: italic;
+    color: darkgray;
+}
+
+
+/* chat gpt */
+
+.nav-button {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.9em;
+    background: none; 
+    border: none;
+    cursor: pointer; 
+    padding: 20px;
+    position: fixed;
+    top: calc(50%);
+    transform: translateY(calc(-50% - 0.9em));
+    color: black;
+    z-index: 3;
+}
+
+.prev {
+    left: 2em;
+}
+
+.next {
+    right: 2em;
+}
+
+
+
+
+
+/**********************************************************/
+/* details summary */
+
+summary{
+    cursor: pointer;
+}
+
+summary:hover{
+    background-color: var(--highlight-color);
+}
+
+details > summary {
+    font-size: 1em;
+    font-weight: 400;
+    /* border-bottom:solid 1px var(--highlight-color); */
+    border-bottom: solid;
+    border-width: 1px;
+    border-image: 
+      linear-gradient(
+        to left, 
+        var(--highlight-color),
+        rgba(0, 0, 0, 0),
+        var(--highlight-color),
+        var(--highlight-color)
+      ) 1;
+
+}
+
+/* leftovers for styling details ad summary */
+
+/* to hide the marker and stylize the marker */
+/* details summary::-webkit-details-marker,
+details summary::marker {
+ content: none;
+ display: none;
+}
+
+details > summary::before{
+    content: '▸ ';
+    width: 10px;
+}
+
+details[open] > summary::before {
+    content: '▾ ';
+    width: 10px;
+} */
+
+/* summary:hover::after{
+    content: " *";
+}
+
+ul li:hover::after{
+    content: " <";
+} */
+
+
+/**********************************************************/
+/* hover text styling*/
+
+.hover-text {
+    position: relative;
+    height: 100%;
+    font-size: 0.9em;
+    transition: top 1s ease-out, left 1s ease-out;
+    width: calc(100%/8 *1);
+    margin-top: 2em;
+    cursor: pointer;
+}
+
+.hover-text a{
+    padding-left: var(--global-padding);
+}
+
+
+/**********************************************************/
+/* ul and li */
+
+ul {
+    font-size: 0.9em;
+    font-weight: 400;
+    list-style: none;
+    padding-inline-start: 0em;
+    line-height: 1.2em; 
+}
+
+
+li {
+    border-bottom:solid 1px var(--highlight-color);
+}
+
+
+li:nth-child(odd){
+    border-bottom: solid;
+    border-width: 1px;
+    border-image: 
+      linear-gradient(
+        to left, 
+        var(--highlight-color),
+        rgba(0, 0, 0, 0),
+        var(--highlight-color)
+      ) 1;
+}
+
+li:nth-child(even){
+    border-bottom: solid;
+    border-width: 1px;
+    border-image: 
+      linear-gradient(
+        to left, 
+        var(--highlight-color),
+        rgba(0, 0, 0, 0),
+        var(--highlight-color),
+        rgba(0, 0, 0, 0)
+      ) 1;
+}
+
+
+li:nth-child(3n){
+    border-bottom: solid;
+    border-width: 1px;
+    border-image: 
+      linear-gradient(
+        to left, 
+        var(--highlight-color),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0)
+      ) 1;
+}
+
+li:hover{
+    background-color:rgb(238, 238, 238, 0.3) ;
+}
+
+.contact ul li{
+    border-bottom:none;
+}
+
+.menu{
+    margin-top: 2em;
+    margin-left: calc(100%/8);
+    max-width:var(--info-width);
+    /* padding: var(--global-padding); */
+    overflow:scroll;
+    width: var(--info-width);
+
+}
+
+/**********************************************************/
+/* logo svg change*/
+
+.logo{
+    position: fixed;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+svg {
+    opacity: 0.04;
+    /* opacity: 0.1; */
+    width: 100%;
+    height: 100%;
+}
+
+svg image {
+    transform-origin: top left;
+    height: 100%;
+    width: 100%;
+    transition: transform 1.5s ease-in-out;
+    /* transform: translate(0%, 0%) scale(1, 1); */
+}
+
+
+/* body:has(.projects details[open]) svg image{
+    transform: translate(calc(100%*(1/4)), calc(100%*(0/4))) scale(calc(100%*(3/4)), calc(100%*(1/4)));
+}
+
+body:has(.events details[open]) svg image{
+    transform: translate(calc(100%*(2/4)), calc(100%*(1/4))) scale(calc(100%*(2/4)), calc(100%*(2/4)));
+}
+
+body:has(.press details[open]) svg image{
+    transform: translate(calc(100%*(2/4)), calc(100%*(3/4))) scale(calc(100%*(2/4)), calc(100%*(1/4)));
+}
+
+body:has(.writing details[open]) svg image{
+    transform: translate(calc(100%*(1/4)), calc(100%*(1/4))) scale(calc(100%*(1/4)), calc(100%*(3/4)));
+} */
+
+/* body:has(.contact details[open]) svg image{
+    transform: translate(calc(100%*(0/4)), calc(100%*(3/4))) scale(calc(100%*(4/4)), calc(100%*(1/4)));
+} */
