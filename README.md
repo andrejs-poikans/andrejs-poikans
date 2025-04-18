@@ -1,6 +1,6 @@
 ## Hi there 👋
 
-here you can find some web projects in process
+here you can find some past web projects and web projects in process
 
 [https://andrejs-poikans.github.io/andrejs-poikans/default-web/](https://andrejs-poikans.github.io/andrejs-poikans/default-web/) = [defaultdenhaag.com](https://defaultdenhaag.com)
 
@@ -8,8 +8,4 @@ here you can find some web projects in process
 
 [https://andrejs-poikans.github.io/andrejs-poikans/crawl-web/](https://andrejs-poikans.github.io/andrejs-poikans/crawl-web/) = [https://crawwwl.eu](https://crawwwl.eu)
 
-[https://andrejs-poikans.github.io/andrejs-poikans/mara-mckevitt-web/](https://andrejs-poikans.github.io/andrejs-poikans/mara-mckevitt-web/index1.html)
-
-[https://andrejs-poikans.github.io/andrejs-poikans/marta-web/](https://andrejs-poikans.github.io/andrejs-poikans/marta-web/)
-
-[https://andrejs-poikans.github.io/andrejs-poikans/anda-web/](https://andrejs-poikans.github.io/andrejs-poikans/anda-web/)
+[https://andrejs-poikans.github.io/andrejs-poikans/mara-mckevitt-web/](https://andrejs-poikans.github.io/andrejs-poikans/mara-mckevitt-web/index-2.html)
