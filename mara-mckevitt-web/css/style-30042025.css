@@ -2,7 +2,7 @@
 /**********************************************************/
 body{
 
-    --general-font: 'Dosis', sans-serif;
+    --general-font: 'Inter', sans-serif;
     font-family: var(--general-font);
     font-optical-sizing: auto;
     font-style: normal;
@@ -19,11 +19,11 @@ body{
     background-color: var(--background-color);
 
     --global-line-height: 1.2em; 
-    --global-weight: 400;
+    --global-weight: 300;
     line-height: var(--global-line-height);
 
     /* font-size:18px; */
-    font-size:28px;
+    font-size:22px;
 
     font-stretch:wider;
     margin: 0em;
@@ -70,7 +70,7 @@ h3{
     margin-block-end: 0em;
     color: black;
     font-size: 1em;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 a{
@@ -88,7 +88,7 @@ a:hover{
 }
 
 i{
-    font-weight: 570;
+    font-weight: 500;
 }
 
 em::after {
@@ -102,7 +102,7 @@ em::after {
 }
 
 em{
-    font-weight: 470;
+    font-weight: 400;
     font-style: italic;
 }
 
@@ -123,7 +123,7 @@ summary{
 details > summary {
     line-height: 1em;
     font-size: 1em;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 summary:hover{
@@ -135,7 +135,7 @@ summary:hover{
 
 ul {
     font-size: 0.9em;
-    font-weight: 470;
+    font-weight: 400;
     list-style: none;
     padding-inline-start: calc(1.2em);
     line-height: 1em; 
@@ -352,7 +352,7 @@ body:has(.img-container img:hover) .img-description{
     text-align: left;
     font-size: calc(0.5em + 4px);
     padding-top: 1em;
-    font-weight: 470;
+    font-weight: 500;
     color: var(--list-text-color);
 }
 

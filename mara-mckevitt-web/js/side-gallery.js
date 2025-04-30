@@ -82,7 +82,7 @@ function fadeOut(element, duration = 300) {
 
 
 const images = [
-    { src: "../mara-mckevitt-web/resources/images/val.png", desc: "val" },
+    // { src: "../mara-mckevitt-web/resources/images/val.png", desc: "val" },
     { src: "../mara-mckevitt-web/resources/images/val1.jpg", desc: "screenshot 1" },
     { src: "../mara-mckevitt-web/resources/images/val2.jpg", desc: "screenshot 2" }
 ];
