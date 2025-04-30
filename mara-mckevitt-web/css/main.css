@@ -36,3 +36,16 @@
     font-style: italic;
     src: url('../fonts/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
 }
+
+
+@font-face {
+    font-family: "Dosis";
+    font-style: normal;
+    src: url('../fonts/Dosis/Dosis-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Fredoka";
+    font-style: normal;
+    src: url('../fonts/Fredoka/Fredoka-VariableFont_wdth\,wght.ttf') format('truetype');
+}

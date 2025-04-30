@@ -1,0 +1,248 @@
+
+/**********************************************************/
+body{
+
+    --general-font: 'Fredoka', sans-serif;
+    font-family: var(--general-font);
+    font-optical-sizing: auto;
+    font-style: normal;
+
+    --global-padding: 8px;
+    --background-color: white;
+    --link-color: lightskyblue;
+    --body-text-color: rgb(0, 0, 0);
+    --highlight-color: rgb(238, 238, 238);
+    --menu-width: auto;
+
+    background-color: var(--background-color);
+
+    --global-line-height: 1.2em; 
+    --global-weight: 400;
+    line-height: var(--global-line-height);
+
+    /* font-size:18px; */
+    font-size:22px;
+
+    font-stretch:wider;
+    margin: 0em;
+
+    height: 100vh;
+    width: 100vw;
+    color: var(--body-text-color);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    
+    /* position: absolute; */
+
+}
+
+/**********************************************************/
+/* info block */
+
+.info{ 
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+    align-items: baseline;
+    /*  -ms-overflow-style: none;  /* IE and Edge */
+    /*  scrollbar-width: none;  /* Firefox */
+}
+
+
+/**********************************************************/
+/* text styles */
+
+/* flex box for h3 */
+.name{
+    margin-top: 1em;
+    top:1em;
+    position: sticky;
+    padding-top: 4px;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: auto;
+    writing-mode: vertical-rl;
+}
+
+h3{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    font-weight: 600;
+    font-size: 1em;
+    color: black;
+    text-align: center;
+}
+
+a{
+    color: var(--link-color);
+    font-weight:300;
+}
+
+p{ 
+    color: var(--body-text-color);
+    margin: 0;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+i{
+    font-weight: 550;
+}
+
+em::before {
+    content: "⚞ ";
+}
+
+em::after{
+    content: " ⚟";
+}
+
+em{
+    font-weight: 550;
+    font-style: normal;
+}
+
+
+/**********************************************************/
+/* details summary */
+
+summary{
+    cursor: pointer;
+}
+
+details > summary {
+    font-size: 1em;
+    font-weight: 400;
+}
+
+
+/**********************************************************/
+/* ul and li */
+
+ul {
+    font-size: 0.9em;
+    font-weight: 400;
+    list-style: none;
+    padding-inline-start: calc(1.2em);
+    line-height: 1em; 
+}
+
+li{
+    padding-top: 0em;
+    padding-bottom:  0.5em;
+}
+
+.menu{
+    margin-top: 1em;
+    /* padding-top: 2px; */
+    /* offset for list */
+    display: flex;
+    flex-direction: column;
+    overflow:hidden;
+    width: 100%;
+}
+
+.blank{
+    width: 50%;
+    flex-direction: row;
+    overflow-x: scroll;
+}
+
+
+
+/**********************************************************/
+/* gallery */
+
+.img-button{
+    font-family: var(--general-font);
+    font-size: 1em;
+    background: none; 
+    border: none;
+    cursor: pointer; 
+    text-decoration: underline;
+    color: var(--body-text-color)
+}
+
+.img-button:hover{
+    text-decoration: none;
+}
+
+.close-button{
+    font-size: 1em;
+    display: fixed;
+    background: none; 
+    border: none;
+    cursor: pointer; 
+    color: black;
+    top: 0;
+    right: 0;
+    padding: var(--global-padding);
+    z-index: 3;
+}
+
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-select:none;
+    -webkit-user-select:none;
+}
+
+
+.gallery-wrapper img{
+    width: auto;
+    height: 100vh; 
+    max-block-size: none;
+    /* height: auto;
+    width: auto; */
+    object-fit: contain; 
+    scroll-snap-align: start;
+}
+
+
+.gallery-wrapper{
+    /* scroll-snap-type: x mandatory; */
+    display: flex;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    overflow-x: scroll;
+    position: relative;
+}
+
+
+
+
+/**********************************************************/
+/* logo svg change*/
+
+.logo{
+    position: fixed;
+    height: 6em;
+    width: auto;
+    z-index: 4;
+    top: calc(1em + var(--global-padding));
+    left: 50%;
+}
+
+svg {
+    opacity: 1;
+    height: 100%;
+    width: auto;
+}
+
+svg image {
+    height: auto;
+    width: 100%;
+}
+
+

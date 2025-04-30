@@ -179,6 +179,7 @@ img {
     /* height: auto;
     width: auto; */
     object-fit: contain; 
+    display: block;
 }
 
 .display-img{
