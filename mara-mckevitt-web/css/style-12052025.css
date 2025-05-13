@@ -508,6 +508,7 @@ svg image {
     }
 
     .name{
+        background-color: red;
         text-align: center;
         /* position: fixed;
         background-color: white;
