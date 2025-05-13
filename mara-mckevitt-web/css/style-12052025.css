@@ -499,8 +499,8 @@ svg image {
         padding-top: 0em;
         /* margin-bottom: 2em; */
         padding-bottom: 0em;
-        margin-bottom: max(2em, env(safe-area-inset-left));
-        margin-top: max(2em, env(safe-area-inset-right));
+        margin-bottom: max(0em, env(safe-area-inset-bottom));
+        margin-top: 0em;
     }
 
     .info{
@@ -508,7 +508,7 @@ svg image {
     }
 
     .name{
-        background-color: red;
+        background-color: navajowhite;
         text-align: center;
         /* position: fixed;
         background-color: white;
