@@ -476,13 +476,13 @@ svg image {
     }
 
     ul{
-        margin-top: 1em;
+        margin-top: calc(1em - 0.25em);
         margin-bottom: 1em;
         font-weight: 300;
         /* padding-inline-start: calc(0.5em); */
         padding-inline-start: calc(0em);
-        text-align: left;
-        /* font-size: 0.7em; */
+        text-align: center;
+        font-size: 0.7em;
     }
 
     li{
@@ -490,8 +490,8 @@ svg image {
     }
 
     .menu{
-        margin-top: 1em;
-        padding-top: 1em;
+        margin-top: 0em;
+        padding-top: 4em;
         padding-bottom: 0em;
         padding-bottom: 2em;
     }
@@ -502,6 +502,12 @@ svg image {
 
     .name{
         text-align: center;
+        position: fixed;
+        background-color: white;
+        width: calc(100% - var(--global-padding)*2);
+        top: 0px;
+        left: 0px;
+        padding: var(--global-padding);
     }
 
     summary:hover{
@@ -555,8 +561,12 @@ svg image {
         text-decoration: underline;
     }
 
+    .img-description{
+        color:var(--body-text-color)
+    }
+
     body:has(.img-container img:hover) .img-description{
-        color: var(--list-text-highlight);
+        color: var(--body-text-color);
     }
 
     .logo{
@@ -596,7 +606,11 @@ svg image {
         width: 100%;
     }
 
-
+    .img-container img{
+        width: auto;
+        max-height: calc(100vh - var(--global-padding) *2);
+        object-fit:scale-down; 
+    }
 
     /* .logo{
         position:static;
