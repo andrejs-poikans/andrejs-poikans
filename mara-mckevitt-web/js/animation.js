@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
               summary.classList.add("opened");
               details.classList.add("show-items");
               svg.classList.add("opened");
+              logo.classList.add("opened");
               // svg.style.display = "none"
   
               // Reset classes first
@@ -43,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
               const anyOpen = Array.from(detailsList).some(d => d.open);
               if (!anyOpen) {
                 svg.classList.remove("opened");
+                logo.classList.remove("opened");
               }
             }
           }, 50); // Slight delay to let <details> state update
