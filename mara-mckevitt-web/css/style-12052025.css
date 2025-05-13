@@ -495,20 +495,19 @@ svg image {
     }
 
     .menu{
-        /* margin-top: 2em; */
+        margin-top: 1em;
         padding-top: 0em;
-        /* margin-bottom: 2em; */
-        padding-bottom: 0em;
-        margin-bottom: max(0em, env(safe-area-inset-bottom));
-        margin-top: 0em;
+        margin-bottom: 0em;
+        padding-bottom: 2em;
     }
 
     .info{
+        overflow: hidden;
         width: calc(100% - var(--global-padding) * 2);
+        height: calc(100% - var(--global-padding) * 2);;
     }
 
     .name{
-        background-color: navajowhite;
         text-align: center;
         /* position: fixed;
         background-color: white;
