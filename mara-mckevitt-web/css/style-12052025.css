@@ -665,7 +665,7 @@ svg image {
 }
 
 /* starts form 16x9 */
-@media only screen and (min-width: 1600px) {
+@media only screen and (min-width: 2000px) {
     body{
         font-size: 30px;
     }
