@@ -459,12 +459,13 @@ svg image {
 }
 
 
-/* ipad*/
+/* ipad and mobile*/
 @media only screen and (max-width: 1024px){
 
     body{
         font-size:25px;
         --global-padding: 0.5em;
+        height: 100vh;
     }
 
     h3, h4, i{
@@ -494,10 +495,12 @@ svg image {
     }
 
     .menu{
-        margin-top: 2em;
+        /* margin-top: 2em; */
         padding-top: 0em;
-        margin-bottom: 2em;
+        /* margin-bottom: 2em; */
         padding-bottom: 0em;
+        margin-bottom: max(2em, env(safe-area-inset-left));
+        margin-top: max(2em, env(safe-area-inset-right));
     }
 
     .info{
@@ -506,12 +509,12 @@ svg image {
 
     .name{
         text-align: center;
-        position: fixed;
+        /* position: fixed;
         background-color: white;
         width: calc(100% - var(--global-padding)*2);
         top: 0px;
         left: 0px;
-        padding: var(--global-padding);
+        padding: var(--global-padding); */
     }
 
     summary:hover{
@@ -561,7 +564,7 @@ svg image {
         /* padding-top: var(--global-padding);
         padding-bottom: var(--global-padding); */
         background-color: transparent;
-        /* font-size: 0.7em; */
+        font-size: 0.7em;
     }
 
     .close-button:hover{
