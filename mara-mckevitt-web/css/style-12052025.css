@@ -468,6 +468,10 @@ svg image {
         height: 100vh;
     }
 
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
     h3, h4, i{
         font-weight: 400;
     }
@@ -503,7 +507,6 @@ svg image {
 
     .info{
         position: fixed;
-        background-color: #808080;
         overflow: hidden;
         width: calc(100% - var(--global-padding) * 2);
         height: calc(100% - var(--global-padding) * 2);;
