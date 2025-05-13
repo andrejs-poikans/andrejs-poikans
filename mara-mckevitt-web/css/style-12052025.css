@@ -465,6 +465,7 @@ svg image {
     body{
         font-size:25px;
         --global-padding: 0.5em;
+        height: 95vh;
     }
 
     h3, h4, i{
@@ -665,7 +666,7 @@ svg image {
 }
 
 /* starts form 16x9 */
-@media only screen and (min-width: 2000px) {
+@media only screen and (min-width: 2500px) {
     body{
         font-size: 30px;
     }
