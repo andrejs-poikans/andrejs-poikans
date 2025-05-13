@@ -465,7 +465,6 @@ svg image {
     body{
         font-size:25px;
         --global-padding: 0.5em;
-        height: 95vh;
     }
 
     h3, h4, i{
@@ -507,12 +506,12 @@ svg image {
 
     .name{
         text-align: center;
-        /* position: fixed;
+        position: fixed;
         background-color: white;
         width: calc(100% - var(--global-padding)*2);
         top: 0px;
         left: 0px;
-        padding: var(--global-padding); */
+        padding: var(--global-padding);
     }
 
     summary:hover{
@@ -562,7 +561,7 @@ svg image {
         /* padding-top: var(--global-padding);
         padding-bottom: var(--global-padding); */
         background-color: transparent;
-        font-size: 0.7em;
+        /* font-size: 0.7em; */
     }
 
     .close-button:hover{
