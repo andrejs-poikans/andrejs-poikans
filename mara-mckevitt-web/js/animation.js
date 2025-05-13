@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // if (window.innerWidth <= 1024) {
+
       const detailsList = document.querySelectorAll("details");
   
       // const menu = document.getElementById("menu");
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
               listItems.forEach((li, index) => {
                 setTimeout(() => {
                   li.classList.add("visible");
-                }, index * 20);
+                }, index * 50);
               });
   
             } else {
@@ -50,6 +50,22 @@ document.addEventListener("DOMContentLoaded", function () {
           }, 50); // Slight delay to let <details> state update
         });
       });
+
+    //   if (window.innerWidth <= 1024) {
+    //     // When a details is open, close all other details.
+    //     function handleDetailToggle(event) {
+    //       // We are only interested in details being opened.
+    //       // Also, without the guard below, we'd run into an infinite loop.
+    //       if (!event.target.open) return;
+    //       for (let details of detailsList) {
+    //         details.open = details === event.target;
+    //       }
+    //     }
+
+    //     // Add toggle listeners.
+    //     for (let details of detailsList) {
+    //       details.addEventListener("toggle", handleDetailToggle);
+    //     }
     // }
   });
   

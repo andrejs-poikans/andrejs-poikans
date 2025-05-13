@@ -17,7 +17,7 @@ function closeImg() {
 }
 */
 
-function fadeIn(element, duration = 100) {
+function fadeIn(element, duration = 300) {
     element.style.opacity = 0;
     element.style.display = "flex"; // make sure it's visible and centered
     let last = performance.now();
@@ -152,6 +152,8 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.style.width = "100%";
     canvas.style.height = "100%";
     canvas.style.backgroundColor = "white";
+    // canvas.style.opacity = 1;
+
 
 
     // 5. Put it together
@@ -206,6 +208,9 @@ function openImg(index, button) {
     updateImg();
     fadeIn(container);
     btnWrap.style.display = "flex";
+    if (window.innerWidth <= 1024) {
+        btnWrap.style.color = "black";
+    }
 }
 
 // function openImg(index) {
@@ -274,6 +279,7 @@ function closeImgCanvas() {
       el.addEventListener('click', closeImgCanvas);
     });
 });
+
 
 
 // const detailsList = document.querySelectorAll("details");

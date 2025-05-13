@@ -62,6 +62,10 @@ html, body {
 /**********************************************************/
 /* text styles */
 
+h3, h4, i, em{
+    transition: all 0.5s ease;
+}
+
 /* flex box for h3 */
 .name{
     position: sticky;
@@ -490,10 +494,10 @@ svg image {
     }
 
     .menu{
-        margin-top: 0em;
-        padding-top: 4em;
+        margin-top: 2em;
+        padding-top: 0em;
+        margin-bottom: 2em;
         padding-bottom: 0em;
-        padding-bottom: 2em;
     }
 
     .info{
@@ -502,12 +506,12 @@ svg image {
 
     .name{
         text-align: center;
-        position: fixed;
+        /* position: fixed;
         background-color: white;
         width: calc(100% - var(--global-padding)*2);
         top: 0px;
         left: 0px;
-        padding: var(--global-padding);
+        padding: var(--global-padding); */
     }
 
     summary:hover{
@@ -553,8 +557,11 @@ svg image {
     }
 
     .btnWrap{
-        padding-bottom: 1em;
+        /* top: 0px; */
+        /* padding-top: var(--global-padding);
+        padding-bottom: var(--global-padding); */
         background-color: transparent;
+        font-size: 0.7em;
     }
 
     .close-button:hover{
@@ -562,7 +569,15 @@ svg image {
     }
 
     .img-description{
-        color:var(--body-text-color)
+        color:var(--body-text-color);
+        font-weight: 300;
+        font-size: 0.5em;
+        display: none;
+    }
+
+    .nav-button{
+        width: 2em;
+        /* color: var(--body-text-color); */
     }
 
     body:has(.img-container img:hover) .img-description{
@@ -608,9 +623,15 @@ svg image {
 
     .img-container img{
         width: auto;
-        max-height: calc(100vh - var(--global-padding) *2);
+        max-height: calc(100vh);
         object-fit:scale-down; 
     }
+
+    .img-container{
+        padding: 0em var(--global-padding);
+        height: 100%;
+    }
+
 
     /* .logo{
         position:static;
