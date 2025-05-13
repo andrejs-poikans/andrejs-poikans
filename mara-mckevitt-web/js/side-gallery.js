@@ -142,7 +142,20 @@ document.addEventListener("DOMContentLoaded", () => {
     desc.className = "img-description";
     desc.id = "image-desc";
 
+    // canvas
+    const canvas = document.createElement("canvas");
+    canvas.className = "canvas";
+    canvas.style.zIndex = "-1";
+    canvas.style.top = "0px";
+    canvas.style.left = "0px";
+    canvas.style.position = "absolute";
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+    canvas.style.backgroundColor = "white";
+
+
     // 5. Put it together
+    container.appendChild(canvas);
     displayDiv.appendChild(img);
     displayDiv.appendChild(desc);
     container.appendChild(displayDiv);
@@ -153,6 +166,16 @@ document.addEventListener("DOMContentLoaded", () => {
     container.appendChild(btnWrap);
     document.body.appendChild(container);
 });
+
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     const buttons = document.querySelectorAll('.img-button');
+//     buttons.forEach(button => {
+//       const sup = document.createElement('sup');
+//       sup.textContent = '(gallery)';
+//       button.parentNode.insertBefore(sup, button.nextSibling);
+//     });
+//   });
 
 
 let currentIndex = 0;
@@ -168,7 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-
 
 function openImg(index, button) {
     currentIndex = index;
@@ -233,6 +255,25 @@ function closeImg() {
         activeButton = null;
     }
 }
+
+function closeImgCanvas() {
+    const container = document.querySelector(".img-container");
+
+    fadeOut(container);
+    document.querySelector(".btnWrap").style.display = "none";
+
+    // Re-enable previously active button
+    if (activeButton) {
+        activeButton.disabled = false;
+        activeButton = null;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.canvas').forEach(el => {
+      el.addEventListener('click', closeImgCanvas);
+    });
+});
 
 
 // const detailsList = document.querySelectorAll("details");
