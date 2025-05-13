@@ -467,6 +467,10 @@ svg image {
         font-weight: 400;
     }
 
+    h4{
+        text-align: center;
+    }
+
     em{
         font-weight: 300;
     }
@@ -477,6 +481,8 @@ svg image {
         font-weight: 300;
         /* padding-inline-start: calc(0.5em); */
         padding-inline-start: calc(0em);
+        text-align: left;
+        /* font-size: 0.7em; */
     }
 
     li{
@@ -484,14 +490,18 @@ svg image {
     }
 
     .menu{
-        margin-top: 2em;
+        margin-top: 1em;
+        padding-top: 1em;
         padding-bottom: 0em;
-        padding-bottom: 3em;
+        padding-bottom: 2em;
     }
 
     .info{
-        text-align: center;
         width: calc(100% - var(--global-padding) * 2);
+    }
+
+    .name{
+        text-align: center;
     }
 
     summary:hover{
