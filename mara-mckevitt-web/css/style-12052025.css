@@ -502,6 +502,8 @@ svg image {
     }
 
     .info{
+        position: fixed;
+        background-color: #808080;
         overflow: hidden;
         width: calc(100% - var(--global-padding) * 2);
         height: calc(100% - var(--global-padding) * 2);;
