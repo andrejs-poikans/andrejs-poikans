@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
     filler.style.width = "100%";
 
     // 1. Create container
-    const container = document.getElementById("right");
+    const container = document.createElement("div");
     container.className = "img-container";
     container.style.display = "none";
 
@@ -208,9 +208,9 @@ function openImg(index, button) {
     updateImg();
     fadeIn(container);
     btnWrap.style.display = "flex";
-    if (window.innerWidth <= 1024) {
-        btnWrap.style.color = "black";
-    }
+    // if (window.innerWidth <= 1024) {
+    //     btnWrap.style.color = "none";
+    // }
 }
 
 // function openImg(index) {

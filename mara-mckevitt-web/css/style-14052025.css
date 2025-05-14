@@ -48,8 +48,8 @@ body::-webkit-scrollbar {
 /* info block */
 
 .info{
-    padding: var(--global-padding)  var(--global-padding) 0px;
-    height: calc(100% - var(--global-padding));
+    padding: var(--global-padding)  var(--global-padding);
+    height: calc(100% - var(--global-padding)*2);
     width: calc(50% - var(--global-padding) * 2);
     display: flex;
     flex-direction: column;
@@ -473,19 +473,12 @@ svg image {
         height: 100vh;
     }
 
-    body::-webkit-scrollbar {
-        display: none;
-    }
-
-    h3, h4, i{
+    h4, i{
         font-weight: 400;
     }
 
-    h4{
-        text-align: center;
-    }
 
-    em{
+    em, h3{
         font-weight: 300;
     }
 
@@ -494,8 +487,8 @@ svg image {
         margin-bottom: 1em;
         font-weight: 300;
         /* padding-inline-start: calc(0.5em); */
-        padding-inline-start: calc(0em);
-        text-align: center;
+        padding-inline-start: calc(1em);
+        text-align: left;
         font-size: 0.7em;
     }
 
@@ -505,7 +498,7 @@ svg image {
 
     .menu{
         margin-top: 1em;
-        padding-top: 0em;
+        padding-top: 2em;
         margin-bottom: 0em;
         padding-bottom: 2em;
     }
@@ -518,13 +511,7 @@ svg image {
     }
 
     .name{
-        text-align: center;
-        /* position: fixed;
-        background-color: white;
-        width: calc(100% - var(--global-padding)*2);
-        top: 0px;
-        left: 0px;
-        padding: var(--global-padding); */
+        text-align: left;
     }
 
     summary:hover{
@@ -546,16 +533,16 @@ svg image {
     }
 
     details{
-        text-align: center;
+        text-align: left;
     }
-
+/* 
     details ul li {
         opacity: 0;
     }
     
     details.show-items ul li.visible {
         opacity: 1;
-    }
+    } */
 
     .img-container{
         width: calc(100% - var(--global-padding)*2);
@@ -586,11 +573,6 @@ svg image {
         font-weight: 300;
         font-size: 0.5em;
         display: none;
-    }
-
-    .nav-button{
-        width: 2em;
-        /* color: var(--body-text-color); */
     }
 
     body:has(.img-container img:hover) .img-description{
