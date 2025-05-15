@@ -4,50 +4,84 @@ function toneJSpitch() {
     const meter = new Tone.Meter();
     const mic = new Tone.UserMedia().connect(meter);
 
-    mic.open().then(() => {
-        // promise resolves when input is available
-        console.log("mic open");
+mic.open().then(() => {
+    console.log("mic open");
 
-        // Create the root video element
-        var video = document.createElement('video');
-        video.setAttribute('loop', '');
-        // Add some styles if needed
-        video.setAttribute('style', 'position: fixed;');
+    // Log mic levels
+    setInterval(() => console.log(meter.getValue()), 100);
 
-        // A helper to add sources to video
-        function addSourceToVideo(element, type, dataURI) {
-            var source = document.createElement('source');
-            source.src = dataURI;
-            source.type = 'video/' + type;
-            element.appendChild(source);
-        }
+    // Create and style video
+    const video = document.createElement('video');
+    video.setAttribute('loop', '');
+    video.setAttribute('muted', ''); // Required for autoplay
+    video.setAttribute('playsinline', ''); // iOS fullscreen
+    video.setAttribute('autoplay', '');
+    video.setAttribute('style', `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 9999;
+        object-fit: cover;
+        background: black;
+    `);
 
-        // A helper to concat base64
-        var base64 = function(mimeType, base64) {
-            return 'data:' + mimeType + ';base64,' + base64;
-        };
+    // Add source function
+    function addSourceToVideo(el, type, dataURI) {
+        const source = document.createElement('source');
+        source.src = dataURI;
+        source.type = 'video/' + type;
+        el.appendChild(source);
+    }
 
-        // Add Fake sourced
-        addSourceToVideo(video,'webm', base64('video/webm', 'GkXfo0AgQoaBAUL3gQFC8oEEQvOBCEKCQAR3ZWJtQoeBAkKFgQIYU4BnQI0VSalmQCgq17FAAw9CQE2AQAZ3aGFtbXlXQUAGd2hhbW15RIlACECPQAAAAAAAFlSua0AxrkAu14EBY8WBAZyBACK1nEADdW5khkAFVl9WUDglhohAA1ZQOIOBAeBABrCBCLqBCB9DtnVAIueBAKNAHIEAAIAwAQCdASoIAAgAAUAmJaQAA3AA/vz0AAA='));
-        addSourceToVideo(video, 'mp4', base64('video/mp4', 'AAAAHGZ0eXBpc29tAAACAGlzb21pc28ybXA0MQAAAAhmcmVlAAAAG21kYXQAAAGzABAHAAABthADAowdbb9/AAAC6W1vb3YAAABsbXZoZAAAAAB8JbCAfCWwgAAAA+gAAAAAAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAIVdHJhawAAAFx0a2hkAAAAD3wlsIB8JbCAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAIAAAACAAAAAABsW1kaWEAAAAgbWRoZAAAAAB8JbCAfCWwgAAAA+gAAAAAVcQAAAAAAC1oZGxyAAAAAAAAAAB2aWRlAAAAAAAAAAAAAAAAVmlkZW9IYW5kbGVyAAAAAVxtaW5mAAAAFHZtaGQAAAABAAAAAAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAEcc3RibAAAALhzdHNkAAAAAAAAAAEAAACobXA0dgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAIAAgASAAAAEgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABj//wAAAFJlc2RzAAAAAANEAAEABDwgEQAAAAADDUAAAAAABS0AAAGwAQAAAbWJEwAAAQAAAAEgAMSNiB9FAEQBFGMAAAGyTGF2YzUyLjg3LjQGAQIAAAAYc3R0cwAAAAAAAAABAAAAAQAAAAAAAAAcc3RzYwAAAAAAAAABAAAAAQAAAAEAAAABAAAAFHN0c3oAAAAAAAAAEwAAAAEAAAAUc3RjbwAAAAAAAAABAAAALAAAAGB1ZHRhAAAAWG1ldGEAAAAAAAAAIWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAAK2lsc3QAAAAjqXRvbwAAABtkYXRhAAAAAQAAAABMYXZmNTIuNzguMw=='));
+    // Base64 helpers
+    function base64(mimeType, b64) {
+        return `data:${mimeType};base64,${b64}`;
+    }
 
-        // Append the video to where ever you need
-        document.body.appendChild(video);
+    // Add your base64-encoded videos
+    addSourceToVideo(video, 'webm', base64('video/webm', 'GkXfo0AgQoaBAUL3gQFC8oEEQvOBCEKCQAR3ZWJtQoeBAkKFgQIYU4BnQI0VSalmQCgq17FAAw9CQE2AQAZ3aGFtbXlXQUAGd2hhbW15RIlACECPQAAAAAAAFlSua0AxrkAu14EBY8WBAZyBACK1nEADdW5khkAFVl9WUDglhohAA1ZQOIOBAeBABrCBCLqBCB9DtnVAIueBAKNAHIEAAIAwAQCdASoIAAgAAUAmJaQAA3AA/vz0AAA='));
 
-        // Start playing video after any user interaction.
-        // NOTE: Running video.play() handler without a user action may be blocked by browser.
-        var playFn = function() {
-            video.play();
-            document.body.removeEventListener('touchend', playFn);
-        };
-        document.body.addEventListener('touchend', playFn);
+    addSourceToVideo(video, 'mp4', base64('video/mp4', 'AAAAHGZ0eXBpc29tAAACAGlzb21pc28ybXA0MQAAAAhmcmVlAAAAG21kYXQAAAGzABAHAAABthADAowdbb9/AAAC6W1vb3YAAABsbXZoZAAAAAB8JbCAfCWwgAAAA+gAAAAAAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAIVdHJhawAAAFx0a2hkAAAAD3wlsIB8JbCAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAIAAAACAAAAAABsW1kaWEAAAAgbWRoZAAAAAB8JbCAfCWwgAAAA+gAAAAAVcQAAAAAAC1oZGxyAAAAAAAAAAB2aWRlAAAAAAAAAAAAAAAAVmlkZW9IYW5kbGVyAAAAAVxtaW5mAAAAFHZtaGQAAAABAAAAAAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAEcc3RibAAAALhzdHNkAAAAAAAAAAEAAACobXA0dgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAIAAgASAAAAEgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABj//wAAAFJlc2RzAAAAAANEAAEABDwgEQAAAAADDUAAAAAABS0AAAGwAQAAAbWJEwAAAQAAAAEgAMSNiB9FAEQBFGMAAAGyTGF2YzUyLjg3LjQGAQIAAAAYc3R0cwAAAAAAAAABAAAAAQAAAAAAAAAcc3RzYwAAAAAAAAABAAAAAQAAAAEAAAABAAAAFHN0c3oAAAAAAAAAEwAAAAEAAAAUc3RjbwAAAAAAAAABAAAALAAAAGB1ZHRhAAAAWG1ldGEAAAAAAAAAIWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAAK2lsc3QAAAAjqXRvbwAAABtkYXRhAAAAAQAAAABMYXZmNTIuNzguMw=='));
 
-        // print the incoming mic levels in decibels
-        setInterval(() => console.log(meter.getValue()), 100);
-    }).catch(e => {
-        // promise is rejected when the user doesn't have or allow mic access
-        console.log("mic not open");
+    // Add to DOM
+    document.body.appendChild(video);
+
+    // Attempt autoplay
+    video.play().catch(err => {
+        console.warn("🔇 Video play failed:", err);
     });
+
+    // Attempt fullscreen
+    const requestFS = video.requestFullscreen ||
+                      video.webkitEnterFullscreen || // iPhone video element
+                      video.webkitRequestFullscreen ||
+                      video.msRequestFullscreen;
+
+    if (requestFS) {
+        try {
+            requestFS.call(video);
+        } catch (err) {
+            console.warn("❌ Fullscreen failed:", err);
+        }
+    }
+
+}).catch(e => {
+    console.log("mic not open", e);
+});
+
+
+
+    // mic.open().then(() => {
+    //     // promise resolves when input is available
+    //     console.log("mic open");
+    //     // print the incoming mic levels in decibels
+    //     setInterval(() => console.log(meter.getValue()), 100);
+    // }).catch(e => {
+    //     // promise is rejected when the user doesn't have or allow mic access
+    //     console.log("mic not open");
+    // });
 
     const synth = new Tone.MonoSynth({
         oscillator: {
