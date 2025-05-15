@@ -60,15 +60,15 @@
 
 
         <h1>Lead player</h1>
-        <button id="big" class="object" onclick="toneJSstatic()">A</button>
-        <button id="big" class="object" onclick="toneJSsong()">B</button>
+        <button class="object" onclick="toneJSstatic()">A</button>
+        <button class="object" onclick="toneJSsong()">B</button>
         <h1>Ensamble</h1>
-        <button id="big" class="object" onclick="toneJSpitch()">A</button>
-        <button id="big" class="object" onclick="toneJSfollower()">B</button>
+        <button class="object" onclick="toneJSpitch()">A</button>
+        <button class="object" onclick="toneJSfollower()">B</button>
         <!-- <h1>test</h1> -->
         <!-- <button onclick="toneJSMIC()">Start Mic</button> -->
         <!-- Silent video for iOS wake lock -->
-        <video id="stayAwake" muted loop playsinline style="display:none">
+        <video id="stayAwake" muted loop playsinline>
           <source src="silent-video.mp4" type="video/mp4" />
         </video>
         <tone-meter></tone-meter>
@@ -90,7 +90,7 @@
   <!-- Reference to the stylesheet -->
   <link rel = "stylesheet" type = "text/css" href = "style.css" />
   <!-- Reference to prevent sleeping code-->
-  <!-- <script src="no-sleep.js"></script> -->
+  <script src="no-sleep.js"></script>
 
   
   </body>

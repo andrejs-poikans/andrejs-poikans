@@ -18,8 +18,8 @@ button {
 }
 
 
-#big{
-    background-color: cornflowerblue;
+.object{
+    background-color: red;
     color: white;
 }
 
@@ -29,5 +29,5 @@ tone-content tone-meter{
 }
 
 #stayAwake{
-    display: none
+    display: none;
 }

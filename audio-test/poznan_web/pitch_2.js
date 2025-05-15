@@ -4,26 +4,45 @@ function toneJSpitch() {
     const meter = new Tone.Meter();
     const mic = new Tone.UserMedia().connect(meter);
 
-  const silentVid = document.getElementById("stayAwake");
-  if (silentVid) {
-    try {
-      silentVid.play();
-      console.log("▶️ Silent video playing to keep device awake");
-    } catch (e) {
-      console.warn("🔇 Silent video blocked:", e);
+const silentVid = document.getElementById("stayAwake");
+
+mic.open().then(() => {
+    console.log("🎙️ mic open");
+
+    // ✅ Only play video & request fullscreen after mic is successfully opened
+    if (silentVid) {
+        silentVid.play().catch((e) => console.warn("🔇 Silent video blocked:", e));
+        silentVid.style.display = "block";
+        const fullscreenFn = silentVid.requestFullscreen || 
+                             silentVid.webkitRequestFullscreen || 
+                             silentVid.mozRequestFullScreen || 
+                             silentVid.msRequestFullscreen;
+
+        if (fullscreenFn) {
+            fullscreenFn.call(silentVid).catch(err => {
+                console.warn("❌ Fullscreen failed", err);
+            });
+        }
     }
-  }
+
+    // Mic levels
+    setInterval(() => console.log(meter.getValue()), 100);
+
+}).catch(e => {
+    console.log("❌ mic not open", e);
+});
 
 
-    mic.open().then(() => {
-        // promise resolves when input is available
-        console.log("mic open");
-        // print the incoming mic levels in decibels
-        setInterval(() => console.log(meter.getValue()), 100);
-    }).catch(e => {
-        // promise is rejected when the user doesn't have or allow mic access
-        console.log("mic not open");
-    });
+
+    // mic.open().then(() => {
+    //     // promise resolves when input is available
+    //     console.log("mic open");
+    //     // print the incoming mic levels in decibels
+    //     setInterval(() => console.log(meter.getValue()), 100);
+    // }).catch(e => {
+    //     // promise is rejected when the user doesn't have or allow mic access
+    //     console.log("mic not open");
+    // });
 
     const synth = new Tone.MonoSynth({
         oscillator: {
