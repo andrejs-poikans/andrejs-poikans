@@ -4,47 +4,50 @@ function toneJSpitch() {
     const meter = new Tone.Meter();
     const mic = new Tone.UserMedia().connect(meter);
 
-const silentVid = document.getElementById("stayAwake");
-const wrapper = document.getElementById("fullscreenWrapper");
+    mic.open().then(() => {
+        // promise resolves when input is available
+        console.log("mic open");
 
-mic.open().then(() => {
-    console.log("🎙️ mic open");
+        // Create the root video element
+        var video = document.createElement('video');
+        video.setAttribute('loop', '');
+        // Add some styles if needed
+        video.setAttribute('style', 'position: fixed;');
 
-    // ✅ Only play video & request fullscreen after mic is successfully opened
-    if (silentVid) {
-        silentVid.play().catch((e) => console.warn("🔇 Silent video blocked:", e));
-        silentVid.style.display = "block";
-        wrapper.style.display = "block"; // Show the wrapper that fills the screen
-        const fullscreenFn = silentVid.requestFullscreen || 
-                             silentVid.webkitRequestFullscreen || 
-                             silentVid.mozRequestFullScreen || 
-                             silentVid.msRequestFullscreen;
-
-        if (fullscreenFn) {
-            fullscreenFn.call(silentVid).catch(err => {
-                console.warn("❌ Fullscreen failed", err);
-            });
+        // A helper to add sources to video
+        function addSourceToVideo(element, type, dataURI) {
+            var source = document.createElement('source');
+            source.src = dataURI;
+            source.type = 'video/' + type;
+            element.appendChild(source);
         }
-    }
 
-    // Mic levels
-    setInterval(() => console.log(meter.getValue()), 100);
+        // A helper to concat base64
+        var base64 = function(mimeType, base64) {
+            return 'data:' + mimeType + ';base64,' + base64;
+        };
 
-}).catch(e => {
-    console.log("❌ mic not open", e);
-});
+        // Add Fake sourced
+        addSourceToVideo(video,'webm', base64('video/webm', 'GkXfo0AgQoaBAUL3gQFC8oEEQvOBCEKCQAR3ZWJtQoeBAkKFgQIYU4BnQI0VSalmQCgq17FAAw9CQE2AQAZ3aGFtbXlXQUAGd2hhbW15RIlACECPQAAAAAAAFlSua0AxrkAu14EBY8WBAZyBACK1nEADdW5khkAFVl9WUDglhohAA1ZQOIOBAeBABrCBCLqBCB9DtnVAIueBAKNAHIEAAIAwAQCdASoIAAgAAUAmJaQAA3AA/vz0AAA='));
+        addSourceToVideo(video, 'mp4', base64('video/mp4', 'AAAAHGZ0eXBpc29tAAACAGlzb21pc28ybXA0MQAAAAhmcmVlAAAAG21kYXQAAAGzABAHAAABthADAowdbb9/AAAC6W1vb3YAAABsbXZoZAAAAAB8JbCAfCWwgAAAA+gAAAAAAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAIVdHJhawAAAFx0a2hkAAAAD3wlsIB8JbCAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAIAAAACAAAAAABsW1kaWEAAAAgbWRoZAAAAAB8JbCAfCWwgAAAA+gAAAAAVcQAAAAAAC1oZGxyAAAAAAAAAAB2aWRlAAAAAAAAAAAAAAAAVmlkZW9IYW5kbGVyAAAAAVxtaW5mAAAAFHZtaGQAAAABAAAAAAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAEcc3RibAAAALhzdHNkAAAAAAAAAAEAAACobXA0dgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAIAAgASAAAAEgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABj//wAAAFJlc2RzAAAAAANEAAEABDwgEQAAAAADDUAAAAAABS0AAAGwAQAAAbWJEwAAAQAAAAEgAMSNiB9FAEQBFGMAAAGyTGF2YzUyLjg3LjQGAQIAAAAYc3R0cwAAAAAAAAABAAAAAQAAAAAAAAAcc3RzYwAAAAAAAAABAAAAAQAAAAEAAAABAAAAFHN0c3oAAAAAAAAAEwAAAAEAAAAUc3RjbwAAAAAAAAABAAAALAAAAGB1ZHRhAAAAWG1ldGEAAAAAAAAAIWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAAK2lsc3QAAAAjqXRvbwAAABtkYXRhAAAAAQAAAABMYXZmNTIuNzguMw=='));
 
+        // Append the video to where ever you need
+        document.body.appendChild(video);
 
+        // Start playing video after any user interaction.
+        // NOTE: Running video.play() handler without a user action may be blocked by browser.
+        var playFn = function() {
+            video.play();
+            document.body.removeEventListener('touchend', playFn);
+        };
+        document.body.addEventListener('touchend', playFn);
 
-    // mic.open().then(() => {
-    //     // promise resolves when input is available
-    //     console.log("mic open");
-    //     // print the incoming mic levels in decibels
-    //     setInterval(() => console.log(meter.getValue()), 100);
-    // }).catch(e => {
-    //     // promise is rejected when the user doesn't have or allow mic access
-    //     console.log("mic not open");
-    // });
+        // print the incoming mic levels in decibels
+        setInterval(() => console.log(meter.getValue()), 100);
+    }).catch(e => {
+        // promise is rejected when the user doesn't have or allow mic access
+        console.log("mic not open");
+    });
 
     const synth = new Tone.MonoSynth({
         oscillator: {
