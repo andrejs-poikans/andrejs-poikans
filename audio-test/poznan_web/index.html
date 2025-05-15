@@ -6,7 +6,6 @@
   </head>
   <body>
 
-
         <tone-content>
           <p>
             Homage to Cornelius Cardew and Sabri Moudallal
@@ -60,17 +59,25 @@
           </p>
 
 
-        <h1>Lead player</h1>
+        <!-- <h1>Lead player</h1>
         <button id="big" class="object" onclick="toneJSstatic()">A</button>
         <button id="big" class="object" onclick="toneJSsong()">B</button>
         <h1>Ensamble</h1>
         <button id="big" class="object" onclick="toneJSpitch()">A</button>
-        <button id="big" class="object" onclick="toneJSfollower()">B</button>
+        <button id="big" class="object" onclick="toneJSfollower()">B</button> -->
+        <!-- <h1>test</h1> -->
+        <!-- <button onclick="toneJSMIC()">Start Mic</button> -->
+         <!-- Button to trigger the function -->
+        <button onclick="toneJSpitch()">Start App</button>
+
+        <!-- Silent video for iOS wake lock -->
+        <video id="stayAwake" muted loop playsinline style="display:none">
+          <source src="silence.mp4" type="video/mp4" />
+        </video>
         <tone-meter></tone-meter>
         <h1>Frequency (Hz)</h1>
         <h2 id="frequency">0.0</h2>
         </tone-content>
-
 
 
   <!-- The script tag links to the Javascript file -->
@@ -86,7 +93,7 @@
   <!-- Reference to the stylesheet -->
   <link rel = "stylesheet" type = "text/css" href = "style.css" />
   <!-- Reference to prevent sleeping code-->
-  <script src="no-sleep.js"></script>
+  <!-- <script src="no-sleep.js"></script> -->
 
   
   </body>

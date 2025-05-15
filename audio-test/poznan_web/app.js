@@ -1,3 +1,53 @@
+// async function toneJSMIC() {
+//   await Tone.start(); // ✅ iOS requires user interaction to start AudioContext
+
+//   const silentVid = document.getElementById("stayAwake");
+//   if (silentVid) {
+//     silentVid.play().catch((e) => console.warn("🔇 Silent video blocked:", e));
+//   }
+
+//   console.log("🔊 AudioContext started");
+
+//   // Mic input and meter
+//   const meter = new Tone.Meter();
+//   const mic = new Tone.UserMedia().connect(meter);
+
+//   try {
+//     await mic.open();
+//     console.log("🎙️ Mic open");
+
+//     // Log volume for debug
+//     setInterval(() => console.log("Mic level:", meter.getValue()), 100);
+//   } catch (err) {
+//     console.warn("❌ Mic not open", err);
+//     return;
+//   }
+
+//   // Synth
+//   const synth = new Tone.MonoSynth({
+//     oscillator: { type: "sine" },
+//     envelope: { attack: 1, decay: 1 },
+//   }).toDestination(); // ✅ simpler routing
+
+//   // 🔁 Play tone every second
+//   const loop = new Tone.Loop((time) => {
+//     synth.triggerAttackRelease("C4", "8n", time);
+//   }, "1s");
+
+//   loop.start(0); // ✅ make sure it's scheduled
+
+//   // Start transport AFTER everything is scheduled
+//   Tone.Transport.start();
+
+//   // ✅ Optional: meter binding
+//   const meterEl = document.querySelector("tone-meter");
+//   if (meterEl && meterEl.bind) {
+//     meterEl.bind(meter);
+//   } else {
+//     console.warn("⚠️ No <tone-meter> element or bind() not available");
+//   }
+// }
+
 // FM Synth
 function toneJS1() {
     // Create a synth and connect it to the master output

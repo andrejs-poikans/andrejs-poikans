@@ -27,3 +27,7 @@ tone-content tone-meter{
     height: 700px;
     width: 100%;
 }
+
+#stayAwake{
+    display: none
+}
