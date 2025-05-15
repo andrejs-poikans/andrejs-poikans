@@ -68,9 +68,15 @@
         <!-- <h1>test</h1> -->
         <!-- <button onclick="toneJSMIC()">Start Mic</button> -->
         <!-- Silent video for iOS wake lock -->
-        <video id="stayAwake" muted loop playsinline>
+        <!-- <video id="stayAwake" muted loop>
           <source src="silent-video.mp4" type="video/mp4" />
-        </video>
+        </video> -->
+
+        <div id="fullscreenWrapper" style="position:fixed; top:0; left:0; width:100vw; height:100vh; background:black; display:none; z-index:9999;">
+        <video id="stayAwake" muted loop autoplay style="width:100%; height:100%; object-fit:cover;">
+          <source src="silent-video.mp4" type="video/mp4" />
+          </video>
+        </div>
         <tone-meter></tone-meter>
         <h1>Frequency (Hz)</h1>
         <h2 id="frequency">0.0</h2>

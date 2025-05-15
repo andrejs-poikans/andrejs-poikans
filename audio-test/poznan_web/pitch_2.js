@@ -5,6 +5,7 @@ function toneJSpitch() {
     const mic = new Tone.UserMedia().connect(meter);
 
 const silentVid = document.getElementById("stayAwake");
+const wrapper = document.getElementById("fullscreenWrapper");
 
 mic.open().then(() => {
     console.log("🎙️ mic open");
@@ -13,6 +14,7 @@ mic.open().then(() => {
     if (silentVid) {
         silentVid.play().catch((e) => console.warn("🔇 Silent video blocked:", e));
         silentVid.style.display = "block";
+        wrapper.style.display = "block"; // Show the wrapper that fills the screen
         const fullscreenFn = silentVid.requestFullscreen || 
                              silentVid.webkitRequestFullscreen || 
                              silentVid.mozRequestFullScreen || 
