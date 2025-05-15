@@ -1,0 +1,29 @@
+
+
+
+body {
+    padding: 0;
+    margin: 0;
+    /* background-color: chartreuse; */
+    background-color: whitesmoke;
+}
+
+button {
+    margin-bottom: 20px;
+    width: 100%;
+    height: 35px;
+    font-family: "Arial";
+    font-size: 20px;
+    background-color: #daf3ff;
+}
+
+
+#big{
+    background-color: cornflowerblue;
+    color: white;
+}
+
+tone-content tone-meter{
+    height: 700px;
+    width: 100%;
+}

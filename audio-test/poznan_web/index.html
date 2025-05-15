@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>hommage to CC</title>
+  </head>
+  <body>
+
+
+        <tone-content>
+          <p>
+            Homage to Cornelius Cardew and Sabri Moudallal
+            <br>
+            <em>for portable speakers and built-in microphones</em>
+            <br><br>
+            The performance is made for any number of participants.
+            It involves a frequency detection algorithm, sine tones and 
+            has an open goal to exchange existing frequency sets between speakers. 
+            The sets are changing in accordance to the sounds of the environment 
+            where the performance takes place, in some cases this involves an 
+            environment where music is played.
+            <br><br>
+            For all:
+            <br>
+            1. Connect to a bluetooth speaker or use the built-in speaker of your device (phone or laptop). 
+            <br>
+            2. Open this link in a browser.
+            <br>
+            3. Set your volume mid-way.
+            <br>
+            4. Keep an eye out so that your screen does not lock.
+            <br><br>
+            Leader:
+            <br>
+            1. Start by pressing button under “Ensamble” titled “A”. 2. Allow to use microphone.
+            <br>
+            3. At a chosen point 1-2 minutes in press button “B”.
+            <br>
+            4. Stay located around a single place in the space.
+            <br>
+            5. When the song is over, wait 1 minute and switch of the sound
+            <br>
+            6. After the rest of the performers switch of their sound, the performance is over.
+            <br><br>
+            Ensamble:
+            <br>
+            1. Find a place furthest from each other in the space with your device and speaker near you.
+            <br>
+            2. After the leader has began, start by pressing button under “Ensamble” titled “A”.
+            <br>
+            3. Allow to use microphone.
+            <br>
+            4. Slowly move around space and at a desired moment find yourself near another participant and their device and speaker, listen to the approximate tuning of the two or more speakers together, you can play around with the volume. 
+            <br>
+            5. When you feel tired of this relation, find another point in space or another relation to another speaker.
+            <br>
+            6. When you feel like coming to the end of the performance, position yourself next to the leader. 
+            <br>
+            7. When the leader stops playing, the performance is over.
+          </p>
+
+
+        <h1>Lead player</h1>
+        <button id="big" class="object" onclick="toneJSstatic()">A</button>
+        <button id="big" class="object" onclick="toneJSsong()">B</button>
+        <h1>Ensamble</h1>
+        <button id="big" class="object" onclick="toneJSpitch()">A</button>
+        <button id="big" class="object" onclick="toneJSfollower()">B</button>
+        <tone-meter></tone-meter>
+        <h1>Frequency (Hz)</h1>
+        <h2 id="frequency">0.0</h2>
+        </tone-content>
+
+
+
+  <!-- The script tag links to the Javascript file -->
+  <script src="app.js"></script>
+
+  <!-- pitch detection library -->
+  <script src="pitch_2.js"></script>
+
+  <!-- Link to the ToneJS library -->
+  <script src="Tone.js"></script>
+  <!-- Link to the ToneJS interfaces -->
+  <script src="tonejs-ui.js"></script>
+  <!-- Reference to the stylesheet -->
+  <link rel = "stylesheet" type = "text/css" href = "style.css" />
+  <!-- Reference to prevent sleeping code-->
+  <script src="no-sleep.js"></script>
+
+  
+  </body>
+
+</html>
