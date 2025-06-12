@@ -1,0 +1,80 @@
+---
+import astroLogo from '../assets/astro.svg';
+import background from '../assets/background.svg';
+import { wpquery } from '../graphql/wordpressQuery';
+import type { MediaItem, Post } from '../generated/graphql';
+
+import Logo from '../assets/image/logo.svg';
+
+import '../styles/style.css';
+import '../styles/main.css';
+
+const data = await wpquery({
+	query: 
+	`query {
+			posts {
+				nodes {
+					slug
+					title
+          content
+				}
+			}
+		}
+	`
+});
+
+---
+<script src="../scripts/animation.js"></script>
+<script src="../scripts/gallery.js"></script>
+
+<!-- currently hanfdled by wordpress -->
+<!-- <script src="../scripts/tags.js"></script> -->
+
+<!-- <!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Mara McKevitt portfolio page</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/facicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/facicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/facicon_io/favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="../assets/images/facicon_io/images/favicon.ico">
+  <link rel="manifest" href="../assets/images/facicon_io/site.webmanifest">
+
+  <link rel="canonical" href="https://maramckevitt.com/index.html"/>
+  <meta name="description" content="Mara McKevitt portfolio page" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head> -->
+
+<!-- <body> -->
+
+  <div class = "info">
+
+    <div class="name" id = "mara">
+        <h3>Mara McKevitt</h3>
+    </div>
+
+    <div class = "menu" id = "menu">
+
+    {data.posts.nodes.map((post: Post) => {
+
+        return (
+            <div>
+            <details>
+              <summary>{post.title}</summary>
+                  <div set:html={post.content} class = "post">
+              </div>
+            </details>
+            </div>
+        );
+    })}
+    
+
+  <div class = "logo" id = "logo">
+    <Logo id="m"/>
+  </div>
+
+<!-- </body> -->
