@@ -1,0 +1,25 @@
+body{
+    background-color: white;
+}
+
+p{
+    text-align: center;
+    font-style: italic;
+}
+
+.highlight{
+    color: green;
+}
+
+.profile{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100px;
+}
+
+.poster{
+    width: 100%;
+    margin-top: 300px;
+    margin-bottom: 300px;
+}

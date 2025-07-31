@@ -1,3 +1,18 @@
+/* fonts */
+@font-face {
+    font-family: "Quarantype";
+    font-style: normal;
+    src: url('../fonts/quarantype/Quarantype-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: "Quarantype";
+    font-style: oblique;
+    src: url('../fonts/quarantype/Quarantype-Oblique.woff') format('woff');
+}
+
+
+
 /* browser */
 ::-webkit-scrollbar {
     display: none;
@@ -14,9 +29,9 @@ html, body {
 }
 
 /* text */
-p {
+/* p {
   font-style: italic;
-}
+} */
 
 p a{
   text-decoration: underline;
@@ -36,10 +51,24 @@ p a{
   padding-right: 5px;
 }
 
-/* .logo{
+.logo{
   width: 100%;
-  padding: 0px 1em
-} */
+  height: 5%;
+  font-size: 1.1em;
+  padding: 0.5em 1em;
+  font-family: 'Quarantype';
+  font-style: normal;
+}
+
+.go{
+  font-family: 'Quarantype';
+  font-style: normal;
+}
+
+.text a{
+  font-family: 'Quarantype';
+  font-style: normal;
+}
 
 /* {
   padding: 0px 5px;
@@ -67,7 +96,7 @@ p a:hover, button:hover{
 /* main section */
 main {
   position: relative;
-  height: 95%;
+  height: 90%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -76,7 +105,7 @@ main {
 }
 
 main.reduced{
-  height: 80%;
+  height: 75%;
 }
 
 .blocks.none{
@@ -91,7 +120,7 @@ main.reduced{
   overflow-x: auto;
   /* overflow-y: hidden; */
   overflow-y: visible;
-  padding-top: 1em;
+  /* padding-top: 1em; */
   padding-left: 1em;
   padding-right: 1em;
 }
@@ -201,6 +230,7 @@ footer.expanded {
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  font-family: 'Quarantype';
 }
 
 .categories{

@@ -70,7 +70,7 @@ let renderBlock = (block, index, md) => {
             </div>
             <div class = "comment">
                 <p>${block.title || ''}</p>
-                <p><a href="${ block.image.large.url }" target="_blank">+</a></p>
+                <p class = "go"><a href="${ block.image.large.url }" target="_blank">→</a></p>
             </div>
         </li>
         `;
