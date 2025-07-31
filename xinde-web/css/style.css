@@ -23,3 +23,16 @@ p{
     margin-top: 300px;
     margin-bottom: 300px;
 }
+
+.navigation{
+    padding: 20px;
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    justify-content: space-between;
+    position: absolute;
+    top:0;
+    left:0;
+    display: flex;
+    flex-direction: row;
+}
