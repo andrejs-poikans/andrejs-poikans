@@ -1,15 +1,34 @@
-## Hi there 👋
+🕸️
 
-here you can find some past web projects and web projects in process
+## here you can find some past web projects and web projects in process
 
-[default-web](https://andrejs-poikans.github.io/andrejs-poikans/default-web/) = [defaultdenhaag.com](https://defaultdenhaag.com) [collaboration with Dans Jirgensons]
+2024
 
-[avita-web](https://andrejs-poikans.github.io/andrejs-poikans/avita-web/) = [https://avita.space](https://avita.space)
+# web page for *default den haag* – series for contemporary experimental music and performance in The Hague, Netherlands
+[defaultdenhaag.com](https://defaultdenhaag.com) [collaboration with Dans Jirgensons]
 
-[crawl-web](https://andrejs-poikans.github.io/andrejs-poikans/crawl-web/) = [https://crawwwl.eu](https://crawwwl.eu)
+# portoflio web page for *Avita Maheen*
+[https://avita.space](https://avita.space)
 
-[mara-mckevitt-web](https://andrejs-poikans.github.io/andrejs-poikans/mara-mckevitt-web/index-9.html) = [https://maramckevitt.com](https://maramckevitt.com)
+# portoflio web page for *Linda Mence* (under development)
+[process](https://linda-web.netlify.app/lv/)
 
-[marta-grantina-web](https://andrejs-poikans.github.io/andrejs-poikans/marta-web/index.html) = ...
+# web page for *crawl space* – a student-led initiative for experimental music event series in The Haige, Netherlands
+[https://crawwwl.eu](https://crawwwl.eu)
+developmnet page – [process](https://andrejs-poikans.github.io/andrejs-poikans/crawl-web/)
 
+2025
+
+# portoflio web page for *Mara McKevitt*
+[https://maramckevitt.com](https://maramckevitt.com)
+
+# portoflio web page for *Marta Grantiņa* (under development)
+[process](https://andrejs-poikans.github.io/andrejs-poikans/marta-web/index.html)
+
+# portoflio web page for *Xinde Ren*
 [xinde-ren-web](xinderen.art)
+
+# portoflio web page for *Roc Montoriol* (under development)
+[process](https://roc-montoriol-web.netlify.app) 
+
+
