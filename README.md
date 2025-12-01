@@ -1,34 +1,26 @@
 🕸️
 
-## here you can find some past web projects and web projects in process
+hiiiii
 
-2024
+here you can find some past web projects and web projects in process
 
-# web page for *default den haag* – series for contemporary experimental music and performance in The Hague, Netherlands
-[defaultdenhaag.com](https://defaultdenhaag.com) [collaboration with Dans Jirgensons]
+-- -- -- -- -- 2025 -- -- -- -- -- 
 
-# portoflio web page for *Avita Maheen*
-[https://avita.space](https://avita.space)
+[https://maramckevitt.com](https://maramckevitt.com) – portoflio web page for *Mara McKevitt*
 
-# portoflio web page for *Linda Mence* (under development)
-[process](https://linda-web.netlify.app/lv/)
+[process](https://andrejs-poikans.github.io/andrejs-poikans/marta-web/index.html) – portoflio web page for *Marta Grantiņa* (under development)
 
-# web page for *crawl space* – a student-led initiative for experimental music event series in The Haige, Netherlands
-[https://crawwwl.eu](https://crawwwl.eu)
-developmnet page – [process](https://andrejs-poikans.github.io/andrejs-poikans/crawl-web/)
+[xinderen.art](xinderen.art) – portoflio web page for *Xinde Ren*
 
-2025
+[process](https://roc-montoriol-web.netlify.app)  – portoflio web page for *Roc Montoriol* (under development)
 
-# portoflio web page for *Mara McKevitt*
-[https://maramckevitt.com](https://maramckevitt.com)
+-- -- -- -- -- 2024 -- -- -- -- -- 
 
-# portoflio web page for *Marta Grantiņa* (under development)
-[process](https://andrejs-poikans.github.io/andrejs-poikans/marta-web/index.html)
+[defaultdenhaag.com](https://defaultdenhaag.com) – web page for *default den haag* – series for contemporary experimental music and performance in The Hague, Netherlands [collaboration with Dans Jirgensons] 
 
-# portoflio web page for *Xinde Ren*
-[xinde-ren-web](xinderen.art)
+[https://avita.space](https://avita.space) – portoflio web page for *Avita Maheen*
 
-# portoflio web page for *Roc Montoriol* (under development)
-[process](https://roc-montoriol-web.netlify.app) 
+[process](https://linda-web.netlify.app/lv/) – portoflio web page for *Linda Mence* (under development)
 
+[https://crawwwl.eu](https://crawwwl.eu) – web page for *crawl space* – a student-led initiative for experimental music event series in The Haige, Netherlands
 
