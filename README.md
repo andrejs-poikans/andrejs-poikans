@@ -12,9 +12,9 @@ here you can find some past web projects and web projects in process
 
 [xinderen.art](xinderen.art) – portoflio web page for *Xinde Ren*
 
-[https://sh-w.org](https://sh-w.org) – portoflio web page for *Shula Wiesz* (still in process)
+[https://sh-w.org](https://sh-w.org) – portoflio web page for *Shula Wiesz*
 
-[process](https://roc-montoriol-web.netlify.app)  – portoflio web page for *Roc Montoriol* (under development)
+[https://rocmontoriol.com](https://rocmontoriol.com)  – portoflio web page for *Roc Montoriol*
 
 -- -- -- -- -- 2024 -- -- -- -- -- 
 
