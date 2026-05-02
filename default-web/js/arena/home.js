@@ -21,7 +21,6 @@ let placeChannelInfo = (data) => {
 }
 
 
-
 // Then our big function for specific-block-type rendering:
 let renderBlock = (block) => {
 	// To start, a shared `ul` where we’ll insert all our blocks
@@ -52,11 +51,25 @@ let renderBlock = (block) => {
 	}
 
 	// Images!
+	// else if (block.class == 'Image') {
+	// 	let imageItem =
+	// 	`
+	// 	<li id="poster" class = ${content}>
+	// 		<a href="${ block.image.original.url }"><img src="${ block.image.original.url }"/></a>
+	// 	</li>
+
+
 	else if (block.class == 'Image') {
-		let imageItem =
-		`
-		<li id="poster" class = ${content}>
-			<a href="${ block.image.original.url }"><img src="${ block.image.original.url }"/></a>
+    let imageItem = `
+    	<li id="poster" class="${content}">
+			<a href="${block.image.original.url}">
+				<img 
+					class="progressive thumbnail"
+					src="${block.image.display.url}"
+					data-full="${block.image.large.url}"
+					alt=""
+				/>
+			</a>
 		</li>
 
         <li class = ${title}>
@@ -207,6 +220,26 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		data.contents.reverse().forEach((block) => {
 			renderBlock(block) // Pass the single block data to the render function
 		})
+
+		const progressiveImages = document.querySelectorAll("img.progressive");
+
+		progressiveImages.forEach(img => {
+			const fullSrc = img.dataset.full;
+			if (!fullSrc) return;
+
+			const largeImg = new Image();
+			largeImg.src = fullSrc;
+
+			largeImg.onload = () => {
+				img.src = fullSrc;
+				img.classList.remove("thumbnail");
+				img.classList.add("large");
+			};
+
+			largeImg.onerror = () => {
+				console.error("Cannot load large image:", fullSrc);
+			};
+		});
 
 		const mainContainer = document.getElementById('container');
 		// Add the animation class to trigger the CSS animation

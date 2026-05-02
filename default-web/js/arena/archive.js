@@ -53,21 +53,40 @@ let renderBlock = (block) => {
 
 	// Images!
 	else if (block.class == 'Image') {
-		let imageItem =
-		`
-		<li class = ${content}>
-			<img class="lowquality" src="${ block.image.display.url }"/>
+    let imageItem = `
+    	<li class = ${content}>
+			<img 
+					class="lowquality progressive thumbnail"
+					src="${block.image.thumb.url}"
+					data-full="${block.image.large.url}"
+					alt=""
+				/>
 			<img class="highquality" src="${ block.image.original.url }" />
 			<div class="textcontent">
 			<h1 class="nested_title">${ block.title }</h1>
 			<h2 class="nested_description">${ block.description_html }</h2>
-			</div>
-		</li>
-		`
-		channelBlocks.insertAdjacentHTML('beforeend', imageItem)
+		</li> `
+				channelBlocks.insertAdjacentHTML('beforeend', imageItem)
 		// this works but needs to be elaborated on
 		// description and image size is not solved
 	}
+
+	// else if (block.class == 'Image') {
+	// 	let imageItem =
+	// 	`
+	// 	<li class = ${content}>
+	// 		<img class="lowquality" src="${ block.image.display.url }"/>
+	// 		<img class="highquality" src="${ block.image.original.url }" />
+	// 		<div class="textcontent">
+	// 		<h1 class="nested_title">${ block.title }</h1>
+	// 		<h2 class="nested_description">${ block.description_html }</h2>
+	// 		</div>
+	// 	</li>
+	// 	`
+	// 	channelBlocks.insertAdjacentHTML('beforeend', imageItem)
+	// 	// this works but needs to be elaborated on
+	// 	// description and image size is not solved
+	// }
 
 	else if (block.class == 'Text') {
 		let textItem =
@@ -205,6 +224,27 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 		data.contents.reverse().forEach((block) => {
 			renderBlock(block) // Pass the single block data to the render function
 		})
+
+
+	const progressiveImages = document.querySelectorAll("img.progressive");
+
+	progressiveImages.forEach(img => {
+		const fullSrc = img.dataset.full;
+		if (!fullSrc) return;
+
+		const largeImg = new Image();
+		largeImg.src = fullSrc;
+
+		largeImg.onload = () => {
+			img.src = fullSrc;
+			img.classList.remove("thumbnail");
+			img.classList.add("large");
+		};
+
+		largeImg.onerror = () => {
+			console.error("Cannot load large image:", fullSrc);
+		};
+	});
 
 
 

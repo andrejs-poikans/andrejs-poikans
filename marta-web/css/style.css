@@ -1,25 +1,24 @@
 /* fonts */
 @font-face {
-    font-family: "Quarantype";
-    font-style: normal;
-    src: url('../fonts/quarantype/Quarantype-Regular.woff') format('woff');
+  font-family: "Quarantype";
+  font-style: normal;
+  src: url("../fonts/quarantype/Quarantype-Regular.woff") format("woff");
 }
 
 @font-face {
-    font-family: "Quarantype";
-    font-style: oblique;
-    src: url('../fonts/quarantype/Quarantype-Oblique.woff') format('woff');
+  font-family: "Quarantype";
+  font-style: oblique;
+  src: url("../fonts/quarantype/Quarantype-Oblique.woff") format("woff");
 }
-
-
 
 /* browser */
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* body and html */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -33,40 +32,44 @@ html, body {
   font-style: italic;
 } */
 
-p a{
+p a {
   text-decoration: underline;
 }
 
-.text p, #channel-description p{
+.text p,
+#channel-description p {
   margin-bottom: 1em;
 }
 
-.comment p{
+.comment p {
   padding-right: 10px;
 }
 
-.menu a, .categories p, .cycle p, .menu button{
+.menu a,
+.categories p,
+.cycle p,
+.menu button {
   padding-top: 2px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-.logo{
+.logo {
   width: 100%;
   height: 5%;
   font-size: 1.1em;
   padding: 0.5em 1em;
-  font-family: 'Quarantype';
+  font-family: "Quarantype";
   font-style: normal;
 }
 
-.go{
-  font-family: 'Quarantype';
+.go {
+  font-family: "Quarantype";
   font-style: normal;
 }
 
-.text a{
-  font-family: 'Quarantype';
+.text a {
+  font-family: "Quarantype";
   font-style: normal;
 }
 
@@ -78,20 +81,20 @@ p a{
   padding: 0px 5px;
 } */
 
- /* {
+/* {
   padding: 0px 5px;
 } */
 
-button{
+button {
   cursor: pointer;
   text-decoration: underline;
 }
 
 /* hover */
-p a:hover, button:hover{
+p a:hover,
+button:hover {
   text-decoration: none;
 }
-
 
 /* main section */
 main {
@@ -100,15 +103,15 @@ main {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  
+
   transition: height 0.4s ease;
 }
 
-main.reduced{
+main.reduced {
   height: 75%;
 }
 
-.blocks.none{
+.blocks.none {
   display: none;
 }
 
@@ -132,7 +135,7 @@ main.reduced{
 }
 
 /* block types */
-.image{
+.image {
   height: 100%;
   display: flex;
   align-items: left;
@@ -141,7 +144,7 @@ main.reduced{
   flex-shrink: 0;
 }
 
-.text{
+.text {
   width: 400px;
 }
 
@@ -158,7 +161,7 @@ main.reduced{
   filter: blur(8px);
 }
 
-.comment{
+.comment {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -181,7 +184,7 @@ main.reduced{
 }
 
 /* footer */
-footer{
+footer {
   border-radius: 10px 10px 0 0;
   position: fixed;
   bottom: 0;
@@ -201,39 +204,39 @@ footer.expanded {
   height: 20%;
 }
 
-.menu{
+.menu {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.selection{
+.selection {
   width: 100%;
   display: flex;
   justify-content: flex-start;
 }
 
-.works{
+.works {
   width: 50%;
 }
 
-.bio{
+.bio {
   width: 25%;
 }
 
-.lang{
+.lang {
   width: 25%;
   text-align: right;
 }
 
-.cycle{
+.cycle {
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  font-family: 'Quarantype';
+  font-family: "Quarantype";
 }
 
-.categories{
+.categories {
   margin-top: 1em;
   display: none;
   flex-direction: row;
@@ -241,19 +244,19 @@ footer.expanded {
   align-items: flex-start;
 }
 
-.categories.visible{
+.categories.visible {
   display: flex;
 }
 
-.solo{
+.solo {
   width: 50%;
 }
 
-.collaborative{
+.collaborative {
   width: 50%;
 }
 
-.about{
+.about {
   display: none;
   flex-direction: column;
   padding-left: 1em;
@@ -261,13 +264,13 @@ footer.expanded {
   padding-top: 1em;
   width: 100%;
   height: 100%;
-  align-items:start;
+  align-items: start;
 }
 
-.about p{
+.about p {
   width: 200px;
 }
 
-.about.visible{
+.about.visible {
   display: flex;
 }
