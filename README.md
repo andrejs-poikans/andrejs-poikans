@@ -14,7 +14,7 @@ here you can find some past web projects and web projects in process
 
 [https://www.martagrantina.com](https://www.martagrantina.com) – portoflio web page for *Marta Grantiņa*
 
-[xinderen.art](xinderen.art) – portoflio web page for *Xinde Ren*
+[https://xinderen.art](https://xinderen.art)– portoflio web page for *Xinde Ren*
 
 [https://sh-w.org](https://sh-w.org) – portoflio web page for *Shula Wiesz*
 
